@@ -1,0 +1,2523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionModelStoreContainer" CdmEntityContainer="GestionEntities">
+    <EntitySetMapping Name="accesos">
+      <EntityTypeMapping TypeName="GestionModel.accesos">
+        <MappingFragment StoreEntitySet="accesos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ncodigo" ColumnName="ncodigo" />
+          <ScalarProperty Name="cpad" ColumnName="cpad" />
+          <ScalarProperty Name="cbar" ColumnName="cbar" />
+          <ScalarProperty Name="ccomando" ColumnName="ccomando" />
+          <ScalarProperty Name="form" ColumnName="form" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="codigoafectado" ColumnName="codigoafectado" />
+          <ScalarProperty Name="borrar" ColumnName="borrar" />
+          <ScalarProperty Name="ccomweb" ColumnName="ccomweb" />
+          <ScalarProperty Name="cPadWeb" ColumnName="cPadWeb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="GestionModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="imei" ColumnName="imei" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="fantasia" ColumnName="fantasia" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="direcom" ColumnName="direcom" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="telef2" ColumnName="telef2" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="expreso" ColumnName="expreso" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="ingbru" ColumnName="ingbru" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="totmen" ColumnName="totmen" />
+          <ScalarProperty Name="feccom" ColumnName="feccom" />
+          <ScalarProperty Name="estcue1" ColumnName="estcue1" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="comicob" ColumnName="comicob" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pweb" ColumnName="pweb" />
+          <ScalarProperty Name="cond_vta" ColumnName="cond_vta" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="inhabilitado" ColumnName="inhabilitado" />
+          <ScalarProperty Name="fechalta" ColumnName="fechalta" />
+          <ScalarProperty Name="visualiza" ColumnName="visualiza" />
+          <ScalarProperty Name="activi" ColumnName="activi" />
+          <ScalarProperty Name="direntrega" ColumnName="direntrega" />
+          <ScalarProperty Name="codprove" ColumnName="codprove" />
+          <ScalarProperty Name="monfac" ColumnName="monfac" />
+          <ScalarProperty Name="incobrable" ColumnName="incobrable" />
+          <ScalarProperty Name="clavepais" ColumnName="clavepais" />
+          <ScalarProperty Name="nopercib" ColumnName="nopercib" />
+          <ScalarProperty Name="masche" ColumnName="masche" />
+          <ScalarProperty Name="abonado" ColumnName="abonado" />
+          <ScalarProperty Name="habmunic" ColumnName="habmunic" />
+          <ScalarProperty Name="sucuent" ColumnName="sucuent" />
+          <ScalarProperty Name="cai" ColumnName="cai" />
+          <ScalarProperty Name="vencecai" ColumnName="vencecai" />
+          <ScalarProperty Name="diavisi" ColumnName="diavisi" />
+          <ScalarProperty Name="diaentre" ColumnName="diaentre" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="ctacon" ColumnName="ctacon" />
+          <ScalarProperty Name="moroso" ColumnName="moroso" />
+          <ScalarProperty Name="credias" ColumnName="credias" />
+          <ScalarProperty Name="bloqxcre" ColumnName="bloqxcre" />
+          <ScalarProperty Name="bonif2" ColumnName="bonif2" />
+          <ScalarProperty Name="bonif3" ColumnName="bonif3" />
+          <ScalarProperty Name="bonif4" ColumnName="bonif4" />
+          <ScalarProperty Name="merchan" ColumnName="merchan" />
+          <ScalarProperty Name="email1" ColumnName="email1" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="MontoPib" ColumnName="MontoPib" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="convenio" ColumnName="convenio" />
+          <ScalarProperty Name="entdom" ColumnName="entdom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hacerFCE" ColumnName="hacerFCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="condpago">
+      <EntityTypeMapping TypeName="GestionModel.condpago">
+        <MappingFragment StoreEntitySet="condpago">
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="dias" ColumnName="dias" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamentos">
+      <EntityTypeMapping TypeName="GestionModel.departamentos">
+        <MappingFragment StoreEntitySet="departamentos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="provincia_id" ColumnName="provincia_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="factura">
+      <EntityTypeMapping TypeName="GestionModel.factura">
+        <MappingFragment StoreEntitySet="factura">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+          <ScalarProperty Name="PUNTO" ColumnName="PUNTO" />
+          <ScalarProperty Name="CANTCOPIA" ColumnName="CANTCOPIA" />
+          <ScalarProperty Name="CANTCOPIB" ColumnName="CANTCOPIB" />
+          <ScalarProperty Name="CANTCOPICOT" ColumnName="CANTCOPICOT" />
+          <ScalarProperty Name="CANTCOPIE" ColumnName="CANTCOPIE" />
+          <ScalarProperty Name="CANTCOPIPED" ColumnName="CANTCOPIPED" />
+          <ScalarProperty Name="CANTCOPIPRES" ColumnName="CANTCOPIPRES" />
+          <ScalarProperty Name="CANTCOPIRE" ColumnName="CANTCOPIRE" />
+          <ScalarProperty Name="CANTCOPIRECI" ColumnName="CANTCOPIRECI" />
+          <ScalarProperty Name="CANTRENGLA" ColumnName="CANTRENGLA" />
+          <ScalarProperty Name="CANTRENGLB" ColumnName="CANTRENGLB" />
+          <ScalarProperty Name="CANTRENGLCOMPR" ColumnName="CANTRENGLCOMPR" />
+          <ScalarProperty Name="CANTRENGLCOTIZ" ColumnName="CANTRENGLCOTIZ" />
+          <ScalarProperty Name="CANTRENGLE" ColumnName="CANTRENGLE" />
+          <ScalarProperty Name="CANTRENGLPEDI" ColumnName="CANTRENGLPEDI" />
+          <ScalarProperty Name="CANTRENGLREMI" ColumnName="CANTRENGLREMI" />
+          <ScalarProperty Name="CANTRENPRES" ColumnName="CANTRENPRES" />
+          <ScalarProperty Name="COMIMPF" ColumnName="COMIMPF" />
+          <ScalarProperty Name="COTIZACION" ColumnName="COTIZACION" />
+          <ScalarProperty Name="CREDITOA" ColumnName="CREDITOA" />
+          <ScalarProperty Name="CREDITOB" ColumnName="CREDITOB" />
+          <ScalarProperty Name="CREDITOE" ColumnName="CREDITOE" />
+          <ScalarProperty Name="DEBITOA" ColumnName="DEBITOA" />
+          <ScalarProperty Name="DEBITOB" ColumnName="DEBITOB" />
+          <ScalarProperty Name="DEBITOE" ColumnName="DEBITOE" />
+          <ScalarProperty Name="FACTURAA" ColumnName="FACTURAA" />
+          <ScalarProperty Name="FACTURAB" ColumnName="FACTURAB" />
+          <ScalarProperty Name="FACTURAE" ColumnName="FACTURAE" />
+          <ScalarProperty Name="FCELECBF" ColumnName="FCELECBF" />
+          <ScalarProperty Name="FCELECEX" ColumnName="FCELECEX" />
+          <ScalarProperty Name="FCELECT" ColumnName="FCELECT" />
+          <ScalarProperty Name="GENEMOV" ColumnName="GENEMOV" />
+          <ScalarProperty Name="HOJACOM" ColumnName="HOJACOM" />
+          <ScalarProperty Name="HOJAVEN" ColumnName="HOJAVEN" />
+          <ScalarProperty Name="IMPFIS" ColumnName="IMPFIS" />
+          <ScalarProperty Name="MULTIA" ColumnName="MULTIA" />
+          <ScalarProperty Name="MULTIB" ColumnName="MULTIB" />
+          <ScalarProperty Name="MULTIE" ColumnName="MULTIE" />
+          <ScalarProperty Name="OCOMPRA" ColumnName="OCOMPRA" />
+          <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+          <ScalarProperty Name="ORDENPAGO" ColumnName="ORDENPAGO" />
+          <ScalarProperty Name="PEDIDO" ColumnName="PEDIDO" />
+          <ScalarProperty Name="PRESUP" ColumnName="PRESUP" />
+          <ScalarProperty Name="RECIBO" ColumnName="RECIBO" />
+          <ScalarProperty Name="APLICA" ColumnName="APLICA" />
+          <ScalarProperty Name="REMITO" ColumnName="REMITO" />
+          <ScalarProperty Name="REMITOINT" ColumnName="REMITOINT" />
+          <ScalarProperty Name="SINDEFINIR" ColumnName="SINDEFINIR" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="depositoid" ColumnName="depositoid" />
+          <ScalarProperty Name="renglonfijo" ColumnName="renglonfijo" />
+          <ScalarProperty Name="ptoxdefecto" ColumnName="ptoxdefecto" />
+          <ScalarProperty Name="FCPROFO" ColumnName="FCPROFO" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="FCEA" ColumnName="FCEA" />
+          <ScalarProperty Name="FCEB" ColumnName="FCEB" />
+          <ScalarProperty Name="NDCA" ColumnName="NDCA" />
+          <ScalarProperty Name="NDCB" ColumnName="NDCB" />
+          <ScalarProperty Name="NCCA" ColumnName="NCCA" />
+          <ScalarProperty Name="NCCB" ColumnName="NCCB" />
+          <ScalarProperty Name="COPIACA" ColumnName="COPIACA" />
+          <ScalarProperty Name="COPIACB" ColumnName="COPIACB" />
+          <ScalarProperty Name="RENGCA" ColumnName="RENGCA" />
+          <ScalarProperty Name="RENGCB" ColumnName="RENGCB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ivaart">
+      <EntityTypeMapping TypeName="GestionModel.ivaart">
+        <MappingFragment StoreEntitySet="ivaart">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="porcen1" ColumnName="porcen1" />
+          <ScalarProperty Name="porcen2" ColumnName="porcen2" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ivaven">
+      <EntityTypeMapping TypeName="GestionModel.ivaven">
+        <MappingFragment StoreEntitySet="ivaven">
+          <ScalarProperty Name="localiid" ColumnName="localiid" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="exento" ColumnName="exento" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="ivai" ColumnName="ivai" />
+          <ScalarProperty Name="ivanoi" ColumnName="ivanoi" />
+          <ScalarProperty Name="ivaidif" ColumnName="ivaidif" />
+          <ScalarProperty Name="ivanoidif" ColumnName="ivanoidif" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="codcondic" ColumnName="codcondic" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="retiva" ColumnName="retiva" />
+          <ScalarProperty Name="retgan" ColumnName="retgan" />
+          <ScalarProperty Name="retinb" ColumnName="retinb" />
+          <ScalarProperty Name="remito" ColumnName="remito" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="comicli" ColumnName="comicli" />
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="porins" ColumnName="porins" />
+          <ScalarProperty Name="pornoi" ColumnName="pornoi" />
+          <ScalarProperty Name="porinsdif" ColumnName="porinsdif" />
+          <ScalarProperty Name="pornoidif" ColumnName="pornoidif" />
+          <ScalarProperty Name="vence" ColumnName="vence" />
+          <ScalarProperty Name="ocompra" ColumnName="ocompra" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+          <ScalarProperty Name="nrorepa" ColumnName="nrorepa" />
+          <ScalarProperty Name="nrollevo" ColumnName="nrollevo" />
+          <ScalarProperty Name="cumplido" ColumnName="cumplido" />
+          <ScalarProperty Name="bajostk" ColumnName="bajostk" />
+          <ScalarProperty Name="porcenib" ColumnName="porcenib" />
+          <ScalarProperty Name="cerrado" ColumnName="cerrado" />
+          <ScalarProperty Name="cai" ColumnName="cai" />
+          <ScalarProperty Name="vencecai" ColumnName="vencecai" />
+          <ScalarProperty Name="obsrepa" ColumnName="obsrepa" />
+          <ScalarProperty Name="cothis" ColumnName="cothis" />
+          <ScalarProperty Name="ctacon" ColumnName="ctacon" />
+          <ScalarProperty Name="pasoacont" ColumnName="pasoacont" />
+          <ScalarProperty Name="ctaconex" ColumnName="ctaconex" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="nombreusu" ColumnName="nombreusu" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="lisfac" ColumnName="lisfac" />
+          <ScalarProperty Name="notavta" ColumnName="notavta" />
+          <ScalarProperty Name="esadeta" ColumnName="esadeta" />
+          <ScalarProperty Name="tipocuit" ColumnName="tipocuit" />
+          <ScalarProperty Name="cae" ColumnName="cae" />
+          <ScalarProperty Name="idpetic" ColumnName="idpetic" />
+          <ScalarProperty Name="vencecae" ColumnName="vencecae" />
+          <ScalarProperty Name="numerofe" ColumnName="numerofe" />
+          <ScalarProperty Name="ctapase" ColumnName="ctapase" />
+          <ScalarProperty Name="nrolibe" ColumnName="nrolibe" />
+          <ScalarProperty Name="contac" ColumnName="contac" />
+          <ScalarProperty Name="estcue" ColumnName="estcue" />
+          <ScalarProperty Name="exfecsalida" ColumnName="exfecsalida" />
+          <ScalarProperty Name="exnroembar" ColumnName="exnroembar" />
+          <ScalarProperty Name="expuertosale" ColumnName="expuertosale" />
+          <ScalarProperty Name="expuertollega" ColumnName="expuertollega" />
+          <ScalarProperty Name="exnrobl" ColumnName="exnrobl" />
+          <ScalarProperty Name="exdestinofinal" ColumnName="exdestinofinal" />
+          <ScalarProperty Name="exincoterms" ColumnName="exincoterms" />
+          <ScalarProperty Name="exfechafab" ColumnName="exfechafab" />
+          <ScalarProperty Name="exorigen" ColumnName="exorigen" />
+          <ScalarProperty Name="expackag" ColumnName="expackag" />
+          <ScalarProperty Name="exmarca" ColumnName="exmarca" />
+          <ScalarProperty Name="exmaterial" ColumnName="exmaterial" />
+          <ScalarProperty Name="exhscode" ColumnName="exhscode" />
+          <ScalarProperty Name="obsrepgen" ColumnName="obsrepgen" />
+          <ScalarProperty Name="exforwarder" ColumnName="exforwarder" />
+          <ScalarProperty Name="kilos" ColumnName="kilos" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="juridEntrega" ColumnName="juridEntrega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="localidades">
+      <EntityTypeMapping TypeName="GestionModel.localidades">
+        <MappingFragment StoreEntitySet="localidades">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="departamento_id" ColumnName="departamento_id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcas">
+      <EntityTypeMapping TypeName="GestionModel.marcas">
+        <MappingFragment StoreEntitySet="marcas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="monedas">
+      <EntityTypeMapping TypeName="GestionModel.monedas">
+        <MappingFragment StoreEntitySet="monedas">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="ncotiza" ColumnName="ncotiza" />
+          <ScalarProperty Name="ctaconid" ColumnName="ctaconid" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="passwd">
+      <EntityTypeMapping TypeName="GestionModel.passwd">
+        <MappingFragment StoreEntitySet="passwd">
+          <ScalarProperty Name="vetodosvend" ColumnName="vetodosvend" />
+          <ScalarProperty Name="vendeasoc" ColumnName="vendeasoc" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="nombreusu" ColumnName="nombreusu" />
+          <ScalarProperty Name="passwd1" ColumnName="passwd" />
+          <ScalarProperty Name="ultempresa" ColumnName="ultempresa" />
+          <ScalarProperty Name="ultdeposito" ColumnName="ultdeposito" />
+          <ScalarProperty Name="ultpunto" ColumnName="ultpunto" />
+          <ScalarProperty Name="essupervisor" ColumnName="essupervisor" />
+          <ScalarProperty Name="esadministrador" ColumnName="esadministrador" />
+          <ScalarProperty Name="proteccion" ColumnName="proteccion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidoCab">
+      <EntityTypeMapping TypeName="GestionModel.PedidoCab">
+        <MappingFragment StoreEntitySet="PedidoCab">
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="nroped" ColumnName="nroped" />
+          <ScalarProperty Name="fechaing" ColumnName="fechaing" />
+          <ScalarProperty Name="parafecha" ColumnName="parafecha" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="cond_vta" ColumnName="cond_vta" />
+          <ScalarProperty Name="viaid" ColumnName="viaid" />
+          <ScalarProperty Name="via" ColumnName="via" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="nrotra" ColumnName="nrotra" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="usuarioid" ColumnName="usuarioid" />
+          <ScalarProperty Name="puestrotra" ColumnName="puestrotra" />
+          <ScalarProperty Name="enhora" ColumnName="enhora" />
+          <ScalarProperty Name="listo" ColumnName="listo" />
+          <ScalarProperty Name="completo" ColumnName="completo" />
+          <ScalarProperty Name="preparo" ColumnName="preparo" />
+          <ScalarProperty Name="ocompra" ColumnName="ocompra" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="presup" ColumnName="presup" />
+          <ScalarProperty Name="lisfac" ColumnName="lisfac" />
+          <ScalarProperty Name="notavta" ColumnName="notavta" />
+          <ScalarProperty Name="TotalNet" ColumnName="TotalNet" />
+          <ScalarProperty Name="TotalExento" ColumnName="TotalExento" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="impiva1" ColumnName="impiva1" />
+          <ScalarProperty Name="impiva2" ColumnName="impiva2" />
+          <ScalarProperty Name="Timpint" ColumnName="Timpint" />
+          <ScalarProperty Name="PercIB" ColumnName="PercIB" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="cumplido" ColumnName="cumplido" />
+          <ScalarProperty Name="monfac" ColumnName="monfac" />
+          <ScalarProperty Name="transpo" ColumnName="transpo" />
+          <ScalarProperty Name="vence" ColumnName="vence" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="kilos" ColumnName="kilos" />
+          <ScalarProperty Name="bultos" ColumnName="bultos" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="sucursalid" ColumnName="sucursalid" />
+          <ScalarProperty Name="localiid" ColumnName="localiid" />
+          <ScalarProperty Name="asignadoa" ColumnName="asignadoa" />
+          <ScalarProperty Name="reimp" ColumnName="reimp" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="presupc">
+      <EntityTypeMapping TypeName="GestionModel.presupc">
+        <MappingFragment StoreEntitySet="presupc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="exento" ColumnName="exento" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="ivai" ColumnName="ivai" />
+          <ScalarProperty Name="ivanoi" ColumnName="ivanoi" />
+          <ScalarProperty Name="ivaidif" ColumnName="ivaidif" />
+          <ScalarProperty Name="ivanoidif" ColumnName="ivanoidif" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="desccondic" ColumnName="desccondic" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="tipcom" ColumnName="tipcom" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="retiva" ColumnName="retiva" />
+          <ScalarProperty Name="retgan" ColumnName="retgan" />
+          <ScalarProperty Name="retinb" ColumnName="retinb" />
+          <ScalarProperty Name="remito" ColumnName="remito" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="comicli" ColumnName="comicli" />
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="porins" ColumnName="porins" />
+          <ScalarProperty Name="pornoi" ColumnName="pornoi" />
+          <ScalarProperty Name="porinsdif" ColumnName="porinsdif" />
+          <ScalarProperty Name="pornoidif" ColumnName="pornoidif" />
+          <ScalarProperty Name="vence" ColumnName="vence" />
+          <ScalarProperty Name="ocompra" ColumnName="ocompra" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+          <ScalarProperty Name="nrorepa" ColumnName="nrorepa" />
+          <ScalarProperty Name="nrollevo" ColumnName="nrollevo" />
+          <ScalarProperty Name="cumplido" ColumnName="cumplido" />
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="lisfac" ColumnName="lisfac" />
+          <ScalarProperty Name="atencion" ColumnName="atencion" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+          <ScalarProperty Name="validez" ColumnName="validez" />
+          <ScalarProperty Name="plentrega" ColumnName="plentrega" />
+          <ScalarProperty Name="lugentre" ColumnName="lugentre" />
+          <ScalarProperty Name="nroped" ColumnName="nroped" />
+          <ScalarProperty Name="obsint" ColumnName="obsint" />
+          <ScalarProperty Name="nuepresup" ColumnName="nuepresup" />
+          <ScalarProperty Name="viejpresu" ColumnName="viejpresu" />
+          <ScalarProperty Name="planilla" ColumnName="planilla" />
+          <ScalarProperty Name="nombreusu" ColumnName="nombreusu" />
+          <ScalarProperty Name="costoest" ColumnName="costoest" />
+          <ScalarProperty Name="porcenib" ColumnName="porcenib" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="cond_vta" ColumnName="cond_vta" />
+          <ScalarProperty Name="monfac" ColumnName="monfac" />
+          <ScalarProperty Name="usuarioid" ColumnName="usuarioid" />
+          <ScalarProperty Name="puestotra" ColumnName="puestotra" />
+          <ScalarProperty Name="percib" ColumnName="percib" />
+          <ScalarProperty Name="localidadid" ColumnName="localidadid" />
+          <ScalarProperty Name="bajostk" ColumnName="bajostk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provincias">
+      <EntityTypeMapping TypeName="GestionModel.provincias">
+        <MappingFragment StoreEntitySet="provincias">
+          <ScalarProperty Name="ctaretenp" ColumnName="ctaretenp" />
+          <ScalarProperty Name="ctapercep" ColumnName="ctapercep" />
+          <ScalarProperty Name="ctareten" ColumnName="ctareten" />
+          <ScalarProperty Name="ctaperce" ColumnName="ctaperce" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="pais_id" ColumnName="pais_id" />
+          <ScalarProperty Name="juridi" ColumnName="juridi" />
+          <ScalarProperty Name="codigoArba" ColumnName="codigoArba" />
+          <ScalarProperty Name="Percib" ColumnName="Percib" />
+          <ScalarProperty Name="Percepib" ColumnName="Percepib" />
+          <ScalarProperty Name="MontoPib" ColumnName="MontoPib" />
+          <ScalarProperty Name="Retib" ColumnName="Retib" />
+          <ScalarProperty Name="Retenib" ColumnName="Retenib" />
+          <ScalarProperty Name="montorib" ColumnName="montorib" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rubros">
+      <EntityTypeMapping TypeName="GestionModel.rubros">
+        <MappingFragment StoreEntitySet="rubros">
+          <ScalarProperty Name="inclac" ColumnName="inclac" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="pathfoto" ColumnName="pathfoto" />
+          <ScalarProperty Name="dr1" ColumnName="dr1" />
+          <ScalarProperty Name="dr2" ColumnName="dr2" />
+          <ScalarProperty Name="dr3" ColumnName="dr3" />
+          <ScalarProperty Name="dr4" ColumnName="dr4" />
+          <ScalarProperty Name="dr5" ColumnName="dr5" />
+          <ScalarProperty Name="rubmar1" ColumnName="rubmar1" />
+          <ScalarProperty Name="rubmar2" ColumnName="rubmar2" />
+          <ScalarProperty Name="rubmar3" ColumnName="rubmar3" />
+          <ScalarProperty Name="rubmar4" ColumnName="rubmar4" />
+          <ScalarProperty Name="rubmar5" ColumnName="rubmar5" />
+          <ScalarProperty Name="rubmar6" ColumnName="rubmar6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipocomprobante">
+      <EntityTypeMapping TypeName="GestionModel.tipocomprobante">
+        <MappingFragment StoreEntitySet="tipocomprobante">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="abreviado" ColumnName="abreviado" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="discrimina" ColumnName="discrimina" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="retieneiva" ColumnName="retieneiva" />
+          <ScalarProperty Name="esDebito" ColumnName="esDebito" />
+          <ScalarProperty Name="esCredito" ColumnName="esCredito" />
+          <ScalarProperty Name="esAfip" ColumnName="esAfip" />
+          <ScalarProperty Name="esdePago" ColumnName="esdePago" />
+          <ScalarProperty Name="seAnula" ColumnName="seAnula" />
+          <ScalarProperty Name="numerador" ColumnName="numerador" />
+          <ScalarProperty Name="copias" ColumnName="copias" />
+          <ScalarProperty Name="renglones" ColumnName="renglones" />
+          <ScalarProperty Name="codigoARBA" ColumnName="codigoARBA" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipodoc">
+      <EntityTypeMapping TypeName="GestionModel.tipodoc">
+        <MappingFragment StoreEntitySet="tipodoc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="sevalida" ColumnName="sevalida" />
+          <ScalarProperty Name="codigoArba" ColumnName="codigoArba" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transpo">
+      <EntityTypeMapping TypeName="GestionModel.transpo">
+        <MappingFragment StoreEntitySet="transpo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="telefo" ColumnName="telefo" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="ingbru" ColumnName="ingbru" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vende">
+      <EntityTypeMapping TypeName="GestionModel.vende">
+        <MappingFragment StoreEntitySet="vende">
+          <ScalarProperty Name="limitedesc" ColumnName="limitedesc" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="telefo" ColumnName="telefo" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="tipdoc" ColumnName="tipdoc" />
+          <ScalarProperty Name="numdoc" ColumnName="numdoc" />
+          <ScalarProperty Name="comision" ColumnName="comision" />
+          <ScalarProperty Name="comicob" ColumnName="comicob" />
+          <ScalarProperty Name="comideb" ColumnName="comideb" />
+          <ScalarProperty Name="cobdeb" ColumnName="cobdeb" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="superv" ColumnName="superv" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="imei" ColumnName="imei" />
+          <ScalarProperty Name="comision1" ColumnName="comision1" />
+          <ScalarProperty Name="comision2" ColumnName="comision2" />
+          <ScalarProperty Name="comision3" ColumnName="comision3" />
+          <ScalarProperty Name="comision4" ColumnName="comision4" />
+          <ScalarProperty Name="comision5" ColumnName="comision5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zonas">
+      <EntityTypeMapping TypeName="GestionModel.zonas">
+        <MappingFragment StoreEntitySet="zonas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="artasoc">
+      <EntityTypeMapping TypeName="GestionModel.artasoc">
+        <MappingFragment StoreEntitySet="artasoc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="componen" ColumnName="componen" />
+          <ScalarProperty Name="cantid" ColumnName="cantid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conceptosincluidos">
+      <EntityTypeMapping TypeName="GestionModel.conceptosincluidos">
+        <MappingFragment StoreEntitySet="conceptosincluidos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RemitoCab">
+      <EntityTypeMapping TypeName="GestionModel.RemitoCab">
+        <MappingFragment StoreEntitySet="RemitoCab">
+          <ScalarProperty Name="transpo" ColumnName="transpo" />
+          <ScalarProperty Name="recargo" ColumnName="recargo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="valdec" ColumnName="valdec" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="nrotra" ColumnName="nrotra" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="localiid" ColumnName="localiid" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="nombreusu" ColumnName="nombreusu" />
+          <ScalarProperty Name="impint" ColumnName="impint" />
+          <ScalarProperty Name="acopionro" ColumnName="acopionro" />
+          <ScalarProperty Name="nrorep" ColumnName="nrorep" />
+          <ScalarProperty Name="cumplido" ColumnName="cumplido" />
+          <ScalarProperty Name="notavta" ColumnName="notavta" />
+          <ScalarProperty Name="detped" ColumnName="detped" />
+          <ScalarProperty Name="nrolibe" ColumnName="nrolibe" />
+          <ScalarProperty Name="contac" ColumnName="contac" />
+          <ScalarProperty Name="guia" ColumnName="guia" />
+          <ScalarProperty Name="fechades" ColumnName="fechades" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="direntrega" ColumnName="direntrega" />
+          <ScalarProperty Name="obsrepa" ColumnName="obsrepa" />
+          <ScalarProperty Name="transrep" ColumnName="transrep" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="ivavenid" ColumnName="ivavenid" />
+          <ScalarProperty Name="kilos" ColumnName="kilos" />
+          <ScalarProperty Name="bultos" ColumnName="bultos" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="lisfac" ColumnName="lisfac" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="cond_vta" ColumnName="cond_vta" />
+          <ScalarProperty Name="vence" ColumnName="vence" />
+          <ScalarProperty Name="monfac" ColumnName="monfac" />
+          <ScalarProperty Name="nroped" ColumnName="nroped" />
+          <ScalarProperty Name="usuarioid" ColumnName="usuarioid" />
+          <ScalarProperty Name="puestotra" ColumnName="puestotra" />
+          <ScalarProperty Name="exento" ColumnName="exento" />
+          <ScalarProperty Name="ivai" ColumnName="ivai" />
+          <ScalarProperty Name="ivaidif" ColumnName="ivaidif" />
+          <ScalarProperty Name="ivanoi" ColumnName="ivanoi" />
+          <ScalarProperty Name="ivanoidif" ColumnName="ivanoidif" />
+          <ScalarProperty Name="percib" ColumnName="percib" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="nrotran" ColumnName="nrotran" />
+          <ScalarProperty Name="listanro" ColumnName="listanro" />
+          <ScalarProperty Name="cotnro" ColumnName="cotnro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RemitoDet">
+      <EntityTypeMapping TypeName="GestionModel.RemitoDet">
+        <MappingFragment StoreEntitySet="RemitoDet">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cabeceraid" ColumnName="cabeceraid" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="bajostk" ColumnName="bajostk" />
+          <ScalarProperty Name="asociado" ColumnName="asociado" />
+          <ScalarProperty Name="canasoc" ColumnName="canasoc" />
+          <ScalarProperty Name="pedido" ColumnName="pedido" />
+          <ScalarProperty Name="despacho" ColumnName="despacho" />
+          <ScalarProperty Name="unimed" ColumnName="unimed" />
+          <ScalarProperty Name="envase" ColumnName="envase" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="deta" ColumnName="deta" />
+          <ScalarProperty Name="ocompra" ColumnName="ocompra" />
+          <ScalarProperty Name="nroped" ColumnName="nroped" />
+          <ScalarProperty Name="porcen1" ColumnName="porcen1" />
+          <ScalarProperty Name="porcen2" ColumnName="porcen2" />
+          <ScalarProperty Name="impiva1" ColumnName="impiva1" />
+          <ScalarProperty Name="impiva2" ColumnName="impiva2" />
+          <ScalarProperty Name="uxbulto" ColumnName="uxbulto" />
+          <ScalarProperty Name="cbarras" ColumnName="cbarras" />
+          <ScalarProperty Name="codorigi" ColumnName="codorigi" />
+          <ScalarProperty Name="kilos" ColumnName="kilos" />
+          <ScalarProperty Name="bultos" ColumnName="bultos" />
+          <ScalarProperty Name="tipofac" ColumnName="tipofac" />
+          <ScalarProperty Name="letrafac" ColumnName="letrafac" />
+          <ScalarProperty Name="puntofac" ColumnName="puntofac" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usu_acce">
+      <EntityTypeMapping TypeName="GestionModel.usu_acce">
+        <MappingFragment StoreEntitySet="usu_acce">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idempresa" ColumnName="idempresa" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="idacceso" ColumnName="idacceso" />
+          <ScalarProperty Name="alta" ColumnName="alta" />
+          <ScalarProperty Name="baja" ColumnName="baja" />
+          <ScalarProperty Name="modif" ColumnName="modif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="via">
+      <EntityTypeMapping TypeName="GestionModel.via">
+        <MappingFragment StoreEntitySet="via">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="via1" ColumnName="via" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clienteModal">
+      <EntityTypeMapping TypeName="GestionModel.clienteModal">
+        <MappingFragment StoreEntitySet="clienteModal">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telef2" ColumnName="telef2" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="fantasia" ColumnName="fantasia" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LPrecios">
+      <EntityTypeMapping TypeName="GestionModel.LPrecios">
+        <MappingFragment StoreEntitySet="LPrecios">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="unimed" ColumnName="unimed" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="codRubro" ColumnName="codRubro" />
+          <ScalarProperty Name="descriRubro" ColumnName="descriRubro" />
+          <ScalarProperty Name="codSubrub" ColumnName="codSubrub" />
+          <ScalarProperty Name="descriSub" ColumnName="descriSub" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="descrimarcas" ColumnName="descrimarcas" />
+          <ScalarProperty Name="codprovee" ColumnName="codprovee" />
+          <ScalarProperty Name="descriProveed" ColumnName="descriProveed" />
+          <ScalarProperty Name="oferta" ColumnName="oferta" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="ivagrupo" ColumnName="ivagrupo" />
+          <ScalarProperty Name="porcen1" ColumnName="porcen1" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="monedaxEmpresa">
+      <EntityTypeMapping TypeName="GestionModel.monedaxEmpresa">
+        <MappingFragment StoreEntitySet="monedaxEmpresa">
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="ncotiza" ColumnName="ncotiza" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stocks">
+      <EntityTypeMapping TypeName="GestionModel.stocks">
+        <MappingFragment StoreEntitySet="stocks">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="cbarras" ColumnName="cbarras" />
+          <ScalarProperty Name="dun14" ColumnName="dun14" />
+          <ScalarProperty Name="codorigi" ColumnName="codorigi" />
+          <ScalarProperty Name="coriginal" ColumnName="coriginal" />
+          <ScalarProperty Name="codncm" ColumnName="codncm" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="despacho" ColumnName="despacho" />
+          <ScalarProperty Name="verifico" ColumnName="verifico" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="pathfoto" ColumnName="pathfoto" />
+          <ScalarProperty Name="pathetiq" ColumnName="pathetiq" />
+          <ScalarProperty Name="usuestr" ColumnName="usuestr" />
+          <ScalarProperty Name="descrilar" ColumnName="descrilar" />
+          <ScalarProperty Name="usoart" ColumnName="usoart" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="unimed" ColumnName="unimed" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="envase" ColumnName="envase" />
+          <ScalarProperty Name="ivagrupo" ColumnName="ivagrupo" />
+          <ScalarProperty Name="ctacon" ColumnName="ctacon" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="fecmodcos" ColumnName="fecmodcos" />
+          <ScalarProperty Name="alta" ColumnName="alta" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="fechveri" ColumnName="fechveri" />
+          <ScalarProperty Name="fecprom" ColumnName="fecprom" />
+          <ScalarProperty Name="fechestr" ColumnName="fechestr" />
+          <ScalarProperty Name="fechpped" ColumnName="fechpped" />
+          <ScalarProperty Name="cosfverif" ColumnName="cosfverif" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="artret" ColumnName="artret" />
+          <ScalarProperty Name="oferta" ColumnName="oferta" />
+          <ScalarProperty Name="descomp" ColumnName="descomp" />
+          <ScalarProperty Name="vtaxbul" ColumnName="vtaxbul" />
+          <ScalarProperty Name="discont" ColumnName="discont" />
+          <ScalarProperty Name="noborrarelart" ColumnName="noborrarelart" />
+          <ScalarProperty Name="msgstkptoped" ColumnName="msgstkptoped" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="stomin" ColumnName="stomin" />
+          <ScalarProperty Name="ppedido" ColumnName="ppedido" />
+          <ScalarProperty Name="boniprod" ColumnName="boniprod" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="comipcob" ColumnName="comipcob" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="meses" ColumnName="meses" />
+          <ScalarProperty Name="canths" ColumnName="canths" />
+          <ScalarProperty Name="uxbulto" ColumnName="uxbulto" />
+          <ScalarProperty Name="prelis" ColumnName="prelis" />
+          <ScalarProperty Name="tipoart" ColumnName="tipoart" />
+          <ScalarProperty Name="impint" ColumnName="impint" />
+          <ScalarProperty Name="impasoc" ColumnName="impasoc" />
+          <ScalarProperty Name="presug" ColumnName="presug" />
+          <ScalarProperty Name="cantmin" ColumnName="cantmin" />
+          <ScalarProperty Name="porceasoc" ColumnName="porceasoc" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="modifdescr" ColumnName="modifdescr" />
+          <ScalarProperty Name="coddisp" ColumnName="coddisp" />
+          <ScalarProperty Name="codsku" ColumnName="codsku" />
+          <ScalarProperty Name="uxdisp" ColumnName="uxdisp" />
+          <ScalarProperty Name="exigelote" ColumnName="exigelote" />
+          <ScalarProperty Name="codcot" ColumnName="codcot" />
+          <ScalarProperty Name="porcen1" ColumnName="porcen1" />
+          <ScalarProperty Name="descriEnvase" ColumnName="descriEnvase" />
+          <ScalarProperty Name="codEnvase" ColumnName="codEnvase" />
+          <ScalarProperty Name="simboloEnvase" ColumnName="simboloEnvase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ArmaMenu" FunctionName="GestionModel.Store.ArmaMenu" />
+    <FunctionImportMapping FunctionImportName="ArmaPopup" FunctionName="GestionModel.Store.ArmaPopup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.ArmaPopup_Result">
+          <ScalarProperty Name="cPadweb" ColumnName="cPadweb" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="sucursal">
+      <EntityTypeMapping TypeName="GestionModel.sucursal">
+        <MappingFragment StoreEntitySet="sucursal">
+          <ScalarProperty Name="auxiliar" ColumnName="auxiliar" />
+          <ScalarProperty Name="sucursal1" ColumnName="sucursal" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="stocksF" FunctionName="GestionModel.Store.stocksF" />
+    <FunctionImportMapping FunctionImportName="WpuntoPorEmpresa" FunctionName="GestionModel.Store.WpuntoPorEmpresa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.WpuntoPorEmpresa_Result">
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PadronIIBBxCuityProv" FunctionName="GestionModel.Store.PadronIIBBxCuityProv">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.PadronIIBBxCuityProv_Result">
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="Juridiccion" ColumnName="Juridiccion" />
+          <ScalarProperty Name="Percep" ColumnName="Percep" />
+          <ScalarProperty Name="Retenc" ColumnName="Retenc" />
+          <ScalarProperty Name="Provin" ColumnName="Provin" />
+          <ScalarProperty Name="MontoPib" ColumnName="MontoPib" />
+          <ScalarProperty Name="MontoRib" ColumnName="MontoRib" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LsaldoDeudores" FunctionName="GestionModel.Store.LsaldoDeudores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LsaldoDeudores_Result">
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="fechaEmision" ColumnName="fechaEmision" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="vence" ColumnName="vence" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="inhabilitado" ColumnName="inhabilitado" />
+          <ScalarProperty Name="incobrable" ColumnName="incobrable" />
+          <ScalarProperty Name="moroso" ColumnName="moroso" />
+          <ScalarProperty Name="clienteNombre" ColumnName="clienteNombre" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="vendeNom" ColumnName="vendeNom" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="dptoId" ColumnName="dptoId" />
+          <ScalarProperty Name="provId" ColumnName="provId" />
+          <ScalarProperty Name="provNom" ColumnName="provNom" />
+          <ScalarProperty Name="soy" ColumnName="soy" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="codCondPago" ColumnName="codCondPago" />
+          <ScalarProperty Name="condPago" ColumnName="condPago" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="diasVence" ColumnName="diasVence" />
+          <ScalarProperty Name="importeTotal" ColumnName="importeTotal" />
+          <ScalarProperty Name="credp" ColumnName="credp" />
+          <ScalarProperty Name="cotdoc" ColumnName="cotdoc" />
+          <ScalarProperty Name="simdoc" ColumnName="simdoc" />
+          <ScalarProperty Name="diasEmision" ColumnName="diasEmision" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="subrub">
+      <EntityTypeMapping TypeName="GestionModel.subrub">
+        <MappingFragment StoreEntitySet="subrub">
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="NoVendidos" FunctionName="GestionModel.Store.NoVendidos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.NoVendidos_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="configen">
+      <EntityTypeMapping TypeName="GestionModel.configen">
+        <MappingFragment StoreEntitySet="configen">
+          <ScalarProperty Name="minfec" ColumnName="minfec" />
+          <ScalarProperty Name="iplocal" ColumnName="iplocal" />
+          <ScalarProperty Name="cond_vta" ColumnName="cond_vta" />
+          <ScalarProperty Name="dominio" ColumnName="dominio" />
+          <ScalarProperty Name="ivanoinscripto" ColumnName="ivanoinscripto" />
+          <ScalarProperty Name="ivatasagral" ColumnName="ivatasagral" />
+          <ScalarProperty Name="iplistados" ColumnName="iplistados" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="GnCotizaCl" ColumnName="GnCotizaCl" />
+          <ScalarProperty Name="GcSimboloCl" ColumnName="GcSimboloCl" />
+          <ScalarProperty Name="ubicacionentrada" ColumnName="ubicacionentrada" />
+          <ScalarProperty Name="ubicacionsalida" ColumnName="ubicacionsalida" />
+          <ScalarProperty Name="via" ColumnName="via" />
+          <ScalarProperty Name="fcdesstk" ColumnName="fcdesstk" />
+          <ScalarProperty Name="reimpd" ColumnName="reimpd" />
+          <ScalarProperty Name="letrache" ColumnName="letrache" />
+          <ScalarProperty Name="norepitem" ColumnName="norepitem" />
+          <ScalarProperty Name="retuveib" ColumnName="retuveib" />
+          <ScalarProperty Name="msgsevasolo" ColumnName="msgsevasolo" />
+          <ScalarProperty Name="cambiacliped" ColumnName="cambiacliped" />
+          <ScalarProperty Name="pedidoprep" ColumnName="pedidoprep" />
+          <ScalarProperty Name="reminode" ColumnName="reminode" />
+          <ScalarProperty Name="nrrecman" ColumnName="nrrecman" />
+          <ScalarProperty Name="pathrece" ColumnName="pathrece" />
+          <ScalarProperty Name="genenc" ColumnName="genenc" />
+          <ScalarProperty Name="netart" ColumnName="netart" />
+          <ScalarProperty Name="gasgen" ColumnName="gasgen" />
+          <ScalarProperty Name="consrec" ColumnName="consrec" />
+          <ScalarProperty Name="nosinpresup" ColumnName="nosinpresup" />
+          <ScalarProperty Name="noenlista" ColumnName="noenlista" />
+          <ScalarProperty Name="stkypedi" ColumnName="stkypedi" />
+          <ScalarProperty Name="cheqpedi" ColumnName="cheqpedi" />
+          <ScalarProperty Name="fechaitemped" ColumnName="fechaitemped" />
+          <ScalarProperty Name="pedidoaprob" ColumnName="pedidoaprob" />
+          <ScalarProperty Name="monhis" ColumnName="monhis" />
+          <ScalarProperty Name="veraplica" ColumnName="veraplica" />
+          <ScalarProperty Name="impricaja" ColumnName="impricaja" />
+          <ScalarProperty Name="actustk" ColumnName="actustk" />
+          <ScalarProperty Name="finoc" ColumnName="finoc" />
+          <ScalarProperty Name="fechontro" ColumnName="fechontro" />
+          <ScalarProperty Name="recctacte" ColumnName="recctacte" />
+          <ScalarProperty Name="nofsinstk" ColumnName="nofsinstk" />
+          <ScalarProperty Name="detobli" ColumnName="detobli" />
+          <ScalarProperty Name="minretiva" ColumnName="minretiva" />
+          <ScalarProperty Name="reci1hoja" ColumnName="reci1hoja" />
+          <ScalarProperty Name="impripago" ColumnName="impripago" />
+          <ScalarProperty Name="desreciva" ColumnName="desreciva" />
+          <ScalarProperty Name="factenrep" ColumnName="factenrep" />
+          <ScalarProperty Name="imprireci" ColumnName="imprireci" />
+          <ScalarProperty Name="stkxrep" ColumnName="stkxrep" />
+          <ScalarProperty Name="impricheq" ColumnName="impricheq" />
+          <ScalarProperty Name="pagoctdo" ColumnName="pagoctdo" />
+          <ScalarProperty Name="pedingre" ColumnName="pedingre" />
+          <ScalarProperty Name="factexto" ColumnName="factexto" />
+          <ScalarProperty Name="calcupeso" ColumnName="calcupeso" />
+          <ScalarProperty Name="retomapre" ColumnName="retomapre" />
+          <ScalarProperty Name="emiremi" ColumnName="emiremi" />
+          <ScalarProperty Name="nmonedacl" ColumnName="nmonedacl" />
+          <ScalarProperty Name="server" ColumnName="server" />
+          <ScalarProperty Name="fondo" ColumnName="fondo" />
+          <ScalarProperty Name="pathfondo" ColumnName="pathfondo" />
+          <ScalarProperty Name="presinclu" ColumnName="presinclu" />
+          <ScalarProperty Name="preciocero" ColumnName="preciocero" />
+          <ScalarProperty Name="mensajefac" ColumnName="mensajefac" />
+          <ScalarProperty Name="factucont" ColumnName="factucont" />
+          <ScalarProperty Name="candec" ColumnName="candec" />
+          <ScalarProperty Name="impdec" ColumnName="impdec" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresa">
+      <EntityTypeMapping TypeName="GestionModel.empresa">
+        <MappingFragment StoreEntitySet="empresa">
+          <ScalarProperty Name="despagiva" ColumnName="despagiva" />
+          <ScalarProperty Name="retganp" ColumnName="retganp" />
+          <ScalarProperty Name="retivap" ColumnName="retivap" />
+          <ScalarProperty Name="promoind" ColumnName="promoind" />
+          <ScalarProperty Name="cbu" ColumnName="cbu" />
+          <ScalarProperty Name="entraxdefault" ColumnName="entraxdefault" />
+          <ScalarProperty Name="esagntRetencion" ColumnName="esagntRetencion" />
+          <ScalarProperty Name="esagntPercepcion" ColumnName="esagntPercepcion" />
+          <ScalarProperty Name="juridi" ColumnName="juridi" />
+          <ScalarProperty Name="pathcot" ColumnName="pathcot" />
+          <ScalarProperty Name="cotPasswd" ColumnName="cotPasswd" />
+          <ScalarProperty Name="cotUsuario" ColumnName="cotUsuario" />
+          <ScalarProperty Name="empxdefecto" ColumnName="empxdefecto" />
+          <ScalarProperty Name="retnib" ColumnName="retnib" />
+          <ScalarProperty Name="montorib" ColumnName="montorib" />
+          <ScalarProperty Name="retib" ColumnName="retib" />
+          <ScalarProperty Name="percepib" ColumnName="percepib" />
+          <ScalarProperty Name="montopib" ColumnName="montopib" />
+          <ScalarProperty Name="percib" ColumnName="percib" />
+          <ScalarProperty Name="pathfondo" ColumnName="pathfondo" />
+          <ScalarProperty Name="timestamp_column" ColumnName="timestamp_column" />
+          <ScalarProperty Name="finiact" ColumnName="finiact" />
+          <ScalarProperty Name="condfiva" ColumnName="condfiva" />
+          <ScalarProperty Name="nejercicio" ColumnName="nejercicio" />
+          <ScalarProperty Name="nejerdef" ColumnName="nejerdef" />
+          <ScalarProperty Name="tercerlin" ColumnName="tercerlin" />
+          <ScalarProperty Name="segunlin" ColumnName="segunlin" />
+          <ScalarProperty Name="primerlin" ColumnName="primerlin" />
+          <ScalarProperty Name="pathlogo" ColumnName="pathlogo" />
+          <ScalarProperty Name="pweb" ColumnName="pweb" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="titulo1" ColumnName="titulo1" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="jubilacion" ColumnName="jubilacion" />
+          <ScalarProperty Name="brutos" ColumnName="brutos" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="titulares" ColumnName="titulares" />
+          <ScalarProperty Name="empresa1" ColumnName="empresa" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="iva">
+      <EntityTypeMapping TypeName="GestionModel.iva">
+        <MappingFragment StoreEntitySet="iva">
+          <ScalarProperty Name="exentocf" ColumnName="exentocf" />
+          <ScalarProperty Name="auximpfiscal" ColumnName="auximpfiscal" />
+          <ScalarProperty Name="auximigra" ColumnName="auximigra" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="discrimina" ColumnName="discrimina" />
+          <ScalarProperty Name="RetIB" ColumnName="RetIB" />
+          <ScalarProperty Name="PercIb" ColumnName="PercIb" />
+          <ScalarProperty Name="conAcrecAlicuta" ColumnName="conAcrecAlicuta" />
+          <ScalarProperty Name="docrelac" ColumnName="docrelac" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="token">
+      <EntityTypeMapping TypeName="GestionModel.token">
+        <MappingFragment StoreEntitySet="token">
+          <ScalarProperty Name="token1" ColumnName="token" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientePesupuesto">
+      <EntityTypeMapping TypeName="GestionModel.ClientePesupuesto">
+        <MappingFragment StoreEntitySet="ClientePesupuesto">
+          <ScalarProperty Name="bonif4" ColumnName="bonif4" />
+          <ScalarProperty Name="bonif3" ColumnName="bonif3" />
+          <ScalarProperty Name="bonif2" ColumnName="bonif2" />
+          <ScalarProperty Name="cond_vta" ColumnName="cond_vta" />
+          <ScalarProperty Name="expreso" ColumnName="expreso" />
+          <ScalarProperty Name="nopercib" ColumnName="nopercib" />
+          <ScalarProperty Name="convenio" ColumnName="convenio" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="nombreVende" ColumnName="nombreVende" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="descriIva" ColumnName="descriIva" />
+          <ScalarProperty Name="Iva" ColumnName="Iva" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="nombreProv" ColumnName="nombreProv" />
+          <ScalarProperty Name="provincia_id" ColumnName="provincia_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="deptoNombre" ColumnName="deptoNombre" />
+          <ScalarProperty Name="nombreLocali" ColumnName="nombreLocali" />
+          <ScalarProperty Name="localicod" ColumnName="localicod" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Cotimesxmes" FunctionName="GestionModel.Store.Cotimesxmes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.Cotimesxmes_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="uno" ColumnName="uno" />
+          <ScalarProperty Name="dos" ColumnName="dos" />
+          <ScalarProperty Name="tres" ColumnName="tres" />
+          <ScalarProperty Name="cuatro" ColumnName="cuatro" />
+          <ScalarProperty Name="cinco" ColumnName="cinco" />
+          <ScalarProperty Name="seis" ColumnName="seis" />
+          <ScalarProperty Name="siete" ColumnName="siete" />
+          <ScalarProperty Name="ocho" ColumnName="ocho" />
+          <ScalarProperty Name="nueve" ColumnName="nueve" />
+          <ScalarProperty Name="diez" ColumnName="diez" />
+          <ScalarProperty Name="once" ColumnName="once" />
+          <ScalarProperty Name="doce" ColumnName="doce" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CotimesxmesAgrupCliente" FunctionName="GestionModel.Store.CotimesxmesAgrupCliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.CotimesxmesAgrupCliente_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="Enero" ColumnName="Enero" />
+          <ScalarProperty Name="Febrero" ColumnName="Febrero" />
+          <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+          <ScalarProperty Name="Abril" ColumnName="Abril" />
+          <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+          <ScalarProperty Name="Junio" ColumnName="Junio" />
+          <ScalarProperty Name="Julio" ColumnName="Julio" />
+          <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+          <ScalarProperty Name="Setiembre" ColumnName="Setiembre" />
+          <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+          <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+          <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CotimesxmesAgrupProd" FunctionName="GestionModel.Store.CotimesxmesAgrupProd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.CotimesxmesAgrupProd_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="Enero" ColumnName="Enero" />
+          <ScalarProperty Name="Febrero" ColumnName="Febrero" />
+          <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+          <ScalarProperty Name="Abril" ColumnName="Abril" />
+          <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+          <ScalarProperty Name="Junio" ColumnName="Junio" />
+          <ScalarProperty Name="Julio" ColumnName="Julio" />
+          <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+          <ScalarProperty Name="Setiembre" ColumnName="Setiembre" />
+          <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+          <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+          <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FlistPuntoPedido" FunctionName="GestionModel.Store.FlistPuntoPedido">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.FlistPuntoPedido_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="stomin" ColumnName="stomin" />
+          <ScalarProperty Name="ppedido" ColumnName="ppedido" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="saldoActual" ColumnName="saldoActual" />
+          <ScalarProperty Name="diferencia" ColumnName="diferencia" />
+          <ScalarProperty Name="cantmin" ColumnName="cantmin" />
+          <ScalarProperty Name="consProm" ColumnName="consProm" />
+          <ScalarProperty Name="discont" ColumnName="discont" />
+          <ScalarProperty Name="marcaCod" ColumnName="marcaCod" />
+          <ScalarProperty Name="marcaDescr" ColumnName="marcaDescr" />
+          <ScalarProperty Name="proveedCod" ColumnName="proveedCod" />
+          <ScalarProperty Name="proveeRazs" ColumnName="proveeRazs" />
+          <ScalarProperty Name="codRub" ColumnName="codRub" />
+          <ScalarProperty Name="rubroDescri" ColumnName="rubroDescri" />
+          <ScalarProperty Name="codSubRub" ColumnName="codSubRub" />
+          <ScalarProperty Name="SubRuDescri" ColumnName="SubRuDescri" />
+          <ScalarProperty Name="tipoart" ColumnName="tipoart" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="pedido" ColumnName="pedido" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LArtVendAgrupando" FunctionName="GestionModel.Store.LArtVendAgrupando">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LArtVendAgrupando_Result">
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codMarca" ColumnName="codMarca" />
+          <ScalarProperty Name="descriMarcas" ColumnName="descriMarcas" />
+          <ScalarProperty Name="codRubro" ColumnName="codRubro" />
+          <ScalarProperty Name="rubrosDescri" ColumnName="rubrosDescri" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="descriSubRub" ColumnName="descriSubRub" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nombreVende" ColumnName="nombreVende" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsocCli" ColumnName="razsocCli" />
+          <ScalarProperty Name="codProvee" ColumnName="codProvee" />
+          <ScalarProperty Name="razsocProvee" ColumnName="razsocProvee" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="soy" ColumnName="soy" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lArtxProveedor" FunctionName="GestionModel.Store.lArtxProveedor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.lArtxProveedor_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="fechaprom" ColumnName="fechaprom" />
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="descMarca" ColumnName="descMarca" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="DesRubro" ColumnName="DesRubro" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="desSubRub" ColumnName="desSubRub" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lCliente" FunctionName="GestionModel.Store.lCliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.lCliente_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="CodArba" ColumnName="CodArba" />
+          <ScalarProperty Name="provJuridi" ColumnName="provJuridi" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="transpo" ColumnName="transpo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LClientes" FunctionName="GestionModel.Store.LClientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LClientes_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="departamento_id" ColumnName="departamento_id" />
+          <ScalarProperty Name="localinom" ColumnName="localinom" />
+          <ScalarProperty Name="provincia_id" ColumnName="provincia_id" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="codigoArba" ColumnName="codigoArba" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="expreso" ColumnName="expreso" />
+          <ScalarProperty Name="activi" ColumnName="activi" />
+          <ScalarProperty Name="inhabilitado" ColumnName="inhabilitado" />
+          <ScalarProperty Name="incobrable" ColumnName="incobrable" />
+          <ScalarProperty Name="abonado" ColumnName="abonado" />
+          <ScalarProperty Name="cantCompras" ColumnName="cantCompras" />
+          <ScalarProperty Name="juridiccion" ColumnName="juridiccion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechalta" ColumnName="fechalta" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LInforme" FunctionName="GestionModel.Store.LInforme">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LInforme_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="equipo" ColumnName="equipo" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LIvaVen" FunctionName="GestionModel.Store.LIvaVen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LIvaVen_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="exento" ColumnName="exento" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="ivai" ColumnName="ivai" />
+          <ScalarProperty Name="ivanoi" ColumnName="ivanoi" />
+          <ScalarProperty Name="ivaidif" ColumnName="ivaidif" />
+          <ScalarProperty Name="ivanoidif" ColumnName="ivanoidif" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="codcondic" ColumnName="codcondic" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="retiva" ColumnName="retiva" />
+          <ScalarProperty Name="retgan" ColumnName="retgan" />
+          <ScalarProperty Name="retinb" ColumnName="retinb" />
+          <ScalarProperty Name="remito" ColumnName="remito" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="comicli" ColumnName="comicli" />
+          <ScalarProperty Name="comisionVende" ColumnName="comisionVende" />
+          <ScalarProperty Name="comisionCliente" ColumnName="comisionCliente" />
+          <ScalarProperty Name="comisionProd" ColumnName="comisionProd" />
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LOrdenesDeCompraPendientes" FunctionName="GestionModel.Store.LOrdenesDeCompraPendientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LOrdenesDeCompraPendientes_Result">
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="parafecha" ColumnName="parafecha" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="bonif2" ColumnName="bonif2" />
+          <ScalarProperty Name="bonif3" ColumnName="bonif3" />
+          <ScalarProperty Name="bonif4" ColumnName="bonif4" />
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lPais" FunctionName="GestionModel.Store.lPais" />
+    <FunctionImportMapping FunctionImportName="lProvee" FunctionName="GestionModel.Store.lProvee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.lProvee_Result">
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LsaldoCli" FunctionName="GestionModel.Store.LsaldoCli">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LsaldoCli_Result">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vemdedor" ColumnName="vemdedor" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lstock" FunctionName="GestionModel.Store.lstock">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.lstock_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="codcolor" ColumnName="codcolor" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="fechveri" ColumnName="fechveri" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LStockActua" FunctionName="GestionModel.Store.LStockActua">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LStockActua_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="stomin" ColumnName="stomin" />
+          <ScalarProperty Name="ppedido" ColumnName="ppedido" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="saldoActual" ColumnName="saldoActual" />
+          <ScalarProperty Name="diferencia" ColumnName="diferencia" />
+          <ScalarProperty Name="cantmin" ColumnName="cantmin" />
+          <ScalarProperty Name="consProm" ColumnName="consProm" />
+          <ScalarProperty Name="discont" ColumnName="discont" />
+          <ScalarProperty Name="marcaCod" ColumnName="marcaCod" />
+          <ScalarProperty Name="marcaDescr" ColumnName="marcaDescr" />
+          <ScalarProperty Name="proveedCod" ColumnName="proveedCod" />
+          <ScalarProperty Name="proveeRazs" ColumnName="proveeRazs" />
+          <ScalarProperty Name="codRub" ColumnName="codRub" />
+          <ScalarProperty Name="rubroDescri" ColumnName="rubroDescri" />
+          <ScalarProperty Name="codSubRub" ColumnName="codSubRub" />
+          <ScalarProperty Name="SubRuDescri" ColumnName="SubRuDescri" />
+          <ScalarProperty Name="tipoart" ColumnName="tipoart" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="ivaAgregado" ColumnName="ivaAgregado" />
+          <ScalarProperty Name="fechveri" ColumnName="fechveri" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="codcolor" ColumnName="codcolor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lTransporte" FunctionName="GestionModel.Store.lTransporte">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.lTransporte_Result">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="telefo" ColumnName="telefo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LVentasPorProducto" FunctionName="GestionModel.Store.LVentasPorProducto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LVentasPorProducto_Result">
+          <ScalarProperty Name="codMarca" ColumnName="codMarca" />
+          <ScalarProperty Name="descriMarcas" ColumnName="descriMarcas" />
+          <ScalarProperty Name="codRubro" ColumnName="codRubro" />
+          <ScalarProperty Name="rubrosDescri" ColumnName="rubrosDescri" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="descriSubRub" ColumnName="descriSubRub" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nombreVende" ColumnName="nombreVende" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsocCli" ColumnName="razsocCli" />
+          <ScalarProperty Name="codProvee" ColumnName="codProvee" />
+          <ScalarProperty Name="razsocProvee" ColumnName="razsocProvee" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="bonito" ColumnName="bonito" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LWPedPendientes" FunctionName="GestionModel.Store.LWPedPendientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LWPedPendientes_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="nroped" ColumnName="nroped" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="stockDescri" ColumnName="stockDescri" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="transpo" ColumnName="transpo" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="fechaing" ColumnName="fechaing" />
+          <ScalarProperty Name="idCab" ColumnName="idCab" />
+          <ScalarProperty Name="preparado" ColumnName="preparado" />
+          <ScalarProperty Name="listo" ColumnName="listo" />
+          <ScalarProperty Name="aprobado" ColumnName="aprobado" />
+          <ScalarProperty Name="inhabilitado" ColumnName="inhabilitado" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="proveeRazsoc" ColumnName="proveeRazsoc" />
+          <ScalarProperty Name="descriMarca" ColumnName="descriMarca" />
+          <ScalarProperty Name="descriZonas" ColumnName="descriZonas" />
+          <ScalarProperty Name="rubroDescri" ColumnName="rubroDescri" />
+          <ScalarProperty Name="transpoDescri" ColumnName="transpoDescri" />
+          <ScalarProperty Name="cliRazoc" ColumnName="cliRazoc" />
+          <ScalarProperty Name="fechveri" ColumnName="fechveri" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="parafecha" ColumnName="parafecha" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lZonas" FunctionName="GestionModel.Store.lZonas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.lZonas_Result">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_CotiMesAMes" FunctionName="GestionModel.Store.SP_CotiMesAMes" />
+    <FunctionImportMapping FunctionImportName="SP_CotiMesAMesModificado" FunctionName="GestionModel.Store.SP_CotiMesAMesModificado" />
+    <FunctionImportMapping FunctionImportName="stockPresupuesto" FunctionName="GestionModel.Store.stockPresupuesto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.stockPresupuesto_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="oferta" ColumnName="oferta" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="boniprod" ColumnName="boniprod" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="codorigi" ColumnName="codorigi" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="StockxArticulo" FunctionName="GestionModel.Store.StockxArticulo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.StockxArticulo_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="WCliente" FunctionName="GestionModel.Store.WCliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.WCliente_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="fantasia" ColumnName="fantasia" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="telef2" ColumnName="telef2" />
+          <ScalarProperty Name="feccom" ColumnName="feccom" />
+          <ScalarProperty Name="condpago" ColumnName="condpago" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+          <ScalarProperty Name="diavisi" ColumnName="diavisi" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="estcue" ColumnName="estcue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LFOpxRubro" FunctionName="GestionModel.Store.LFOpxRubro">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LFOpxRubro_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="unidades" ColumnName="unidades" />
+          <ScalarProperty Name="porsunid" ColumnName="porsunid" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="porscant" ColumnName="porscant" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="codRub" ColumnName="codRub" />
+          <ScalarProperty Name="descriRub" ColumnName="descriRub" />
+          <ScalarProperty Name="codSubRub" ColumnName="codSubRub" />
+          <ScalarProperty Name="descriSubRu" ColumnName="descriSubRu" />
+          <ScalarProperty Name="codTipoArt" ColumnName="codTipoArt" />
+          <ScalarProperty Name="descriTipoArt" ColumnName="descriTipoArt" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LFOpxRubroCompra" FunctionName="GestionModel.Store.LFOpxRubroCompra">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LFOpxRubroCompra_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="unidades" ColumnName="unidades" />
+          <ScalarProperty Name="porsunid" ColumnName="porsunid" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="porscant" ColumnName="porscant" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="codRub" ColumnName="codRub" />
+          <ScalarProperty Name="descriRub" ColumnName="descriRub" />
+          <ScalarProperty Name="codSubRub" ColumnName="codSubRub" />
+          <ScalarProperty Name="descriSubRu" ColumnName="descriSubRu" />
+          <ScalarProperty Name="codTipoArt" ColumnName="codTipoArt" />
+          <ScalarProperty Name="descriTipoArt" ColumnName="descriTipoArt" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="activida">
+      <EntityTypeMapping TypeName="GestionModel.activida">
+        <MappingFragment StoreEntitySet="activida">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VCobranzas">
+      <EntityTypeMapping TypeName="GestionModel.VCobranzas">
+        <MappingFragment StoreEntitySet="VCobranzas">
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="puntoo" ColumnName="puntoo" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="netoCobradoCli" ColumnName="netoCobradoCli" />
+          <ScalarProperty Name="netoCobradoProd" ColumnName="netoCobradoProd" />
+          <ScalarProperty Name="netoCobradoVend" ColumnName="netoCobradoVend" />
+          <ScalarProperty Name="comisionCliente" ColumnName="comisionCliente" />
+          <ScalarProperty Name="comisionProducto" ColumnName="comisionProducto" />
+          <ScalarProperty Name="comisionVende" ColumnName="comisionVende" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="numeroo" ColumnName="numeroo" />
+          <ScalarProperty Name="empresao" ColumnName="empresao" />
+          <ScalarProperty Name="tipdoco" ColumnName="tipdoco" />
+          <ScalarProperty Name="letrao" ColumnName="letrao" />
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="comicocl" ColumnName="comicocl" />
+          <ScalarProperty Name="comicob" ColumnName="comicob" />
+          <ScalarProperty Name="comicli" ColumnName="comicli" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VRemitos">
+      <EntityTypeMapping TypeName="GestionModel.VRemitos">
+        <MappingFragment StoreEntitySet="VRemitos">
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VivaVen">
+      <EntityTypeMapping TypeName="GestionModel.VivaVen">
+        <MappingFragment StoreEntitySet="VivaVen">
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="comisionProd" ColumnName="comisionProd" />
+          <ScalarProperty Name="comisionCliente" ColumnName="comisionCliente" />
+          <ScalarProperty Name="comisionVende" ColumnName="comisionVende" />
+          <ScalarProperty Name="comicli" ColumnName="comicli" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="remito" ColumnName="remito" />
+          <ScalarProperty Name="retinb" ColumnName="retinb" />
+          <ScalarProperty Name="retgan" ColumnName="retgan" />
+          <ScalarProperty Name="retiva" ColumnName="retiva" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="codcondic" ColumnName="codcondic" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="ivanoidif" ColumnName="ivanoidif" />
+          <ScalarProperty Name="ivaidif" ColumnName="ivaidif" />
+          <ScalarProperty Name="ivanoi" ColumnName="ivanoi" />
+          <ScalarProperty Name="ivai" ColumnName="ivai" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="exento" ColumnName="exento" />
+          <ScalarProperty Name="bonifto" ColumnName="bonifto" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VCliente2">
+      <EntityTypeMapping TypeName="GestionModel.VCliente2">
+        <MappingFragment StoreEntitySet="VCliente2">
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="fechalta" ColumnName="fechalta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="juridiccion" ColumnName="juridiccion" />
+          <ScalarProperty Name="cantCompras" ColumnName="cantCompras" />
+          <ScalarProperty Name="abonado" ColumnName="abonado" />
+          <ScalarProperty Name="incobrable" ColumnName="incobrable" />
+          <ScalarProperty Name="inhabilitado" ColumnName="inhabilitado" />
+          <ScalarProperty Name="activi" ColumnName="activi" />
+          <ScalarProperty Name="expreso" ColumnName="expreso" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="codigoArba" ColumnName="codigoArba" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="provincia_id" ColumnName="provincia_id" />
+          <ScalarProperty Name="localinom" ColumnName="localinom" />
+          <ScalarProperty Name="departamento_id" ColumnName="departamento_id" />
+          <ScalarProperty Name="localidad" ColumnName="localidad" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VCobranza2">
+      <EntityTypeMapping TypeName="GestionModel.VCobranza2">
+        <MappingFragment StoreEntitySet="VCobranza2">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="puntoo" ColumnName="puntoo" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="netoCobradoCli" ColumnName="netoCobradoCli" />
+          <ScalarProperty Name="netoCobradoProd" ColumnName="netoCobradoProd" />
+          <ScalarProperty Name="netoCobradoVend" ColumnName="netoCobradoVend" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="numeroo" ColumnName="numeroo" />
+          <ScalarProperty Name="empresao" ColumnName="empresao" />
+          <ScalarProperty Name="tipdoco" ColumnName="tipdoco" />
+          <ScalarProperty Name="letrao" ColumnName="letrao" />
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="comicocl" ColumnName="comicocl" />
+          <ScalarProperty Name="comicob" ColumnName="comicob" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="netocob" ColumnName="netocob" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LArtVendxVende" FunctionName="GestionModel.Store.LArtVendxVende">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LArtVendxVende_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="unidades" ColumnName="unidades" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="codRub" ColumnName="codRub" />
+          <ScalarProperty Name="descriRub" ColumnName="descriRub" />
+          <ScalarProperty Name="descriSubRu" ColumnName="descriSubRu" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="codsubrub" ColumnName="codsubrub" />
+          <ScalarProperty Name="nomvende" ColumnName="nomvende" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LWPresup" FunctionName="GestionModel.Store.LWPresup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LWPresup_Result1">
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="aprobados" ColumnName="aprobados" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="totalapro" ColumnName="totalapro" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="ganac" ColumnName="ganac" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SaldoProveedoresAllGroup" FunctionName="GestionModel.Store.SaldoProveedoresAllGroup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.SaldoProveedoresAllGroup_Result">
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="importeTotal" ColumnName="importeTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="LRemitosEmitidosDetalle">
+      <EntityTypeMapping TypeName="GestionModel.LRemitosEmitidosDetalle">
+        <MappingFragment StoreEntitySet="LRemitosEmitidosDetalle">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="cabeceraid" ColumnName="cabeceraid" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="tasaBonif" ColumnName="tasaBonif" />
+          <ScalarProperty Name="importeDesc" ColumnName="importeDesc" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VRemDet">
+      <EntityTypeMapping TypeName="GestionModel.VRemDet">
+        <MappingFragment StoreEntitySet="VRemDet">
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="cabeceraid" ColumnName="cabeceraid" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vVendedores">
+      <EntityTypeMapping TypeName="GestionModel.vVendedores">
+        <MappingFragment StoreEntitySet="vVendedores">
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="comision" ColumnName="comision" />
+          <ScalarProperty Name="comicob" ColumnName="comicob" />
+          <ScalarProperty Name="numdoc" ColumnName="numdoc" />
+          <ScalarProperty Name="tipdoc" ColumnName="tipdoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="telefo" ColumnName="telefo" />
+          <ScalarProperty Name="VendeNom" ColumnName="VendeNom" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FWmasDatos1" FunctionName="GestionModel.Store.FWmasDatos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.FWmasDatos1_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="comisionCliente" ColumnName="comisionCliente" />
+          <ScalarProperty Name="comisionVende" ColumnName="comisionVende" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FWmasDatos" FunctionName="GestionModel.Store.FWmasDatos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.FWmasDatos_Result">
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="comisionCliente" ColumnName="comisionCliente" />
+          <ScalarProperty Name="comisionVende" ColumnName="comisionVende" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LSaldoDeudores2" FunctionName="GestionModel.Store.LSaldoDeudores2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LSaldoDeudores2_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="impbonif" ColumnName="impbonif" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="nomven" ColumnName="nomven" />
+          <ScalarProperty Name="retiva" ColumnName="retiva" />
+          <ScalarProperty Name="retgan" ColumnName="retgan" />
+          <ScalarProperty Name="retib" ColumnName="retib" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="codProv" ColumnName="codProv" />
+          <ScalarProperty Name="moroso" ColumnName="moroso" />
+          <ScalarProperty Name="inhabilitado" ColumnName="inhabilitado" />
+          <ScalarProperty Name="incobrable" ColumnName="incobrable" />
+          <ScalarProperty Name="estcue1" ColumnName="estcue1" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="vence" ColumnName="vence" />
+          <ScalarProperty Name="importe1" ColumnName="importe1" />
+          <ScalarProperty Name="importe2" ColumnName="importe2" />
+          <ScalarProperty Name="esCredito" ColumnName="esCredito" />
+          <ScalarProperty Name="esDebito" ColumnName="esDebito" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="diasVence" ColumnName="diasVence" />
+          <ScalarProperty Name="diasEmision" ColumnName="diasEmision" />
+          <ScalarProperty Name="descriZona" ColumnName="descriZona" />
+          <ScalarProperty Name="credp" ColumnName="credp" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="condPago" ColumnName="condPago" />
+          <ScalarProperty Name="cotdoc" ColumnName="cotdoc" />
+          <ScalarProperty Name="simdoc" ColumnName="simdoc" />
+          <ScalarProperty Name="importeTotal" ColumnName="importeTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Movcli" FunctionName="GestionModel.Store.Movcli" />
+    <EntitySetMapping Name="pais">
+      <EntityTypeMapping TypeName="GestionModel.pais">
+        <MappingFragment StoreEntitySet="pais">
+          <ScalarProperty Name="pais1" ColumnName="pais" />
+          <ScalarProperty Name="denominacion" ColumnName="denominacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidoDet">
+      <EntityTypeMapping TypeName="GestionModel.PedidoDet">
+        <MappingFragment StoreEntitySet="PedidoDet">
+          <ScalarProperty Name="nrorepa" ColumnName="nrorepa" />
+          <ScalarProperty Name="bajostk" ColumnName="bajostk" />
+          <ScalarProperty Name="costoest" ColumnName="costoest" />
+          <ScalarProperty Name="uxbulto" ColumnName="uxbulto" />
+          <ScalarProperty Name="codorigi" ColumnName="codorigi" />
+          <ScalarProperty Name="listo" ColumnName="listo" />
+          <ScalarProperty Name="deta" ColumnName="deta" />
+          <ScalarProperty Name="impiva2" ColumnName="impiva2" />
+          <ScalarProperty Name="impiva1" ColumnName="impiva1" />
+          <ScalarProperty Name="ivagrupo" ColumnName="ivagrupo" />
+          <ScalarProperty Name="ivaporc2" ColumnName="ivaporc2" />
+          <ScalarProperty Name="ivaporc1" ColumnName="ivaporc1" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="unimed" ColumnName="unimed" />
+          <ScalarProperty Name="envase" ColumnName="envase" />
+          <ScalarProperty Name="precioesp" ColumnName="precioesp" />
+          <ScalarProperty Name="parafecha" ColumnName="parafecha" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="canasoc" ColumnName="canasoc" />
+          <ScalarProperty Name="asociado" ColumnName="asociado" />
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="impint" ColumnName="impint" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="precorig" ColumnName="precorig" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="preparado" ColumnName="preparado" />
+          <ScalarProperty Name="pendientes" ColumnName="pendientes" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="articulo" ColumnName="articulo" />
+          <ScalarProperty Name="item" ColumnName="item" />
+          <ScalarProperty Name="cabeceraid" ColumnName="cabeceraid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="presupd">
+      <EntityTypeMapping TypeName="GestionModel.presupd">
+        <MappingFragment StoreEntitySet="presupd">
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="ivaporc2" ColumnName="ivaporc2" />
+          <ScalarProperty Name="ivaporc1" ColumnName="ivaporc1" />
+          <ScalarProperty Name="precorig" ColumnName="precorig" />
+          <ScalarProperty Name="impint" ColumnName="impint" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="aprobados" ColumnName="aprobados" />
+          <ScalarProperty Name="deta" ColumnName="deta" />
+          <ScalarProperty Name="pnoi" ColumnName="pnoi" />
+          <ScalarProperty Name="pins" ColumnName="pins" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="envase" ColumnName="envase" />
+          <ScalarProperty Name="unimed" ColumnName="unimed" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="despacho" ColumnName="despacho" />
+          <ScalarProperty Name="pedido" ColumnName="pedido" />
+          <ScalarProperty Name="canasoc" ColumnName="canasoc" />
+          <ScalarProperty Name="asociado" ColumnName="asociado" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="bonito" ColumnName="bonito" />
+          <ScalarProperty Name="ivartinoi" ColumnName="ivartinoi" />
+          <ScalarProperty Name="ivartins" ColumnName="ivartins" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="prexcant" ColumnName="prexcant" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="cant" ColumnName="cant" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="remito" ColumnName="remito" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="cabeceraid" ColumnName="cabeceraid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="provee">
+      <EntityTypeMapping TypeName="GestionModel.provee">
+        <MappingFragment StoreEntitySet="provee">
+          <ScalarProperty Name="totmem" ColumnName="totmem" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="convenio" ColumnName="convenio" />
+          <ScalarProperty Name="vencecai" ColumnName="vencecai" />
+          <ScalarProperty Name="cai" ColumnName="cai" />
+          <ScalarProperty Name="lista" ColumnName="lista" />
+          <ScalarProperty Name="ley" ColumnName="ley" />
+          <ScalarProperty Name="feccom" ColumnName="feccom" />
+          <ScalarProperty Name="bonif1" ColumnName="bonif1" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="ubicacionid" ColumnName="ubicacionid" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="mensavenc" ColumnName="mensavenc" />
+          <ScalarProperty Name="diasvenc" ColumnName="diasvenc" />
+          <ScalarProperty Name="ctacon" ColumnName="ctacon" />
+          <ScalarProperty Name="visualiza" ColumnName="visualiza" />
+          <ScalarProperty Name="fantasia" ColumnName="fantasia" />
+          <ScalarProperty Name="rg924" ColumnName="rg924" />
+          <ScalarProperty Name="incobrable" ColumnName="incobrable" />
+          <ScalarProperty Name="noretiva" ColumnName="noretiva" />
+          <ScalarProperty Name="noretgan" ColumnName="noretgan" />
+          <ScalarProperty Name="porcenib" ColumnName="porcenib" />
+          <ScalarProperty Name="noretib" ColumnName="noretib" />
+          <ScalarProperty Name="monfac" ColumnName="monfac" />
+          <ScalarProperty Name="concepto" ColumnName="concepto" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="califica" ColumnName="califica" />
+          <ScalarProperty Name="pweb" ColumnName="pweb" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="credito" ColumnName="credito" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="comis" ColumnName="comis" />
+          <ScalarProperty Name="zona" ColumnName="zona" />
+          <ScalarProperty Name="ingbru" ColumnName="ingbru" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="expreso" ColumnName="expreso" />
+          <ScalarProperty Name="fax" ColumnName="fax" />
+          <ScalarProperty Name="telef2" ColumnName="telef2" />
+          <ScalarProperty Name="telef1" ColumnName="telef1" />
+          <ScalarProperty Name="codpos" ColumnName="codpos" />
+          <ScalarProperty Name="locali" ColumnName="locali" />
+          <ScalarProperty Name="direcom" ColumnName="direcom" />
+          <ScalarProperty Name="direcc" ColumnName="direcc" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="StockValorizado" FunctionName="GestionModel.Store.StockValorizado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.StockValorizado_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="descriRub" ColumnName="descriRub" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="volTot" ColumnName="volTot" />
+          <ScalarProperty Name="porcenIva" ColumnName="porcenIva" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="codcolor" ColumnName="codcolor" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LIvaCompra" FunctionName="GestionModel.Store.LIvaCompra">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="GestionModel.LIvaCompra_Result1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mes" ColumnName="mes" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="empresaid" ColumnName="empresaid" />
+          <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="nropro" ColumnName="nropro" />
+          <ScalarProperty Name="codcondic" ColumnName="codcondic" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="provin" ColumnName="provin" />
+          <ScalarProperty Name="cuit" ColumnName="cuit" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="neto" ColumnName="neto" />
+          <ScalarProperty Name="neto1" ColumnName="neto1" />
+          <ScalarProperty Name="exento" ColumnName="exento" />
+          <ScalarProperty Name="retiva" ColumnName="retiva" />
+          <ScalarProperty Name="retgan" ColumnName="retgan" />
+          <ScalarProperty Name="retinbr" ColumnName="retinbr" />
+          <ScalarProperty Name="retinbrcap" ColumnName="retinbrcap" />
+          <ScalarProperty Name="subtot" ColumnName="subtot" />
+          <ScalarProperty Name="ivai" ColumnName="ivai" />
+          <ScalarProperty Name="ivanoi" ColumnName="ivanoi" />
+          <ScalarProperty Name="ivaidif" ColumnName="ivaidif" />
+          <ScalarProperty Name="ivanoidif" ColumnName="ivanoidif" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="respon" ColumnName="respon" />
+          <ScalarProperty Name="bonif" ColumnName="bonif" />
+          <ScalarProperty Name="bonitot" ColumnName="bonitot" />
+          <ScalarProperty Name="condicion" ColumnName="condicion" />
+          <ScalarProperty Name="porcen1" ColumnName="porcen1" />
+          <ScalarProperty Name="porcen2" ColumnName="porcen2" />
+          <ScalarProperty Name="porcen1dif" ColumnName="porcen1dif" />
+          <ScalarProperty Name="porcen2dif" ColumnName="porcen2dif" />
+          <ScalarProperty Name="actustk" ColumnName="actustk" />
+          <ScalarProperty Name="verificado" ColumnName="verificado" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="retibcap" ColumnName="retibcap" />
+          <ScalarProperty Name="razsocCliente" ColumnName="razsocCliente" />
+          <ScalarProperty Name="retibrcap" ColumnName="retibrcap" />
+          <ScalarProperty Name="retsuss" ColumnName="retsuss" />
+          <ScalarProperty Name="nrocli" ColumnName="nrocli" />
+          <ScalarProperty Name="concepto" ColumnName="concepto" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+          <ScalarProperty Name="nroret" ColumnName="nroret" />
+          <ScalarProperty Name="cerrado" ColumnName="cerrado" />
+          <ScalarProperty Name="cai" ColumnName="cai" />
+          <ScalarProperty Name="vencecai" ColumnName="vencecai" />
+          <ScalarProperty Name="retinbotra" ColumnName="retinbotra" />
+          <ScalarProperty Name="nroiva" ColumnName="nroiva" />
+          <ScalarProperty Name="nrogan" ColumnName="nrogan" />
+          <ScalarProperty Name="nrocap" ColumnName="nrocap" />
+          <ScalarProperty Name="nroib" ColumnName="nroib" />
+          <ScalarProperty Name="nrootra" ColumnName="nrootra" />
+          <ScalarProperty Name="nroprov" ColumnName="nroprov" />
+          <ScalarProperty Name="nrosus" ColumnName="nrosus" />
+          <ScalarProperty Name="ctacon" ColumnName="ctacon" />
+          <ScalarProperty Name="ctacon1" ColumnName="ctacon1" />
+          <ScalarProperty Name="ctaconex" ColumnName="ctaconex" />
+          <ScalarProperty Name="pasoacont" ColumnName="pasoacont" />
+          <ScalarProperty Name="nombreusu" ColumnName="nombreusu" />
+          <ScalarProperty Name="otrosimp" ColumnName="otrosimp" />
+          <ScalarProperty Name="monedacodigo" ColumnName="monedacodigo" />
+          <ScalarProperty Name="razsocProvee" ColumnName="razsocProvee" />
+          <ScalarProperty Name="descriConcept" ColumnName="descriConcept" />
+          <ScalarProperty Name="descriGCom" ColumnName="descriGCom" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="stock">
+      <EntityTypeMapping TypeName="GestionModel.stock">
+        <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="execf" ColumnName="execf" />
+          <ScalarProperty Name="ds5" ColumnName="ds5" />
+          <ScalarProperty Name="ds4" ColumnName="ds4" />
+          <ScalarProperty Name="ds3" ColumnName="ds3" />
+          <ScalarProperty Name="ds2" ColumnName="ds2" />
+          <ScalarProperty Name="ds1" ColumnName="ds1" />
+          <ScalarProperty Name="codcolor" ColumnName="codcolor" />
+          <ScalarProperty Name="factucomp" ColumnName="factucomp" />
+          <ScalarProperty Name="sinprec" ColumnName="sinprec" />
+          <ScalarProperty Name="codcot" ColumnName="codcot" />
+          <ScalarProperty Name="exigelote" ColumnName="exigelote" />
+          <ScalarProperty Name="uxdisp" ColumnName="uxdisp" />
+          <ScalarProperty Name="codsku" ColumnName="codsku" />
+          <ScalarProperty Name="coddisp" ColumnName="coddisp" />
+          <ScalarProperty Name="modifdescr" ColumnName="modifdescr" />
+          <ScalarProperty Name="internos" ColumnName="internos" />
+          <ScalarProperty Name="porceasoc" ColumnName="porceasoc" />
+          <ScalarProperty Name="cantmin" ColumnName="cantmin" />
+          <ScalarProperty Name="presug" ColumnName="presug" />
+          <ScalarProperty Name="impasoc" ColumnName="impasoc" />
+          <ScalarProperty Name="impint" ColumnName="impint" />
+          <ScalarProperty Name="tipoart" ColumnName="tipoart" />
+          <ScalarProperty Name="prelis" ColumnName="prelis" />
+          <ScalarProperty Name="uxbulto" ColumnName="uxbulto" />
+          <ScalarProperty Name="canths" ColumnName="canths" />
+          <ScalarProperty Name="meses" ColumnName="meses" />
+          <ScalarProperty Name="promedio" ColumnName="promedio" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="comipcob" ColumnName="comipcob" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="boniprod" ColumnName="boniprod" />
+          <ScalarProperty Name="ppedido" ColumnName="ppedido" />
+          <ScalarProperty Name="stomin" ColumnName="stomin" />
+          <ScalarProperty Name="precio6" ColumnName="precio6" />
+          <ScalarProperty Name="precio5" ColumnName="precio5" />
+          <ScalarProperty Name="precio4" ColumnName="precio4" />
+          <ScalarProperty Name="precio3" ColumnName="precio3" />
+          <ScalarProperty Name="precio2" ColumnName="precio2" />
+          <ScalarProperty Name="precio1" ColumnName="precio1" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="msgstkptoped" ColumnName="msgstkptoped" />
+          <ScalarProperty Name="noborrarelart" ColumnName="noborrarelart" />
+          <ScalarProperty Name="discont" ColumnName="discont" />
+          <ScalarProperty Name="vtaxbul" ColumnName="vtaxbul" />
+          <ScalarProperty Name="descomp" ColumnName="descomp" />
+          <ScalarProperty Name="oferta" ColumnName="oferta" />
+          <ScalarProperty Name="artret" ColumnName="artret" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="cosfverif" ColumnName="cosfverif" />
+          <ScalarProperty Name="fechpped" ColumnName="fechpped" />
+          <ScalarProperty Name="fechestr" ColumnName="fechestr" />
+          <ScalarProperty Name="fecprom" ColumnName="fecprom" />
+          <ScalarProperty Name="fechveri" ColumnName="fechveri" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="alta" ColumnName="alta" />
+          <ScalarProperty Name="fecmodcos" ColumnName="fecmodcos" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="ctacon" ColumnName="ctacon" />
+          <ScalarProperty Name="ivagrupo" ColumnName="ivagrupo" />
+          <ScalarProperty Name="envase" ColumnName="envase" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="proveed" ColumnName="proveed" />
+          <ScalarProperty Name="unimed" ColumnName="unimed" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="subrub" ColumnName="subrub" />
+          <ScalarProperty Name="rubro" ColumnName="rubro" />
+          <ScalarProperty Name="observa" ColumnName="observa" />
+          <ScalarProperty Name="usoart" ColumnName="usoart" />
+          <ScalarProperty Name="descrilar" ColumnName="descrilar" />
+          <ScalarProperty Name="usuestr" ColumnName="usuestr" />
+          <ScalarProperty Name="pathetiq" ColumnName="pathetiq" />
+          <ScalarProperty Name="pathfoto" ColumnName="pathfoto" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="verifico" ColumnName="verifico" />
+          <ScalarProperty Name="despacho" ColumnName="despacho" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="codncm" ColumnName="codncm" />
+          <ScalarProperty Name="coriginal" ColumnName="coriginal" />
+          <ScalarProperty Name="codorigi" ColumnName="codorigi" />
+          <ScalarProperty Name="dun14" ColumnName="dun14" />
+          <ScalarProperty Name="cbarras" ColumnName="cbarras" />
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "webservices": "webservicesjustsolution",
+    "services": "webservicesjustsolution",
+    "default": "webservicesjustsolution"
+  }
+}
