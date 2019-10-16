@@ -928,6 +928,7 @@
     <EntitySetMapping Name="rubros">
       <EntityTypeMapping TypeName="gestionModel.rubros">
         <MappingFragment StoreEntitySet="rubros">
+          <ScalarProperty Name="mostrarweb" ColumnName="mostrarweb" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
           <ScalarProperty Name="descri" ColumnName="descri" />
@@ -950,6 +951,8 @@
     <EntitySetMapping Name="stock">
       <EntityTypeMapping TypeName="gestionModel.stock">
         <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="uxmedia" ColumnName="uxmedia" />
+          <ScalarProperty Name="CodMedia" ColumnName="CodMedia" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="codpro" ColumnName="codpro" />
           <ScalarProperty Name="cbarras" ColumnName="cbarras" />
@@ -1604,6 +1607,9 @@
     <EntitySetMapping Name="proctad">
       <EntityTypeMapping TypeName="gestionModel.proctad">
         <MappingFragment StoreEntitySet="proctad">
+          <ScalarProperty Name="monedacodigo" ColumnName="monedacodigo" />
+          <ScalarProperty Name="cotizacion" ColumnName="cotizacion" />
+          <ScalarProperty Name="simbolo" ColumnName="simbolo" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="empresaid" ColumnName="empresaid" />
           <ScalarProperty Name="tipodocid" ColumnName="tipodocid" />
@@ -3611,5 +3617,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LStockActua1" FunctionName="gestionModel.Store.LStockActua">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="gestionModel.LStockActua1_Result">
+          <ScalarProperty Name="codpro" ColumnName="codpro" />
+          <ScalarProperty Name="descri" ColumnName="descri" />
+          <ScalarProperty Name="stomin" ColumnName="stomin" />
+          <ScalarProperty Name="ppedido" ColumnName="ppedido" />
+          <ScalarProperty Name="fechaact" ColumnName="fechaact" />
+          <ScalarProperty Name="saldoActual" ColumnName="saldoActual" />
+          <ScalarProperty Name="diferencia" ColumnName="diferencia" />
+          <ScalarProperty Name="cantmin" ColumnName="cantmin" />
+          <ScalarProperty Name="consProm" ColumnName="consProm" />
+          <ScalarProperty Name="discont" ColumnName="discont" />
+          <ScalarProperty Name="marcaCod" ColumnName="marcaCod" />
+          <ScalarProperty Name="proveedCod" ColumnName="proveedCod" />
+          <ScalarProperty Name="codsubrub" ColumnName="codsubrub" />
+          <ScalarProperty Name="codrubro" ColumnName="codrubro" />
+          <ScalarProperty Name="rubroDescri" ColumnName="rubroDescri" />
+          <ScalarProperty Name="tipoart" ColumnName="tipoart" />
+          <ScalarProperty Name="cantenv" ColumnName="cantenv" />
+          <ScalarProperty Name="incluido" ColumnName="incluido" />
+          <ScalarProperty Name="ivaAgregado" ColumnName="ivaAgregado" />
+          <ScalarProperty Name="fechveri" ColumnName="fechveri" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="codcolor" ColumnName="codcolor" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

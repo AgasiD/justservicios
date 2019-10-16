@@ -121,24 +121,54 @@ public class ControladorProducto
             }*/
         }
 
-    public RequestHTTP (string value, int empid, int offset)
+    public RequestHTTP getProductos (string value, int empid, int offset)
     {
         var req = new RequestHTTP();
         try
         {
+            List<Producto> lista;
             using (GestionEntities bd = new GestionEntities())
             {
                 bd.Database.CommandTimeout = 30;
                 if (value == "0")
-                    req.objeto = bd.Database.SqlQuery<Producto>("select pathfoto, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase, envases.codigo AS codEnvase,envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo FROM stock LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo LEFT OUTER JOIN envases ON envases.id = stock.envase LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro").ToList();
+                     lista = bd.Database.SqlQuery<Producto>("select pathfoto, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase, envases.codigo AS codEnvase,envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo FROM stock LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo LEFT OUTER JOIN envases ON envases.id = stock.envase LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro").ToList();
                 else
-                    req.objeto = bd.Database.SqlQuery<Producto>("select pathfoto, stock.id, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase, envases.codigo AS codEnvase,envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo FROM stock LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo LEFT OUTER JOIN envases ON envases.id = stock.envase LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro where stock.codpro like '%" + value + "%' or stock.descri like '%" + value + "%' order by descri offset " + offset + " rows fetch next 20 row only").ToList();
-                return req;
+                    lista = bd.Database.SqlQuery<Producto>("select pathfoto, stock.id, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase, envases.codigo AS codEnvase,envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo FROM stock LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo LEFT OUTER JOIN envases ON envases.id = stock.envase LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro where stock.codpro like '%" + value + "%' or stock.descri like '%" + value + "%' order by descri offset " + offset + " rows fetch next 20 row only").ToList();
             }
+            foreach (var prod in lista)
+            {
+                if (prod.pathfoto != "")
+                {
+                    prod.pathfoto = acortarPath(prod.pathfoto);
+                }
+                if (prod.pathfoto == "")
+                {
+                    prod.pathfoto = "empty";
+                }
+            }
+            req.objeto = lista;
+                return req;
         } catch (Exception e)
         {
             return req.falla(e);
         }
+    }
+
+    private string acortarPath(string path)
+    {
+        int index;
+            index = path.IndexOf(@"\");
+        for(int i = 0; i < 3; i++)
+        {
+            if(index >= 0)
+            {
+                index = path.IndexOf(@"\", index+1);
+            }
+        }
+        if (index >= 0)
+            path = path.Substring(index);
+
+        return path;
     }
 
     

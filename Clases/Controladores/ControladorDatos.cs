@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Web.Http.Results;
+using System.Configuration;
 
 namespace JustServicios.Clases.Controladores
 {
@@ -13,12 +14,12 @@ namespace JustServicios.Clases.Controladores
         private SqlConnection connection;
         private  SqlCommand command;
         private  SqlDataReader dataReader;
-        private string connetionString = "Data Source=maral.no-ip.info\\SQLEXPRESS;Initial Catalog=Gestion;User ID=just;Password=just";
+        private string connetionString = "Data Source=maral.no-ip.info\\sqlExpress;Initial Catalog=Gestion;User ID=just;Password=just"; //ConfigurationManager.ConnectionStrings["GestionEntities"].ConnectionString;
 
         public ControladorDatos()
         {
         }
-
+        
        public ControladorDatos getInstancia()
         {
             if(instancia == null)

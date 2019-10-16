@@ -258,7 +258,7 @@ namespace JustServicios
         }
     
         [DbFunction("GestionEntities", "LFOpxRubro")]
-        public virtual IQueryable<LFOpxRubro_Result> LFOpxRubro(Nullable<System.DateTime> dsd, Nullable<System.DateTime> hst)
+        public virtual IQueryable<LFOpxRubro_Result> LFOpxRubro(Nullable<System.DateTime> dsd, Nullable<System.DateTime> hst, Nullable<int> empresa)
         {
             var dsdParameter = dsd.HasValue ?
                 new ObjectParameter("dsd", dsd) :
@@ -268,7 +268,11 @@ namespace JustServicios
                 new ObjectParameter("hst", hst) :
                 new ObjectParameter("hst", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<LFOpxRubro_Result>("[GestionEntities].[LFOpxRubro](@dsd, @hst)", dsdParameter, hstParameter);
+            var empresaParameter = empresa.HasValue ?
+                new ObjectParameter("empresa", empresa) :
+                new ObjectParameter("empresa", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<LFOpxRubro_Result>("[GestionEntities].[LFOpxRubro](@dsd, @hst, @empresa)", dsdParameter, hstParameter, empresaParameter);
         }
     
         [DbFunction("GestionEntities", "LFOpxRubroCompra")]
@@ -674,7 +678,7 @@ namespace JustServicios
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CotiMesAMes", dsdParameter, empresaParameter, desdeParameter, hastaParameter);
         }
     
-        public virtual int SP_CotiMesAMesModificado(Nullable<int> dsd, string empresa, Nullable<System.DateTime> desde, Nullable<System.DateTime> hasta)
+        public virtual int SP_CotiMesAMesModificado(Nullable<int> dsd, string empresa, Nullable<System.DateTime> desde, Nullable<System.DateTime> hasta, string query)
         {
             var dsdParameter = dsd.HasValue ?
                 new ObjectParameter("dsd", dsd) :
@@ -692,7 +696,11 @@ namespace JustServicios
                 new ObjectParameter("Hasta", hasta) :
                 new ObjectParameter("Hasta", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CotiMesAMesModificado", dsdParameter, empresaParameter, desdeParameter, hastaParameter);
+            var queryParameter = query != null ?
+                new ObjectParameter("query", query) :
+                new ObjectParameter("query", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CotiMesAMesModificado", dsdParameter, empresaParameter, desdeParameter, hastaParameter, queryParameter);
         }
     
         public virtual ObjectResult<sp_NoVendidos_Result> sp_NoVendidos(Nullable<System.DateTime> desde, Nullable<System.DateTime> hasta, Nullable<int> empresa, Nullable<bool> incluirCoti)
@@ -769,6 +777,20 @@ namespace JustServicios
                 new ObjectParameter("empresa", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StockxArticulo_Result>("StockxArticulo", empresaParameter);
+        }
+    
+        [DbFunction("GestionEntities", "LStockActua1")]
+        public virtual IQueryable<LStockActua1_Result> LStockActua1(Nullable<decimal> empresa, Nullable<int> precio)
+        {
+            var empresaParameter = empresa.HasValue ?
+                new ObjectParameter("Empresa", empresa) :
+                new ObjectParameter("Empresa", typeof(decimal));
+    
+            var precioParameter = precio.HasValue ?
+                new ObjectParameter("precio", precio) :
+                new ObjectParameter("precio", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<LStockActua1_Result>("[GestionEntities].[LStockActua1](@Empresa, @precio)", empresaParameter, precioParameter);
         }
     }
 }

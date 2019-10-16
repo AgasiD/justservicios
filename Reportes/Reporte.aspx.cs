@@ -329,13 +329,13 @@ public partial class Reporte : System.Web.UI.Page
             orden = Convert.ToInt32(Request.QueryString["orden"].ToString());
         bool conIVA = Convert.ToBoolean(Request.QueryString["iva"].ToString());
         decimal tasaIVA;
-        List<LStockActua_Result> lista;
+        List<LStockActua1_Result> lista;
         using (GestionEntities bd = new GestionEntities())
         {
             if (query != "")
-                lista = bd.Database.SqlQuery<LStockActua_Result>("select * from LStockActua(" + empresa + "," + precio + ") where " + query).ToList();
+                lista = bd.Database.SqlQuery<LStockActua1_Result>("select * from LStockActua(" + empresa + "," + precio + ") where " + query).ToList();
             else
-                lista = bd.Database.SqlQuery<LStockActua_Result>("select * from LStockActua(" + empresa + "," + precio + ")").ToList();
+                lista = bd.Database.SqlQuery<LStockActua1_Result>("select * from LStockActua(" + empresa + "," + precio + ")").ToList();
         }
         if (conIVA)
         {

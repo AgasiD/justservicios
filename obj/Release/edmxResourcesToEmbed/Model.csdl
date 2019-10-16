@@ -1762,6 +1762,7 @@
     <Property Name="rubmar5" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
     <Property Name="rubmar6" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
     <Property Name="incluac" Type="Boolean" Nullable="false" />
+    <Property Name="mostrarweb" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="stock">
     <Key>
@@ -1839,7 +1840,7 @@
     <Property Name="modifdescr" Type="Boolean" Nullable="false" />
     <Property Name="coddisp" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="codsku" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="uxdisp" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="uxdisp" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="exigelote" Type="Boolean" Nullable="false" />
     <Property Name="codcot" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="sinprec" Type="Boolean" Nullable="false" />
@@ -1851,6 +1852,8 @@
     <Property Name="ds4" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
     <Property Name="ds5" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
     <Property Name="execf" Type="Boolean" Nullable="false" />
+    <Property Name="CodMedia" Type="String" Nullable="false" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="uxmedia" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="subrub">
     <Key>
@@ -2725,6 +2728,9 @@
       <PropertyRef Name="eschqrech" />
       <PropertyRef Name="retuveib" />
       <PropertyRef Name="proctaid" />
+      <PropertyRef Name="simbolo" />
+      <PropertyRef Name="cotizacion" />
+      <PropertyRef Name="monedacodigo" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="empresaid" Type="Int32" Nullable="false" />
@@ -2743,6 +2749,9 @@
     <Property Name="eschqrech" Type="Boolean" Nullable="false" />
     <Property Name="retuveib" Type="Boolean" Nullable="false" />
     <Property Name="proctaid" Type="Int32" Nullable="false" />
+    <Property Name="simbolo" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="cotizacion" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="monedacodigo" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="RemitoCab">
     <Key>
@@ -4462,79 +4471,80 @@
       <End EntitySet="provee" Role="provee" />
     </AssociationSet>
     <FunctionImport Name="Cotimesxmes" IsComposable="true" ReturnType="Collection(gestionModel.Cotimesxmes_Result)">
-      <Parameter Name="desde" Type="DateTime" Mode="In" />
-      <Parameter Name="hasta" Type="DateTime" Mode="In" />
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="desde" Mode="In" Type="DateTime" />
+      <Parameter Name="hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="CotimesxmesAgrupCliente" IsComposable="true" ReturnType="Collection(gestionModel.CotimesxmesAgrupCliente_Result)">
-      <Parameter Name="desde" Type="DateTime" Mode="In" />
-      <Parameter Name="hasta" Type="DateTime" Mode="In" />
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="desde" Mode="In" Type="DateTime" />
+      <Parameter Name="hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="CotimesxmesAgrupProd" IsComposable="true" ReturnType="Collection(gestionModel.CotimesxmesAgrupProd_Result)">
-      <Parameter Name="desde" Type="DateTime" Mode="In" />
-      <Parameter Name="hasta" Type="DateTime" Mode="In" />
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="desde" Mode="In" Type="DateTime" />
+      <Parameter Name="hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="FlistPuntoPedido" IsComposable="true" ReturnType="Collection(gestionModel.FlistPuntoPedido_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="FWmasDatos" IsComposable="true" ReturnType="Collection(gestionModel.FWmasDatos_Result)">
-      <Parameter Name="nrocli" Type="Int32" Mode="In" />
+      <Parameter Name="nrocli" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LArtVendAgrupando" IsComposable="true" ReturnType="Collection(gestionModel.LArtVendAgrupando_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LArtVendxVende" IsComposable="true" ReturnType="Collection(gestionModel.LArtVendxVende_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="lArtxProveedor" IsComposable="true" ReturnType="Collection(gestionModel.lArtxProveedor_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="lCliente" IsComposable="true" ReturnType="Collection(gestionModel.lCliente_Result)" />
     <FunctionImport Name="LClientes" IsComposable="true" ReturnType="Collection(gestionModel.LClientes_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="LFOpxRubro" IsComposable="true" ReturnType="Collection(gestionModel.LFOpxRubro_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LFOpxRubroCompra" IsComposable="true" ReturnType="Collection(gestionModel.LFOpxRubroCompra_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LInforme" IsComposable="true" ReturnType="Collection(gestionModel.LInforme_Result)" />
     <FunctionImport Name="LIvaVen" IsComposable="true" ReturnType="Collection(gestionModel.LIvaVen_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LOrdenesDeCompraPendientes" IsComposable="true" ReturnType="Collection(gestionModel.LOrdenesDeCompraPendientes_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="lPais" IsComposable="true" ReturnType="Collection(gestionModel.lPais_Result)" />
     <FunctionImport Name="lProvee" IsComposable="true" ReturnType="Collection(gestionModel.lProvee_Result)" />
     <FunctionImport Name="LsaldoCli" IsComposable="true" ReturnType="Collection(gestionModel.LsaldoCli_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="LsaldoDeudores" IsComposable="true" ReturnType="Collection(gestionModel.LsaldoDeudores_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
-      <Parameter Name="fechaAcre" Type="DateTime" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
+      <Parameter Name="fechaAcre" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="LSaldoDeudores2" IsComposable="true" ReturnType="Collection(gestionModel.LSaldoDeudores2_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
-      <Parameter Name="fechaAcre" Type="DateTime" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="fechaAcre" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="lstock" IsComposable="true" ReturnType="Collection(gestionModel.lstock_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LStockActua" IsComposable="true" ReturnType="Collection(gestionModel.LStockActua_Result)">
       <Parameter Name="Empresa" Mode="In" Type="Decimal" />
@@ -4542,113 +4552,118 @@
     </FunctionImport>
     <FunctionImport Name="lTransporte" IsComposable="true" ReturnType="Collection(gestionModel.lTransporte_Result)" />
     <FunctionImport Name="LVentasPorProducto" IsComposable="true" ReturnType="Collection(gestionModel.LVentasPorProducto_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="LWPedPendientes" IsComposable="true" ReturnType="Collection(gestionModel.LWPedPendientes_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="LWPresup" IsComposable="true" ReturnType="Collection(gestionModel.LWPresup_Result)">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="lZonas" IsComposable="true" ReturnType="Collection(gestionModel.lZonas_Result)" />
     <FunctionImport Name="NoVendidos" IsComposable="true" ReturnType="Collection(gestionModel.NoVendidos_Result)">
-      <Parameter Name="desde" Type="DateTime" Mode="In" />
-      <Parameter Name="hasta" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="desde" Mode="In" Type="DateTime" />
+      <Parameter Name="hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="PadronIIBBporCuit" IsComposable="true" ReturnType="Collection(gestionModel.PadronIIBBporCuit_Result)">
-      <Parameter Name="cuit" Type="String" Mode="In" />
+      <Parameter Name="cuit" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="PadronIIBBxCuityProv" IsComposable="true" ReturnType="Collection(gestionModel.PadronIIBBxCuityProv_Result)">
-      <Parameter Name="cuit" Type="String" Mode="In" />
+      <Parameter Name="cuit" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="SaldoClientesAllGroup" IsComposable="true" ReturnType="Collection(gestionModel.SaldoClientesAllGroup_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="SaldoProveedoresAllGroup" IsComposable="true" ReturnType="Collection(gestionModel.SaldoProveedoresAllGroup_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="stockPresupuesto" IsComposable="true" ReturnType="Collection(gestionModel.stockPresupuesto_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="stocksF" IsComposable="true" ReturnType="Collection(gestionModel.stocksF_Result)">
-      <Parameter Name="Empresa" Type="Int32" Mode="In" />
+      <Parameter Name="Empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="StockValorizado" ReturnType="Collection(gestionModel.StockValorizado_Result)" IsComposable="true">
       <Parameter Name="empresa" Type="Int32" Mode="In" />
       <Parameter Name="precio" Type="Int32" Mode="In" />
     </FunctionImport>
     <FunctionImport Name="sucursalesCliente" IsComposable="true" ReturnType="Collection(gestionModel.sucursalesCliente_Result)">
-      <Parameter Name="nrocli" Type="Int32" Mode="In" />
+      <Parameter Name="nrocli" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="WCliente" IsComposable="true" ReturnType="Collection(gestionModel.WCliente_Result)">
-      <Parameter Name="vende" Type="Int32" Mode="In" />
-      <Parameter Name="dia" Type="String" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="vende" Mode="In" Type="Int32" />
+      <Parameter Name="dia" Mode="In" Type="String" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="WpuntoPorEmpresa" IsComposable="true" ReturnType="Collection(gestionModel.WpuntoPorEmpresa_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="ArmaMenuWeb" ReturnType="Collection(gestionModel.ArmaMenuWeb_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
-      <Parameter Name="usuario" Type="Int32" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="usuario" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="ArmaPopupWeb" ReturnType="Collection(gestionModel.ArmaPopupWeb_Result)">
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
-      <Parameter Name="usuario" Type="Int32" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="usuario" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="CambioCodStk">
-      <Parameter Name="lccodpro" Type="String" Mode="In" />
-      <Parameter Name="lcNuevoCodpro" Type="String" Mode="In" />
+      <Parameter Name="lccodpro" Mode="In" Type="String" />
+      <Parameter Name="lcNuevoCodpro" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="liquidarIvaVen">
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
-      <Parameter Name="vendedor" Type="Decimal" Mode="In" />
-      <Parameter Name="cotizaciones" Type="Decimal" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="vendedor" Mode="In" Type="Decimal" />
+      <Parameter Name="cotizaciones" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="SP_CotiMesAMes">
-      <Parameter Name="dsd" Type="Int32" Mode="In" />
-      <Parameter Name="Empresa" Type="String" Mode="In" />
-      <Parameter Name="Desde" Type="DateTime" Mode="In" />
-      <Parameter Name="Hasta" Type="DateTime" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="Int32" />
+      <Parameter Name="Empresa" Mode="In" Type="String" />
+      <Parameter Name="Desde" Mode="In" Type="DateTime" />
+      <Parameter Name="Hasta" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="SP_CotiMesAMesModificado">
-      <Parameter Name="dsd" Type="Int32" Mode="In" />
-      <Parameter Name="Empresa" Type="String" Mode="In" />
-      <Parameter Name="Desde" Type="DateTime" Mode="In" />
-      <Parameter Name="Hasta" Type="DateTime" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="Int32" />
+      <Parameter Name="Empresa" Mode="In" Type="String" />
+      <Parameter Name="Desde" Mode="In" Type="DateTime" />
+      <Parameter Name="Hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="query" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_NoVendidos" ReturnType="Collection(gestionModel.sp_NoVendidos_Result)">
-      <Parameter Name="desde" Type="DateTime" Mode="In" />
-      <Parameter Name="hasta" Type="DateTime" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
-      <Parameter Name="incluirCoti" Type="Boolean" Mode="In" />
+      <Parameter Name="desde" Mode="In" Type="DateTime" />
+      <Parameter Name="hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="incluirCoti" Mode="In" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="sp_PuntoPedido" ReturnType="Collection(gestionModel.sp_PuntoPedido_Result)">
-      <Parameter Name="incluye" Type="Int32" Mode="In" />
-      <Parameter Name="empresa" Type="Int32" Mode="In" />
-      <Parameter Name="dsd" Type="DateTime" Mode="In" />
-      <Parameter Name="hst" Type="DateTime" Mode="In" />
+      <Parameter Name="incluye" Mode="In" Type="Int32" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
     </FunctionImport>
     <FunctionImport Name="SP_VentasMesAMes">
-      <Parameter Name="dsd" Type="Int32" Mode="In" />
-      <Parameter Name="Empresa" Type="String" Mode="In" />
-      <Parameter Name="Desde" Type="DateTime" Mode="In" />
-      <Parameter Name="Hasta" Type="DateTime" Mode="In" />
-      <Parameter Name="query" Type="String" Mode="In" />
+      <Parameter Name="dsd" Mode="In" Type="Int32" />
+      <Parameter Name="Empresa" Mode="In" Type="String" />
+      <Parameter Name="Desde" Mode="In" Type="DateTime" />
+      <Parameter Name="Hasta" Mode="In" Type="DateTime" />
+      <Parameter Name="query" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="StockxArticulo" ReturnType="Collection(gestionModel.StockxArticulo_Result)">
-      <Parameter Name="empresa" Type="Decimal" Mode="In" />
+      <Parameter Name="empresa" Mode="In" Type="Decimal" />
     </FunctionImport>
     <EntitySet Name="passwd" EntityType="gestionModel.passwd" />
     <EntitySet Name="RWRefCliente" EntityType="gestionModel.RWRefCliente" />
     <EntitySet Name="VCobran" EntityType="gestionModel.VCobran" />
     <EntitySet Name="vistacomprabantepresupuesto" EntityType="gestionModel.vistacomprabantepresupuesto" />
+    <FunctionImport Name="LStockActua1" IsComposable="true" ReturnType="Collection(gestionModel.LStockActua1_Result)">
+      <Parameter Name="Empresa" Mode="In" Type="Decimal" />
+      <Parameter Name="precio" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ArmaMenuWeb_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -4882,4 +4897,29 @@
     <Property Name="moneda" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="pathfoto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="LStockActua1_Result">
+    <Property Type="String" Name="codpro" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="descri" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="stomin" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ppedido" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="fechaact" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="saldoActual" Nullable="false" Precision="38" Scale="4" />
+    <Property Type="Decimal" Name="diferencia" Nullable="true" Precision="38" Scale="4" />
+    <Property Type="Decimal" Name="cantmin" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="consProm" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Boolean" Name="discont" Nullable="false" />
+    <Property Type="Decimal" Name="marcaCod" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="proveedCod" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="codsubrub" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Int32" Name="codrubro" Nullable="false" />
+    <Property Type="String" Name="rubroDescri" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="tipoart" Nullable="false" />
+    <Property Type="Decimal" Name="cantenv" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Boolean" Name="incluido" Nullable="false" />
+    <Property Type="Decimal" Name="ivaAgregado" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="DateTime" Name="fechveri" Nullable="false" Precision="23" />
+    <Property Type="String" Name="color" Nullable="false" MaxLength="13" />
+    <Property Type="Int32" Name="codcolor" Nullable="false" />
+    <Property Type="Decimal" Name="precio" Nullable="true" Precision="18" Scale="4" />
+  </ComplexType>
 </Schema>

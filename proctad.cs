@@ -31,5 +31,8 @@ namespace JustServicios
         public bool eschqrech { get; set; }
         public bool retuveib { get; set; }
         public int proctaid { get; set; }
+        public string simbolo { get; set; }
+        public decimal cotizacion { get; set; }
+        public string monedacodigo { get; set; }
     }
 }

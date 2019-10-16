@@ -171,9 +171,7 @@ namespace JustServicios
             {
                 return null;
             }
-            return Json<RequestHTTP>(ControladorProducto.getCProducto().getProductos
-                
-                (value, empid, offset));
+            return Json<RequestHTTP>(ControladorProducto.getCProducto().getProductos(value, empid, offset));
         }
 
         [System.Web.Http.HttpGet]

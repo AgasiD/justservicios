@@ -98,5 +98,7 @@ namespace JustServicios
         public decimal ds4 { get; set; }
         public decimal ds5 { get; set; }
         public bool execf { get; set; }
+        public string CodMedia { get; set; }
+        public decimal uxmedia { get; set; }
     }
 }

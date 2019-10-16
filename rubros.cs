@@ -30,5 +30,6 @@ namespace JustServicios
         public decimal rubmar5 { get; set; }
         public decimal rubmar6 { get; set; }
         public bool incluac { get; set; }
+        public bool mostrarweb { get; set; }
     }
 }
