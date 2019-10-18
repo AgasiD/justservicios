@@ -41,10 +41,6 @@
           <DataField>empresa</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="netocob">
-          <DataField>netocob</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="comiprod">
           <DataField>comiprod</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -55,6 +51,14 @@
         </Field>
         <Field Name="comicocl">
           <DataField>comicocl</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="comision">
+          <DataField>comision</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="acobrar">
+          <DataField>acobrar</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="liquidada">
@@ -81,16 +85,8 @@
           <DataField>codven</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="netoCobradoVend">
-          <DataField>netoCobradoVend</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="netoCobradoProd">
-          <DataField>netoCobradoProd</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="netoCobradoCli">
-          <DataField>netoCobradoCli</DataField>
+        <Field Name="netocob">
+          <DataField>netocob</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="punto">
@@ -109,10 +105,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>JustsaDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\inetpub\wwwroot\JustServicios\JustServicios\JustsaDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>VCobranza2</rd:TableName>
+        <rd:TableName>FCobranzas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>VCobranza2TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>FCobranzasTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -547,14 +543,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="netoCobradoCli">
+                        <Textbox Name="netocob">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!netoCobradoVend.Value</Value>
+                                  <Value>=Fields!netocob.Value</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -566,7 +562,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>netoCobradoCli</rd:DefaultName>
+                          <rd:DefaultName>netocob</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -616,14 +612,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="netoCobradoVend">
+                        <Textbox Name="acobrar">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!netoCobradoVend.Value</Value>
+                                  <Value>=Fields!acobrar.Value</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -635,7 +631,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>netoCobradoVend</rd:DefaultName>
+                          <rd:DefaultName>acobrar</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -921,7 +917,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>=Sum(Fields!netoCobradoVend.Value)</Value>
+                                  <Value>=Sum(Fields!acobrar.Value)</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>

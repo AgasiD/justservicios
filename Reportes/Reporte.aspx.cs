@@ -2,14 +2,9 @@
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Dynamic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClosedXML.Excel;
-using JustServicios.Clases;
-using System.IO;
 
 public partial class Reporte : System.Web.UI.Page
 {
@@ -155,10 +150,18 @@ public partial class Reporte : System.Web.UI.Page
                 case 40:
                     LArtVendidos();
                     break;
-
+                case 41:
+                    LMovCaja();
+                    break;
 
             }
         }
+    }
+
+    public void LMovCaja()
+    {
+        string query = Request.QueryString["query"].ToString();
+
     }
 
     public void LArtVendidos()
@@ -175,8 +178,7 @@ public partial class Reporte : System.Web.UI.Page
                  "detmovim.descri, detmovim.cant, detmovim.precio, detmovim.prexcant, ivaven.bonitot, vende.nombre, vende.codven, ivaven.nrocli," +
                 "ivaven.razsoc, ivaven.fecha FROM detmovim " +
                  "left JOIN ivaven ON  ivaven.id = detmovim.ivavenid left JOIN vende ON  ivaven.codven = vende.codven " +
-                 "left JOIN stock ON  stock.codpro = detmovim.codpro where ivaven.empresaid = " + empresa + " and " +
-                " ivaven.fecha >= '" + Request.QueryString["dsd"].ToString() + "' and ivaven.fecha <= '" + Request.QueryString["hst"].ToString() + "' and ivaven.tipodoc != 'CT' "
+                 "left JOIN stock ON  stock.codpro = detmovim.codpro where ivaven.empresaid = " + empresa + " and "
                 /*"SELECT ivaven.tipodoc,  ivaven.letra,  detmovim.empresa,  ivaven.numero,  detmovim.codpro, " +
                 " detmovim.descri,  detmovim.cant,  detmovim.precio, detmovim.prexcant, ivaven.bonitot, vende.nombre, vende.codven, ivaven.nrocli," +
                 "ivaven.razsoc, ivaven.fecha FROM   " +
@@ -1712,13 +1714,14 @@ public partial class Reporte : System.Web.UI.Page
                liquidadas = Convert.ToBoolean(Request.QueryString["liquidadas"].ToString()),
                cotizaciones = Convert.ToBoolean(Request.QueryString["cotizaciones"].ToString());
         string tipocomis = Request.QueryString["comis"].ToString(),
+            queryCotis = "",
             dsd = Request.QueryString["dsd"].ToString(),
             hst = Request.QueryString["hst"].ToString();
         int codven = Convert.ToInt32(Request.QueryString["codven"].ToString());
         DateTime ddsd = Convert.ToDateTime(dsd),
                 hhst = Convert.ToDateTime(hst);
 
-        List<VCobranzas> lista;
+        List<FComisiones_Result> lista;
         string querycodven = "";
         string liquidada = "";
         if (!liquidadas)
@@ -1729,16 +1732,14 @@ public partial class Reporte : System.Web.UI.Page
         {
             querycodven = "and codven = " + codven;
         }
-        using (GestionEntities bd = new GestionEntities())
-        {
-            lista = bd.Database.SqlQuery<VCobranzas>("select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ") where " + liquidada + " " + querycodven).ToList();
-        }
-
         if (!cotizaciones)
         {
-            lista = lista.Where(b => b.tipodoc != "CT").ToList();
+            queryCotis = " and tipodoc <> 'CT' and tipodoc <> 'AJD' and  tipodoc <> 'AJC' ";
         }
-
+        using (GestionEntities bd = new GestionEntities())
+        {
+            lista = bd.Database.SqlQuery<FComisiones_Result>("select  * from FComisiones(" + empresa + ",'" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "' , "+tipocomis +") where " + liquidada + queryCotis +" " + querycodven).ToList();
+        }
 
         switch (tipocomis)
         {
@@ -1769,13 +1770,14 @@ public partial class Reporte : System.Web.UI.Page
             liquidadas = Convert.ToBoolean(Request.QueryString["liquidadas"].ToString()),
             cotizaciones = Convert.ToBoolean(Request.QueryString["cotizaciones"].ToString());
         string tipocomis = Request.QueryString["comis"].ToString(),
+            queryCotis = "",
             dsd = Request.QueryString["dsd"].ToString(),
             hst = Request.QueryString["hst"].ToString();
         int codven = Convert.ToInt32(Request.QueryString["codven"].ToString());
         DateTime ddsd = Convert.ToDateTime(dsd),
                 hhst = Convert.ToDateTime(hst);
 
-        List<VCobranzas> lista;
+        List<FCobranzas_Result> lista;
         string querycodven = "";
         string liquidada = "";
         if (!liquidadas)
@@ -1786,15 +1788,16 @@ public partial class Reporte : System.Web.UI.Page
         {
             querycodven = "and codven = " + codven;
         }
-        using (GestionEntities bd = new GestionEntities())
-        {
-            lista = bd.Database.SqlQuery<VCobranzas>("select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ") where " + liquidada + " " + querycodven).ToList();
-        }
 
         if (!cotizaciones)
         {
-            lista = lista.Where(b => b.tipodoc != "CT").ToList();
+            queryCotis = " and tipdoco <> 'CT' and tipdoco <> 'AJD' and  tipdoco <> 'AJC'";
         }
+        using (GestionEntities bd = new GestionEntities())
+        {
+            lista = bd.Database.SqlQuery<FCobranzas_Result>("select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ", " + tipocomis + " ) where " + liquidada + " " + queryCotis + " " + querycodven).ToList();
+        }
+
 
 
 
@@ -2017,7 +2020,20 @@ public partial class Reporte : System.Web.UI.Page
         string precio,
             oArticulo = Request.QueryString["oArticulo"].ToString(),
             oEncabezado = Request.QueryString["oEncabezado"].ToString();
-        string consulta = "SELECT dbo.stock.codpro, dbo.stock.descri, dbo.stock.unimed, stock.costo, (case when '" + precioSeleccionado + "' = 'precio1' then precio1 when '" + precioSeleccionado + "' = 'precio2' then precio2 when '" + precioSeleccionado + "' = 'precio3' then precio3 when '" + precioSeleccionado + "' = 'precio4' then precio4 when '" + precioSeleccionado + "' = 'precio5' then precio5 when '" + precioSeleccionado + "' = 'precio6' then precio6 when '" + precioSeleccionado + "' = 'costo' then costo end ) as precio  , dbo.stock.rubro AS codRubro, stock.pathfoto , dbo.rubros.descri AS descriRubro, dbo.stock.subrub AS codSubrub, dbo.subrub.descri AS descriSub, dbo.stock.marca, dbo.marcas.descripcion AS descrimarcas, dbo.stock.proveed AS codprovee, dbo.provee.razsoc AS descriProveed, dbo.stock.oferta, dbo.provee.lista, dbo.stock.fechaact, dbo.stock.moneda, dbo.stock.ivagrupo, dbo.ivaart.porcen1, dbo.unimed.simbolo, dbo.stock.incluido FROM dbo.stock left JOIN dbo.rubros ON dbo.rubros.codigo = dbo.stock.rubro left JOIN dbo.subrub ON dbo.stock.subrub = dbo.subrub.codigo left JOIN dbo.provee ON dbo.provee.nropro = dbo.stock.proveed left JOIN dbo.ivaart ON dbo.ivaart.codigo = dbo.stock.ivagrupo left JOIN dbo.marcas ON dbo.marcas.codigo = dbo.stock.marca left  JOIN dbo.unimed ON dbo.unimed.codigo = dbo.stock.unimed";
+        string consulta = "SELECT dbo.stock.codpro, dbo.stock.descri, dbo.stock.unimed, stock.costo, " +
+            "(case when '" + precioSeleccionado + "' = 'precio1' then precio1" +
+                " when '" + precioSeleccionado + "' = 'precio2' then precio2 " +
+                " when '" + precioSeleccionado + "' = 'precio3' then precio3 " +
+                " when '" + precioSeleccionado + "' = 'precio4' then precio4 " +
+                " when '" + precioSeleccionado + "' = 'precio5' then precio5 " +
+                " when '" + precioSeleccionado + "' = 'precio6' then precio6 " +
+                " when '" + precioSeleccionado + "' = 'costo' then costo end ) as precio " +
+            " , dbo.stock.rubro AS codRubro, stock.pathfoto , dbo.rubros.descri AS descriRubro, dbo.stock.subrub AS codSubrub, dbo.subrub.descri AS descriSub," +
+            " dbo.stock.marca, dbo.marcas.descripcion AS descrimarcas, dbo.stock.proveed AS codprovee, dbo.provee.razsoc AS descriProveed, dbo.stock.oferta," +
+            " dbo.provee.lista, dbo.stock.fechaact, dbo.stock.moneda, dbo.stock.ivagrupo, dbo.ivaart.porcen1, dbo.unimed.simbolo, dbo.stock.incluido " +
+            "FROM dbo.stock left JOIN dbo.rubros ON dbo.rubros.codigo = dbo.stock.rubro left JOIN dbo.subrub ON dbo.stock.subrub = dbo.subrub.codigo " +
+            "left JOIN dbo.provee ON dbo.provee.nropro = dbo.stock.proveed left JOIN dbo.ivaart ON dbo.ivaart.codigo = dbo.stock.ivagrupo " +
+            "left JOIN dbo.marcas ON dbo.marcas.codigo = dbo.stock.marca left  JOIN dbo.unimed ON dbo.unimed.codigo = dbo.stock.unimed";
         using (GestionEntities bd = new GestionEntities())
         {
             if (query == "empty")
@@ -2037,8 +2053,7 @@ public partial class Reporte : System.Web.UI.Page
                 rutaReporte = "Reportes/Precios/LPreciosFoto.rdlc";
                 foreach (var p in lista)
                     p.pathfoto = "file:" + p.pathfoto;
-
-            }
+        }
             else
             {
                 if (compCosto)

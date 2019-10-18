@@ -278,10 +278,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/17/2018 17:37:48</publishTime>
     </File>
     <File Include="bin/JustServicios.dll">
-      <publishTime>10/16/2019 11:04:34</publishTime>
+      <publishTime>10/18/2019 16:02:51</publishTime>
     </File>
     <File Include="bin/JustServicios.pdb">
-      <publishTime>10/16/2019 11:04:34</publishTime>
+      <publishTime>10/18/2019 16:02:51</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.ReportViewer.Common.resources.dll">
       <publishTime>09/17/2018 17:37:48</publishTime>
@@ -740,10 +740,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/18/2019 14:17:10</publishTime>
     </File>
     <File Include="JustsaDataSet.xsc">
-      <publishTime>10/14/2019 11:07:36</publishTime>
+      <publishTime>10/18/2019 15:36:48</publishTime>
     </File>
     <File Include="JustsaDataSet.xss">
-      <publishTime>10/14/2019 11:07:35</publishTime>
+      <publishTime>10/18/2019 15:36:38</publishTime>
     </File>
     <File Include="Model.edmx.diagram">
       <publishTime>10/11/2019 11:08:24</publishTime>
@@ -851,7 +851,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/05/2019 08:49:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/16/2019 10:06:42</publishTime>
+      <publishTime>10/18/2019 16:02:52</publishTime>
     </File>
   </ItemGroup>
 </Project>

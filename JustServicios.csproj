@@ -322,11 +322,15 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\comprobante.cs" />
+    <Compile Include="Clases\Controladores\ControladorConcepto - Copia.cs" />
+    <Compile Include="Clases\Controladores\ControladorGrupo.cs" />
+    <Compile Include="Clases\Controladores\ControladorConcepto.cs" />
+    <Compile Include="Clases\Controladores\ControladorCliente.cs" />
     <Compile Include="Clases\Controladores\ControladorComprobante.cs" />
     <Compile Include="Clases\Controladores\ControladorDatos.cs" />
     <Compile Include="Clases\Controladores\ControladorMELI.cs" />
     <Compile Include="Clases\Controladores\ControladorReportes.cs" />
-    <Compile Include="Clases\Controladores\ControladorCliente.cs" />
+    <Compile Include="Clases\Controladores\ControladorUsuario.cs" />
     <Compile Include="Clases\Controladores\ControladorPedido.cs" />
     <Compile Include="Clases\Controladores\ControladorPresupuesto.cs" />
     <Compile Include="Clases\Controladores\ControladorProducto.cs" />
@@ -375,6 +379,10 @@
     <Compile Include="configen.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ControladorConcepto - Copia.cs" />
+    <Compile Include="Controllers\GrupoController.cs" />
+    <Compile Include="Controllers\ConceptoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ComprobantesController.cs" />
     <Compile Include="Controllers\FormulariosController.cs" />
@@ -422,6 +430,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FCobranzas_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FComisiones_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="FlistPuntoPedido_Result.cs">

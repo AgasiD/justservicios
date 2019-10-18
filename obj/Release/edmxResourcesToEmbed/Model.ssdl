@@ -3814,6 +3814,152 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
       </CollectionType>
     </ReturnType>
   </Function>
+  <Function Name="FCobranzas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dsd" Type="date" Mode="In" />
+    <Parameter Name="hst" Type="date" Mode="In" />
+    <Parameter Name="empresa" Type="int" Mode="In" />
+    <Parameter Name="comi" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="razsoc" Type="char" MaxLength="50" />
+          <Property Name="tipodoc" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="letra" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="numero" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="empresa" Type="int" Nullable="false" />
+          <Property Name="comiprod" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="comicob" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="comicocl" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="acobrar" Type="numeric" Precision="28" Scale="8" />
+          <Property Name="liquidada" Type="bit" Nullable="false" />
+          <Property Name="letrao" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="tipdoco" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="empresao" Type="int" Nullable="false" />
+          <Property Name="numeroo" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="codven" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="netocob" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="punto" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="puntoo" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="FComisiones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empresa" Type="int" Mode="In" />
+    <Parameter Name="dsd" Type="varchar" Mode="In" />
+    <Parameter Name="hst" Type="varchar" Mode="In" />
+    <Parameter Name="comis" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="empresaid" Type="int" Nullable="false" />
+          <Property Name="tipodocid" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="tipodoc" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="letra" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="punto" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="numero" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="hasta" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="nrocli" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="razsoc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direcc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="locali" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codpos" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="provin" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="cuit" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="subtot" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="bonitot" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="bonifto" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="exento" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="neto" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ivai" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ivanoi" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ivaidif" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="ivanoidif" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="total" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="bonif" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="codcondic" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="condicion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codven" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="nomven" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="respon" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="comis" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="retiva" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="retgan" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="retinb" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="remito" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="observa" Type="varchar(max)" Nullable="false" />
+          <Property Name="comiprod" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="comicli" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="liquidada" Type="bit" Nullable="false" />
+          <Property Name="porins" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="pornoi" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="porinsdif" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="pornoidif" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="vence" Type="datetime" Nullable="false" />
+          <Property Name="ocompra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="simbolo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cotizacion" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="nrorepa" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="nrollevo" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="cumplido" Type="bit" Nullable="false" />
+          <Property Name="bajostk" Type="bit" Nullable="false" />
+          <Property Name="porcenib" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="cerrado" Type="bit" Nullable="false" />
+          <Property Name="cai" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="vencecai" Type="datetime" Nullable="false" />
+          <Property Name="obsrepa" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cothis" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="ctacon" Type="int" Nullable="false" />
+          <Property Name="pasoacont" Type="bit" Nullable="false" />
+          <Property Name="ctaconex" Type="int" Nullable="false" />
+          <Property Name="sucursal" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nombreusu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="internos" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="lisfac" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="notavta" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="esadeta" Type="bit" Nullable="false" />
+          <Property Name="tipocuit" Type="int" Nullable="false" />
+          <Property Name="cae" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="idpetic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="vencecae" Type="datetime" Nullable="false" />
+          <Property Name="numerofe" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="ctapase" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="nrolibe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="contac" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="estcue" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="exfecsalida" Type="datetime" Nullable="false" />
+          <Property Name="exnroembar" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="expuertosale" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="expuertollega" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exnrobl" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exdestinofinal" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exincoterms" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exfechafab" Type="datetime" Nullable="false" />
+          <Property Name="exorigen" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="expackag" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exmarca" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exmaterial" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="exhscode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="obsrepgen" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="exforwarder" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="kilos" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="moneda" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="juridEntrega" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="recargo" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="departamento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="provincia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="localiid" Type="int" Nullable="false" />
+          <Property Name="netofac" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="zona" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="acobrar" Type="numeric" Precision="5" Scale="2" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
   <Function Name="FlistPuntoPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Empresa" Type="int" Mode="In" />
     <ReturnType>

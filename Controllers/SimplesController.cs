@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -533,7 +534,8 @@ namespace JustServicios
         [Route("prueba")]
         public string prueba()
         {
-            return "hola";
+             string connetionString = ConfigurationManager.ConnectionStrings["GestionConnection"].ConnectionString;
+            return connetionString;
         }
 
 

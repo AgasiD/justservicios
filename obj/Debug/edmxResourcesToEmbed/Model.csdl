@@ -4664,6 +4664,18 @@
       <Parameter Name="Empresa" Mode="In" Type="Decimal" />
       <Parameter Name="precio" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="FCobranzas" IsComposable="true" ReturnType="Collection(gestionModel.FCobranzas_Result)">
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="comi" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FComisiones" IsComposable="true" ReturnType="Collection(gestionModel.FComisiones_Result)">
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="dsd" Mode="In" Type="String" />
+      <Parameter Name="hst" Mode="In" Type="String" />
+      <Parameter Name="comis" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ArmaMenuWeb_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -4921,5 +4933,131 @@
     <Property Type="String" Name="color" Nullable="false" MaxLength="13" />
     <Property Type="Int32" Name="codcolor" Nullable="false" />
     <Property Type="Decimal" Name="precio" Nullable="true" Precision="18" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="FCobranzas_Result">
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="razsoc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tipodoc" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="letra" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="numero" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Int32" Name="empresa" Nullable="false" />
+    <Property Type="Decimal" Name="comiprod" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="comicob" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="comicocl" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="acobrar" Nullable="true" Precision="28" Scale="8" />
+    <Property Type="Boolean" Name="liquidada" Nullable="false" />
+    <Property Type="String" Name="letrao" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="tipdoco" Nullable="false" MaxLength="3" />
+    <Property Type="Int32" Name="empresao" Nullable="false" />
+    <Property Type="Decimal" Name="numeroo" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="codven" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="netocob" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="punto" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="puntoo" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="FComisiones_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="empresaid" Nullable="false" />
+    <Property Type="Int32" Name="tipodocid" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="tipodoc" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="letra" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="punto" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="numero" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="hasta" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="nrocli" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="String" Name="razsoc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="direcc" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="locali" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="codpos" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="provin" Nullable="false" Precision="4" Scale="0" />
+    <Property Type="String" Name="cuit" Nullable="false" MaxLength="13" />
+    <Property Type="Decimal" Name="subtot" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="bonitot" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="bonifto" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="exento" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="neto" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ivai" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ivanoi" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ivaidif" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ivanoidif" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="total" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="bonif" Nullable="false" Precision="6" Scale="2" />
+    <Property Type="Decimal" Name="codcondic" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="String" Name="condicion" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="codven" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="String" Name="nomven" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="respon" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="comis" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="retiva" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="retgan" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="retinb" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="remito" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="String" Name="observa" Nullable="false" />
+    <Property Type="Decimal" Name="comiprod" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="comicli" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Boolean" Name="liquidada" Nullable="false" />
+    <Property Type="Decimal" Name="porins" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="pornoi" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="porinsdif" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="pornoidif" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="DateTime" Name="vence" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ocompra" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="simbolo" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="cotizacion" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="nrorepa" Nullable="false" Precision="10" Scale="0" />
+    <Property Type="Decimal" Name="nrollevo" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Boolean" Name="cumplido" Nullable="false" />
+    <Property Type="Boolean" Name="bajostk" Nullable="false" />
+    <Property Type="Decimal" Name="porcenib" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Boolean" Name="cerrado" Nullable="false" />
+    <Property Type="String" Name="cai" Nullable="false" MaxLength="14" />
+    <Property Type="DateTime" Name="vencecai" Nullable="false" Precision="23" />
+    <Property Type="String" Name="obsrepa" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="cothis" Nullable="false" Precision="18" Scale="4" />
+    <Property Type="Int32" Name="ctacon" Nullable="false" />
+    <Property Type="Boolean" Name="pasoacont" Nullable="false" />
+    <Property Type="Int32" Name="ctaconex" Nullable="false" />
+    <Property Type="String" Name="sucursal" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="nombreusu" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="internos" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="lisfac" Nullable="false" Precision="1" Scale="0" />
+    <Property Type="String" Name="notavta" Nullable="false" MaxLength="13" />
+    <Property Type="Boolean" Name="esadeta" Nullable="false" />
+    <Property Type="Int32" Name="tipocuit" Nullable="false" />
+    <Property Type="String" Name="cae" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="idpetic" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="vencecae" Nullable="false" Precision="23" />
+    <Property Type="String" Name="numerofe" Nullable="false" MaxLength="45" />
+    <Property Type="String" Name="ctapase" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="nrolibe" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="contac" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="estcue" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="exfecsalida" Nullable="false" Precision="23" />
+    <Property Type="String" Name="exnroembar" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="expuertosale" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="expuertollega" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="exnrobl" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="exdestinofinal" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="exincoterms" Nullable="false" MaxLength="30" />
+    <Property Type="DateTime" Name="exfechafab" Nullable="false" Precision="23" />
+    <Property Type="String" Name="exorigen" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="expackag" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="exmarca" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="exmaterial" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="exhscode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="obsrepgen" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="exforwarder" Nullable="false" MaxLength="30" />
+    <Property Type="Decimal" Name="kilos" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="moneda" Nullable="false" MaxLength="5" />
+    <Property Type="Decimal" Name="juridEntrega" Nullable="false" Precision="3" Scale="0" />
+    <Property Type="Decimal" Name="recargo" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="String" Name="departamento" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="localiid" Nullable="false" />
+    <Property Type="Decimal" Name="netofac" Nullable="true" Precision="19" Scale="2" />
+    <Property Type="Decimal" Name="zona" Nullable="true" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="acobrar" Nullable="true" Precision="5" Scale="2" />
   </ComplexType>
 </Schema>
