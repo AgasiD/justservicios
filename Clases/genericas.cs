@@ -9,7 +9,18 @@ using System.Web.Http.Results;
     }
     [Serializable]
 
-    public class MiProvee
+    public class MiPorcenVentas
+{
+    public int nrocli { get; set; }
+    public string razsoc { get; set; }
+    public decimal cant{ get; set; }
+    public decimal porcencant { get; set; }
+    public decimal cantenv { get; set; }
+    public decimal porcencantenv { get; set; }
+    public decimal neto { get; set; }
+    public decimal porcenneto { get; set; }
+}
+public class MiProvee
 {
     public string razsoc { get; set; }
     public int nropro { get; set; }

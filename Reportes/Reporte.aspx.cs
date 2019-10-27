@@ -153,9 +153,57 @@ public partial class Reporte : System.Web.UI.Page
                 case 41:
                     LMovCaja();
                     break;
+                case 42:
+                    LPorcenCliFactu();
+                    break;
 
             }
         }
+    }
+
+    public void LPorcenCliFactu()
+    {
+        bool pedidos = Convert.ToBoolean(Request.QueryString["ped"]),
+            cotizacion = Convert.ToBoolean(Request.QueryString["coti"]),
+            venta = Convert.ToBoolean(Request.QueryString["venta"]),
+            remito = Convert.ToBoolean(Request.QueryString["remito"]);
+        int codven = Convert.ToInt32(Request.QueryString["codven"]),
+            nrocli = Convert.ToInt32(Request.QueryString["nrocli"]);
+        string queryReq = Request.QueryString["query"].ToString();
+        DateTime ddsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
+          dhst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
+        string query = "";
+        string where = " fecha >= '" + ddsd.ToString("dd/MM/yyyy") + "' and fecha <= '" + dhst.ToString("dd/MM/yyyy") + "' ";
+        if (codven > 0)
+            where += " and codven = " + codven;
+        if (nrocli > 0)
+            where += " and nrocli = " + nrocli;
+        if (venta)
+        {
+            string coti = "";
+            if (!cotizacion)
+                coti = " and tipodoc not in ('CT', 'AJD', 'AJC') ";
+            query = " select max(ivaven.nrocli) nrocli, max(razsoc) razsoc, sum(cant) cant, (sum(cant) / (select sum(cant) from detmovim)) *100 porcencant, (sum(cantenv) / (select sum(cantenv) from detmovim) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto, (sum(neto) / (select sum(neto) from ivaven)) *100 porcenneto from ivaven left join detmovim det on det.ivavenid = ivaven.id where " + where + coti + " group by ivaven.nrocli "
+        }
+        if (pedidos)
+        {
+            if (query != "")
+                query += " union ";
+            query += " select max(PedidoCab.nrocli) nrocli, max(razsoc) razsoc, sum(cantidad) cant,  (sum(cantidad) / (select sum(cantidad) from pedidodet)) *100 porcencant, (sum(cantidad) / (select sum(1) from pedidodet) ) *100 porcencantenv, sum(cantidad * 1) cantenv, sum(pedidocab.total) neto, (sum(pedidocab.total) / (select sum(total) from PedidoCab)) *100 porcenneto from PedidoCableft join PedidoDet det on det.cabeceraid = PedidoCab.id where pedidocab.listo = 0 and " + where + " group by PedidoCab.nrocli "
+        }
+        if (remito)
+        {
+            if (query != "")
+                query += " union ";
+            query += "select max(RemitoCab.nrocli) nrocli, max(razsoc) razsoc, sum(cant) cant,  (sum(cant) / (select sum(cant) from remitodet)) *100 porcencant, (sum(cantenv) / (select sum(cantenv) from remitodet) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto, (sum(neto) / (select sum(neto) from Remitocab)) *100 porcenneto from RemitoCab left join remitodet det on det.cabeceraid = RemitoCab.id where facturado not like 'S' and " + where + " group by RemitoCab.nrocli
+        }
+        List<MiPorcenVentas> lista;
+        using (GestionEntities bd = new GestionEntities())
+            lista = bd.Database.SqlQuery<MiPorcenVentas>(query).ToList();
+        string ruta = "Reportes/Proveedores/LPorcenVentas.rdlc";
+        generarReporte(ruta, parametros, new ReportDataSource("PorcenVentas", lista), dsd, hst);
+
+
     }
 
     public void LMovCaja()
@@ -1136,7 +1184,7 @@ public partial class Reporte : System.Web.UI.Page
         List<SaldoProveedoresAllGroup_Result> lista;
         using (GestionEntities bd = new GestionEntities())
         {
-            if (query == "")
+            if (query != "")
                 lista = bd.SaldoProveedoresAllGroup(empresa).Where(query).ToList();
             else
                 lista = bd.SaldoProveedoresAllGroup(empresa).ToList();

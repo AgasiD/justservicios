@@ -1005,6 +1005,7 @@
     <EmbeddedResource Include="Reportes\Precios\LPreciosSinEnc.rdlc" />
     <EmbeddedResource Include="Reportes\Precios\LPreciosSinEncComp.rdlc" />
     <EmbeddedResource Include="Reportes\Presupuestos\LPresup.rdlc" />
+    <EmbeddedResource Include="Reportes\Proveedores\LPorcenVentas.rdlc" />
     <EmbeddedResource Include="Reportes\Proveedores\LProveedores.rdlc" />
     <EmbeddedResource Include="Reportes\PuntosDePedido\LPuntoPedido.rdlc" />
     <EmbeddedResource Include="Reportes\RankingCompras\RankingArtCompradosAcum.rdlc" />
