@@ -11,7 +11,7 @@ using System.Web.Http.Results;
 
     public class MiPorcenVentas
 {
-    public int nrocli { get; set; }
+    public decimal nrocli { get; set; }
     public string razsoc { get; set; }
     public decimal cant{ get; set; }
     public decimal porcencant { get; set; }

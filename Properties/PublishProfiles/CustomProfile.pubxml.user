@@ -7,7 +7,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <_PublishTargetUrl>C:\Users\usuario\Desktop\justServicios\justServicios</_PublishTargetUrl>
+    <_PublishTargetUrl>X:\JustServicios\justServicios</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -278,10 +278,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>09/17/2018 17:37:48</publishTime>
     </File>
     <File Include="bin/JustServicios.dll">
-      <publishTime>10/21/2019 20:11:11</publishTime>
+      <publishTime>10/27/2019 15:57:49</publishTime>
     </File>
     <File Include="bin/JustServicios.pdb">
-      <publishTime>10/21/2019 20:11:11</publishTime>
+      <publishTime>10/27/2019 15:57:49</publishTime>
     </File>
     <File Include="bin/ko/Microsoft.ReportViewer.Common.resources.dll">
       <publishTime>09/17/2018 17:37:48</publishTime>
@@ -629,7 +629,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>11/28/2018 13:01:26</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>11/28/2018 13:01:00</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>02/01/2018 12:19:26</publishTime>
@@ -740,10 +740,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/18/2019 14:17:10</publishTime>
     </File>
     <File Include="JustsaDataSet.xsc">
-      <publishTime>10/18/2019 15:36:48</publishTime>
+      <publishTime>10/22/2019 21:16:15</publishTime>
     </File>
     <File Include="JustsaDataSet.xss">
-      <publishTime>10/18/2019 15:36:38</publishTime>
+      <publishTime>10/22/2019 21:16:15</publishTime>
     </File>
     <File Include="Model.edmx.diagram">
       <publishTime>10/11/2019 11:08:24</publishTime>
@@ -851,7 +851,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/06/2019 08:49:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/21/2019 20:11:12</publishTime>
+      <publishTime>10/27/2019 15:41:03</publishTime>
     </File>
   </ItemGroup>
 </Project>

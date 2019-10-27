@@ -174,6 +174,7 @@
                                   <Style>
                                     <FontFamily />
                                     <FontSize>8pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -205,6 +206,7 @@
                                   <Value>=Fields!porcencant.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -236,6 +238,7 @@
                                   <Value>=Fields!cantenv.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -267,6 +270,7 @@
                                   <Value>=Fields!porcencantenv.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -298,6 +302,7 @@
                                   <Value>=Fields!neto.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -329,6 +334,7 @@
                                   <Value>=Fields!porcenneto.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -373,7 +379,7 @@
             </TablixRowHierarchy>
             <DataSetName>PorcenVentas</DataSetName>
             <Height>0.54208cm</Height>
-            <Width>16.05641cm</Width>
+            <Width>16.0564cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
