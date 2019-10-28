@@ -61,7 +61,6 @@ namespace JustServicios
         public System.DateTime vencecai { get; set; }
         public bool convenio { get; set; }
         public int tipodoc { get; set; }
-        public decimal totmen { get; set; }
     
         public virtual condpago condpago { get; set; }
         public virtual cuentas cuentas { get; set; }

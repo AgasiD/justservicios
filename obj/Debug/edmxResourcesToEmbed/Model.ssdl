@@ -1704,7 +1704,6 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.proctad' no tiene definida ningu
     <Property Name="feccom" Type="datetime" Nullable="false" />
     <Property Name="ley" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="lista" Type="numeric" Precision="1" Scale="0" Nullable="false" />
-    <Property Name="totmen" Type="numeric" Precision="18" Scale="2" Nullable="false" />
     <Property Name="cai" Type="varchar" MaxLength="14" Nullable="false" />
     <Property Name="vencecai" Type="datetime" Nullable="false" />
     <Property Name="convenio" Type="bit" Nullable="false" />
@@ -3955,7 +3954,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Name="localiid" Type="int" Nullable="false" />
           <Property Name="netofac" Type="numeric" Precision="19" Scale="2" />
           <Property Name="zona" Type="numeric" Precision="5" Scale="0" />
-          <Property Name="acobrar" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="acobrar" Type="numeric" Precision="29" Scale="8" />
         </RowType>
       </CollectionType>
     </ReturnType>

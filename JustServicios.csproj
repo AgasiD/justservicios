@@ -322,7 +322,16 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\comprobante.cs" />
-    <Compile Include="Clases\Controladores\ControladorConcepto - Copia.cs" />
+    <Compile Include="Clases\Controladores\ControladorRubro.cs" />
+    <Compile Include="Clases\Controladores\ControladorSubRubro.cs" />
+    <Compile Include="Clases\Controladores\ControladorMarca.cs" />
+    <Compile Include="Clases\Controladores\ControladorProvee.cs" />
+    <Compile Include="Clases\Controladores\ControladorActividad.cs" />
+    <Compile Include="Clases\Controladores\ControladorFactura.cs" />
+    <Compile Include="Clases\Controladores\ControladorVende.cs" />
+    <Compile Include="Clases\Controladores\ControladorTipoArt.cs" />
+    <Compile Include="Clases\Controladores\ControladorZona.cs" />
+    <Compile Include="Clases\Controladores\Controlador.cs" />
     <Compile Include="Clases\Controladores\ControladorGrupo.cs" />
     <Compile Include="Clases\Controladores\ControladorConcepto.cs" />
     <Compile Include="Clases\Controladores\ControladorCliente.cs" />
@@ -380,6 +389,15 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ControladorConcepto - Copia.cs" />
+    <Compile Include="Controllers\RubrosController.cs" />
+    <Compile Include="Controllers\MarcasController.cs" />
+    <Compile Include="Controllers\ProveedorController.cs" />
+    <Compile Include="Controllers\ActividadController.cs" />
+    <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\ZonaController.cs" />
+    <Compile Include="Controllers\VendeController.cs" />
+    <Compile Include="Controllers\TipoArtController.cs" />
+    <Compile Include="Controllers\SubRubrosController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\ConceptoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />

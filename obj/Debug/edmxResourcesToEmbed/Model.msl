@@ -853,7 +853,6 @@
     <EntitySetMapping Name="provee">
       <EntityTypeMapping TypeName="gestionModel.provee">
         <MappingFragment StoreEntitySet="provee">
-          <ScalarProperty Name="totmen" ColumnName="totmen" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nropro" ColumnName="nropro" />
           <ScalarProperty Name="razsoc" ColumnName="razsoc" />

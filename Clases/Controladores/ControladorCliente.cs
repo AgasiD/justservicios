@@ -1,13 +1,8 @@
-﻿using JustServicios.Clases;
+﻿
+using JustServicios.Clases.Controladores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Http.Results;
-using Newtonsoft.Json.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 
 
 namespace JustServicios
@@ -19,6 +14,7 @@ namespace JustServicios
         private static List<clienteModal> clienteModal;
         private static List<cliente> clientes { get; set; }
         private static ControladorCliente instancia;
+        private static ControladorDatos data { get; set; }
 
         private ControladorCliente()
         {
@@ -47,6 +43,16 @@ namespace JustServicios
             }
         }
 
+        public DicRequestHTTP getClientesAcot()
+        {
+            return new ControladorDatos().getData("select nrocli, razsoc from cliente");
+        }
+
+        public RequestHTTP getClienteAcot(int id)
+        {
+            return new ControladorDatos().getElement("select nrocli, razsoc from cliente where nrocli = " + id);
+        }
+
         internal string getConcepto(int condicion)
         {
             using(GestionEntities bd = new GestionEntities())
@@ -72,9 +78,14 @@ namespace JustServicios
             }
         }
 
-        
+        public DicRequestHTTP getClientes()
+        {
+            return new ControladorDatos().getData("select * from cliente");
+        }
 
-        //Pedido-Presupuesto
+
+
+        //Pedido-Presupuestodsdsad
 
         //usado en el modal
         public List<clienteModal> getClientesPresupuesto()

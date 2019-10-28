@@ -28,10 +28,30 @@ namespace JustServicios.Controllers
         }
 
         [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getClientes")]
+        public JsonResult<DicRequestHTTP> getClientes()
+        {
+            return Json(cCliente.getClientes());
+        }
+
+        [System.Web.Http.HttpGet]
         [System.Web.Http.Route("getCondicion")]
         public string getCondicion(int condicion)
         {
             return cCliente.getConcepto(condicion);
+        }
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getClienteAcot")]
+        public JsonResult<object> getClienteAcot(int nrocli)
+        {
+            return Json<object>(cCliente.getClienteAcot(nrocli));
+        }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getClientesAcot")]
+        public JsonResult<DicRequestHTTP> getClientesAcot()
+        {
+            return Json(cCliente.getClientesAcot());
         }
 
     }

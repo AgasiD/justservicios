@@ -1719,7 +1719,6 @@
     <NavigationProperty Name="localidades" Relationship="Self.FK_provee_localidades" FromRole="provee" ToRole="localidades" />
     <NavigationProperty Name="monedas" Relationship="Self.FK_provee_monedas" FromRole="provee" ToRole="monedas" />
     <NavigationProperty Name="transpo" Relationship="Self.FK_provee_transpo" FromRole="provee" ToRole="transpo" />
-    <Property Name="totmen" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="provincias">
     <Key>

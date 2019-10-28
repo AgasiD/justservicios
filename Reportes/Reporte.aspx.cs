@@ -949,7 +949,6 @@ public partial class Reporte : System.Web.UI.Page
     }
     private void LProveedores()
     {
-
         string orden = Request.QueryString["orden"].ToString();
         bool desc = Convert.ToBoolean(Request.QueryString["desc"].ToString());
         DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
@@ -981,7 +980,8 @@ public partial class Reporte : System.Web.UI.Page
                 lista = lista.OrderByDescending(a => a.razsoc).ToList();
             }
         }
-        generarReporte("Reportes/Proveedores/LProveedores.rdlc", parametros, new ReportDataSource("LProveedores", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
+        generarReporte("Reportes/Proveedores/LProveedores.rdlc", parametros, new ReportDataSource("LProveedores", lista),
+            dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
     }
     private void LTransportistas()
     {
@@ -1850,10 +1850,6 @@ public partial class Reporte : System.Web.UI.Page
         {
             lista = bd.Database.SqlQuery<FCobranzas_Result>("select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ", " + tipocomis + " ) where " + liquidada + " " + queryCotis + " " + querycodven).ToList();
         }
-
-
-
-
         switch (tipocomis)
         {
             case "1":
@@ -2243,9 +2239,9 @@ public partial class Reporte : System.Web.UI.Page
                 reporte.LocalReport.SetParameters(fechas);
             reporte.LocalReport.DataSources.Add(dataSource);
             reporte.LocalReport.Refresh();
+    
         }
-
-        private void generarReporteComprobante(string rutaReporte, List<ReportDataSource> dataSource)
+    private void generarReporteComprobante(string rutaReporte, List<ReportDataSource> dataSource)
         {
 
 
@@ -2328,5 +2324,7 @@ public class OperacionxRubro
     public decimal costo { get; set; }
     public decimal margen { get; set; }
 
+    
 }
+
 
