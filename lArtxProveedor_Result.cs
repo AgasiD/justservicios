@@ -21,7 +21,7 @@ namespace JustServicios
         public string fechaprom { get; set; }
         public int nropro { get; set; }
         public string razsoc { get; set; }
-        public int marca { get; set; }
+        public decimal marca { get; set; }
         public string descMarca { get; set; }
         public int rubro { get; set; }
         public string DesRubro { get; set; }

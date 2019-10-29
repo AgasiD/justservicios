@@ -30,20 +30,20 @@ namespace JustServicios
         }
         public DicRequestHTTP getSubRubrosAcot()
         {
-            return cData.getData("select codigo, descri from " + table);
+            return new ControladorDatos().getData("select codigo, descri from " + table);
         }
         public RequestHTTP getSubRubroAcot(int id)
         {
-            return cData.getElement("select codigo, descri from " + table + " where codigo = " + id);
+            return new ControladorDatos().getElement("select codigo, descri from " + table + " where codigo = " + id);
         }
 
         public DicRequestHTTP getSubRubros()
         {
-            return cData.getData("select * from " + table);
+            return new ControladorDatos().getData("select * from " + table);
         }
         public RequestHTTP getSubRubro(int id)
         {
-            return cData.getElement("select * from " + table + " where codigo = " + id);
+            return new ControladorDatos().getElement("select * from " + table + " where codigo = " + id);
         }
     }
 }

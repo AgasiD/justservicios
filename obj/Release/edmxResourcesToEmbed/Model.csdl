@@ -153,13 +153,13 @@
   <ComplexType Name="lArtxProveedor_Result">
     <Property Name="codpro" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="descri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="costo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="costo" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="fechaact" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="promedio" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
     <Property Name="fechaprom" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="nropro" Type="Int32" Nullable="false" />
     <Property Name="razsoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="marca" Type="Int32" Nullable="false" />
+    <Property Name="marca" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
     <Property Name="descMarca" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="rubro" Type="Int32" Nullable="false" />
     <Property Name="DesRubro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />

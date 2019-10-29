@@ -340,6 +340,7 @@
                                   <Style>
                                     <FontFamily>verdana</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -406,6 +407,7 @@
                                   <Style>
                                     <FontFamily>verdana</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -777,6 +779,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>

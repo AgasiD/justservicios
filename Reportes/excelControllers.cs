@@ -78,11 +78,11 @@ namespace JustServicios
                     var listaArticulos = lista.Where(art => art.codRubro == rubros[b].codigo && art.codSubrub == codSubrubs[d].codSubRub).ToList();
                     celda = insertaCabeceraSubRubro(celda, descriSub,worksheet);
                     foreach (var art in listaArticulos) {
-                        for (int e = 0; e <= cantColumnas; e++)
-                        {
+                       // for (int e = 0; e <= cantColumnas; e++)
+                       // {
                             celda = insertaRegistro(celda, art, worksheet);
                             //setWithToCell(celda, worksheet);
-                        }
+                       // }
                     }
                     fila = FINICIO;
                     columna+= 5;
