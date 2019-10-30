@@ -17,6 +17,7 @@ namespace JustServicios
 
         public presupd(stocks stock, presupc cabecera, int numerador)
         {
+            var m = new MiProvee();
             try
             {
                 int id;

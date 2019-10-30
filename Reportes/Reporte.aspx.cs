@@ -156,12 +156,64 @@ public partial class Reporte : System.Web.UI.Page
                 case 42:
                     LPorcenCliFactu();
                     break;
+                case 43: LUtilidades();
+                    break;
 
             }
         }
     }
 
-    public void LPorcenCliFactu()
+    public void LUtilidades()
+    {
+        List<MiUtilidades> lista;
+        DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
+            hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
+        string whereRequest = "and " + Request.QueryString["query"].ToString();
+        string where = " where cab.empresaid = " + empresa + " and det.fecha >= '" + dsd + "' and det.fecha <= '" + hst + "' " + whereRequest;
+        string consulta = "select max(det.codpro) codpro, max(det.descri) descri , " +
+            "sum(det.cant) cant, sum(det.prexcant) venta,"                           +
+            "sum(det.costo) costo, sum(det.prexcant) - sum(det.costo) diferencia,"   +
+            "max(rubros.codigo) codRubro, max(rubros.descri) descriRubro, "          +
+            "max(subrub.codigo) codSubrub, max(subrub.descri) descriSubrub ,"        +
+            "max(marcas.codigo) codMarca, max(marcas.descripcion) descriMarca"       +
+            " from detmovim det"                                                     +
+            " left join ivaven cab on cab.id = det.ivavenid"                         +
+            " left join stock st on st.codpro = det.codpro"                          +
+            " left join rubros on st.rubro = rubros.codigo"                          +
+            " left join subrub on st.subrub = subrub.codigo"                         +
+            " left join marcas on marcas.codigo = st.marca"                          +
+            " left join provee on provee.nropro = st.proveed"                        +
+            " left join tipoart on st.tipoart = tipoart.codigo"                      +
+            " left join cliente on cliente.nrocli = cab.nrocli"                      +
+            " left join activida on activida.codigo = cliente.activi"                +
+            " left join vende on vende.codven = cliente.codven"                      +
+            " left join zonas on cliente.zona = zonas.codigo "                       +
+                where                                                                +           
+            " group by det.codpro";
+
+        using (GestionEntities bd = new GestionEntities())
+            lista = bd.Database.SqlQuery<MiUtilidades>(consulta).ToList();
+
+        string ruta = "reportes/UtilidadesTeoricas/lutilidades.rdlc";
+        generarReporte(ruta, parametros, new ReportDataSource("Teoricas", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
+    }
+
+    public class MiUtilidades
+    {
+        public Nullable<decimal> codMarca {get;set;}
+        public string codpro { get; set; }
+        public string descriMarca { get; set; }
+        public string descri{ get; set; }
+        public Nullable<decimal> codSubrub {get;set;}
+        public string descriSubrub{ get; set; }
+        public int? codRubro {get;set;}
+        public string descriRubro { get; set; }
+        public Nullable<decimal> cant {get;set;}
+        public Nullable<decimal> venta {get;set;}
+        public Nullable<decimal> costo {get;set;}
+        public Nullable<decimal> diferencia { get; set; }
+    }
+public void LPorcenCliFactu()
     {
         bool pedidos = Convert.ToBoolean(Request.QueryString["ped"]),
             cotizacion = Convert.ToBoolean(Request.QueryString["coti"]),

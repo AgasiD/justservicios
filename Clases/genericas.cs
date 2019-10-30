@@ -20,8 +20,9 @@ using System.Web.Http.Results;
     public decimal neto { get; set; }
     public decimal porcenneto { get; set; }
 }
-public class MiProvee
+public class MiProvee: MiPorcenVentas
 {
+
     public string razsoc { get; set; }
     public int nropro { get; set; }
 }
