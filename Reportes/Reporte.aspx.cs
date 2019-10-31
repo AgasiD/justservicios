@@ -163,22 +163,27 @@ public partial class Reporte : System.Web.UI.Page
         }
     }
 
+    
     public void LUtilidades()
     {
+        
         List<MiUtilidades> lista;
         bool incluCoti = Convert.ToBoolean(Request.QueryString["cotizaciones"].ToString());
         DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
             hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
-        string whereRequest = Request.QueryString["query"].ToString(),
-            cotizaciones = "";
-        if(whereRequest != "")
-            whereRequest = "and " + Request.QueryString["query"].ToString();
+        string whereRequest = getQueryFromFile(),
+        cotizaciones = "";
+        if (whereRequest != "")
+            whereRequest = " and " + whereRequest;
         if (!incluCoti)
             cotizaciones = " and cab.tipodoc not in ('CT', 'AJD', 'AJC') ";
         string where = " where cab.empresaid = " + empresa + " and det.fecha >= '" + dsd + "' and det.fecha <= '" + hst + "' " + whereRequest + cotizaciones;
         string consulta = "select max(det.codpro) codpro, max(det.descri) descri , " +
-            "sum(det.cant) cant, sum(det.prexcant) venta,"                           +
-            "sum(det.costo) costo, sum(det.prexcant) - sum(det.costo) diferencia,"   +
+            "sum(det.cant) cant, sum(det.prexcant * det.cotizacion) venta, sum(det.costo * cant * det.cotizacion) costo, " +
+            "sum(det.prexcant - (prexcant * det.bonito / 100) * det.cotizacion) - sum(det.costo * cant * det.cotizacion) diferencia,"+
+			"CASE WHEN max(det.costo * det.cotizacion) <> 0 THEN" +
+            " (sum( (det.prexcant - (prexcant * det.bonito / 100) ) * det.cotizacion) / Sum(det.costo * det.cotizacion * cant) * 100) - 100 " +
+            "ELSE 0 END utilidad,"                                                   +
             "max(rubros.codigo) codRubro, max(rubros.descri) descriRubro, "          +
             "max(subrub.codigo) codSubrub, max(subrub.descri) descriSubrub ,"        +
             "max(marcas.codigo) codMarca, max(marcas.descripcion) descriMarca"       +
@@ -204,6 +209,16 @@ public partial class Reporte : System.Web.UI.Page
         generarReporte(ruta, parametros, new ReportDataSource("Teoricas", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
     }
 
+    private string getQueryFromFile()
+    {
+        string line;
+        System.IO.StreamReader file = new System.IO.StreamReader(@"C:\inetpub\wwwroot\JustServicios\JustServicios\Reportes\query.txt");
+        while ((line = file.ReadLine()) != null)
+            query += line;
+        file.Close();
+        return query;
+    }
+
     public class MiUtilidades
     {
         public Nullable<decimal> codMarca {get;set;}
@@ -213,6 +228,7 @@ public partial class Reporte : System.Web.UI.Page
         public Nullable<decimal> codSubrub {get;set;}
         public string descriSubrub{ get; set; }
         public int? codRubro {get;set;}
+        public decimal? utilidad { get; set; }
         public string descriRubro { get; set; }
         public Nullable<decimal> cant {get;set;}
         public Nullable<decimal> venta {get;set;}
@@ -246,6 +262,7 @@ public void LPorcenCliFactu()
         if (pedidos)
         {
             where = getWhere("pedidocab.", ddsd, dhst);
+            where = where.Replace("fecha", "fechaing");
             if (query != "")
                 query += " union ";
             query += " select max(PedidoCab.nrocli) nrocli, max(razsoc) razsoc, sum(cantidad) cant,  (sum(cantidad) / (select sum(cantidad) from pedidodet)) *100 porcencant, (sum(cantidad) / (select sum(1) from pedidodet) ) *100 porcencantenv, sum(cantidad * 1) cantenv, sum(pedidocab.total) neto, (sum(pedidocab.total) / (select sum(total) from PedidoCab)) *100 porcenneto from PedidoCab left join PedidoDet det on det.cabeceraid = PedidoCab.id where pedidocab.listo = 0 and " + where + " group by PedidoCab.nrocli ";

@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
 using Newtonsoft.Json;
+using System.Windows.Forms;
+
 namespace JustServicios.Controllers
 {
     [RoutePrefix("api/actividad")]
@@ -35,6 +37,7 @@ namespace JustServicios.Controllers
         [System.Web.Http.Route("getActividadesAcot")]
         public JsonResult<DicRequestHTTP> getActividadesAcot()
         {
+          
             return Json(cControlador.getActividadesAcot());
         }
     }

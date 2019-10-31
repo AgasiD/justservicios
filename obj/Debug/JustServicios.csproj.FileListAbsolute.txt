@@ -715,3 +715,6 @@ C:\Users\User\Desktop\Justsolution\JustServicios\JustServicios\bin\es\System.Web
 C:\Users\User\Desktop\Justsolution\JustServicios\JustServicios\obj\Debug\JustServicios.csproj.CopyComplete
 C:\Users\User\Desktop\Justsolution\JustServicios\JustServicios\obj\Debug\JustServicios.csprojAssemblyReference.cache
 \\serversistemas\wwwroot\JustServicios\JustServicios\obj\Debug\JustServicios.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\JustServicios\JustServicios\bin\net-sdk.dll
+C:\inetpub\wwwroot\JustServicios\JustServicios\bin\nunit.framework.dll
+C:\inetpub\wwwroot\JustServicios\JustServicios\bin\RestSharp.dll

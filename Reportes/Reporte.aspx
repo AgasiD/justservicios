@@ -26,7 +26,6 @@
     <asp:TextBox ID="txt" runat="server"></asp:TextBox>
     <asp:ScriptManager runat="server"></asp:ScriptManager>        
    <rsweb:ReportViewer ID="reporte" runat="server" Height="750" Width="850">
-
                 </rsweb:ReportViewer>
            
     </form>

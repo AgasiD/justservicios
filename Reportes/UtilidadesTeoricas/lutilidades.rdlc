@@ -65,6 +65,10 @@
           <DataField>descriMarca</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="utilidad">
+          <DataField>utilidad</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>JustsaDataSet</rd:DataSetName>
@@ -84,25 +88,25 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.25334cm</Width>
+                  <Width>2.38186cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.95132cm</Width>
+                  <Width>4.18025cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.78385cm</Width>
+                  <Width>1.91237cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.04571cm</Width>
+                  <Width>2.17423cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.21117cm</Width>
+                  <Width>2.33969cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.19123cm</Width>
+                  <Width>2.31975cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.49449cm</Width>
+                  <Width>1.62301cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -910,11 +914,19 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>%</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0</Format>
+                                    <Format>#,0.00</Format>
+                                  </Style>
+                                </TextRun>
+                                <TextRun>
+                                  <Value>=Fields!utilidad.Value</Value>
+                                  <Style>
+                                    <FontFamily>tahoma</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                    <Format>#,0.00</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1220,7 +1232,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Promedio de ganancia</Value>
+                                  <Value />
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>8pt</FontSize>
@@ -1892,7 +1904,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.59342cm</Top>
-              <Left>11.57868cm</Left>
+              <Left>11.89618cm</Left>
               <Height>0.54199cm</Height>
               <Width>1.15766cm</Width>
               <ZIndex>4</ZIndex>
@@ -1924,7 +1936,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.61588cm</Top>
-              <Left>9.73645cm</Left>
+              <Left>9.41895cm</Left>
               <Height>0.51953cm</Height>
               <Width>1.1543cm</Width>
               <ZIndex>5</ZIndex>
@@ -1956,7 +1968,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.67116cm</Top>
-              <Left>8.06195cm</Left>
+              <Left>7.10945cm</Left>
               <Height>0.43406cm</Height>
               <Width>1.28943cm</Width>
               <ZIndex>6</ZIndex>

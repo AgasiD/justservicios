@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -35,6 +36,29 @@ namespace JustServicios
                 return Json(req.falla(e));
             }
         }
+
+
+        [HttpPost]
+        [Route("crearArchivo")]
+        public JsonResult<RequestHTTP> crearArchivo([FromBody] JObject query)
+        {
+            var req = new RequestHTTP();
+
+            try
+            {
+                req.objeto = query["query"].ToString();
+                StreamWriter sw = new StreamWriter(@"C:\inetpub\wwwroot\JustServicios\JustServicios\Reportes\query.txt");
+                sw.WriteLine(req.objeto);
+                sw.Close();
+                return Json(req);
+
+            }
+            catch (Exception e)
+            {
+                return Json(req.falla(e));
+            }
+        }
+
 
         [HttpGet]
         [Route("getTransporte")]

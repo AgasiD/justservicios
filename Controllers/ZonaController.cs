@@ -22,7 +22,7 @@ namespace JustServicios.Controllers
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("getZonaAcot")]
         public JsonResult<RequestHTTP> getZonaAcot(int id)
-        {
+        {   
             return Json(cControlador.getZonaAcot(id));
         }
         [System.Web.Http.HttpGet]
