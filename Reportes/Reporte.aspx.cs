@@ -166,10 +166,16 @@ public partial class Reporte : System.Web.UI.Page
     public void LUtilidades()
     {
         List<MiUtilidades> lista;
+        bool incluCoti = Convert.ToBoolean(Request.QueryString["cotizaciones"].ToString());
         DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
             hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
-        string whereRequest = "and " + Request.QueryString["query"].ToString();
-        string where = " where cab.empresaid = " + empresa + " and det.fecha >= '" + dsd + "' and det.fecha <= '" + hst + "' " + whereRequest;
+        string whereRequest = Request.QueryString["query"].ToString(),
+            cotizaciones = "";
+        if(whereRequest != "")
+            whereRequest = "and " + Request.QueryString["query"].ToString();
+        if (!incluCoti)
+            cotizaciones = " and cab.tipodoc not in ('CT', 'AJD', 'AJC') ";
+        string where = " where cab.empresaid = " + empresa + " and det.fecha >= '" + dsd + "' and det.fecha <= '" + hst + "' " + whereRequest + cotizaciones;
         string consulta = "select max(det.codpro) codpro, max(det.descri) descri , " +
             "sum(det.cant) cant, sum(det.prexcant) venta,"                           +
             "sum(det.costo) costo, sum(det.prexcant) - sum(det.costo) diferencia,"   +

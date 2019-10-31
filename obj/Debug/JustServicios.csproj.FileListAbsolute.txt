@@ -236,9 +236,6 @@ C:\inetpub\wwwroot\JustServicios\JustServicios\obj\Debug\RdlCompile.compiled
 C:\inetpub\wwwroot\JustServicios\JustServicios\obj\Debug\JustServicios.csproj.CopyComplete
 C:\inetpub\wwwroot\JustServicios\JustServicios\obj\Debug\JustServicios.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\obj\Debug\JustServicios.pdb
-C:\inetpub\wwwroot\JustServicios\JustServicios\bin\net-sdk.dll
-C:\inetpub\wwwroot\JustServicios\JustServicios\bin\nunit.framework.dll
-C:\inetpub\wwwroot\JustServicios\JustServicios\bin\RestSharp.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\net-sdk.pdb
 C:\inetpub\wwwroot\JustServicios\JustServicios\obj\Debug\JustServicios.csprojAssemblyReference.cache
 \\serversistemas\wwwroot\JustServicios\JustServicios\obj\Debug\RdlCompile.cache

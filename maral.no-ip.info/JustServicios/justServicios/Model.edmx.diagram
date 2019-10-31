@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ab2b437037d4b579ad29a3bfd429dfb" Name="Diagram1" ZoomLevel="39">
+        <EntityTypeShape EntityType="gestionModel.accesos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.activida" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.clicta" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.cliente" Width="1.5" PointX="9.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.concepto" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.condpago" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.configen" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.cuentas" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.departamentos" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.detmovim" Width="1.5" PointX="13.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.empresa" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.factura" Width="1.5" PointX="15.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.iva" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.ivaart" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.ivaven" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.localidades" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.marcas" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.monedas" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.PedidoCab" Width="1.5" PointX="7.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.PedidoDet" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.presupc" Width="1.5" PointX="19.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.presupd" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.provee" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.provincias" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.rubros" Width="1.5" PointX="21.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.stock" Width="1.5" PointX="21.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.subrub" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.tipoart" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.tipocomprobante" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.tipodoc" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.token" Width="1.5" PointX="23.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.transpo" Width="1.5" PointX="5.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.unimed" Width="1.5" PointX="23.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.vende" Width="1.5" PointX="23.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.zonas" Width="1.5" PointX="23.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.artasoc" Width="1.5" PointX="23.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.artprove" Width="1.5" PointX="23.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.caja" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.cheques" Width="1.5" PointX="25.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.clictad" Width="1.5" PointX="9.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.colores" Width="1.5" PointX="11.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.componen" Width="1.5" PointX="25.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.conceptosincluidos" Width="1.5" PointX="25.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.descxrub" Width="1.5" PointX="25.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.detcompr" Width="1.5" PointX="13.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.documen" Width="1.5" PointX="15.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.factu" Width="1.5" PointX="27.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.informe" Width="1.5" PointX="27.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.ivacom" Width="1.5" PointX="27.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.movstock" Width="1.5" PointX="17.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.padronib" Width="1.5" PointX="27.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.premito" Width="1.5" PointX="0.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.proctad" Width="1.5" PointX="2.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.RemitoCab" Width="1.5" PointX="4.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.RemitoDet" Width="1.5" PointX="29.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.sucursal" Width="1.5" PointX="12" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.usu_acce" Width="1.5" PointX="29.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.via" Width="1.5" PointX="29.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.clienteModal" Width="1.5" PointX="29.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.ClientePesupuesto" Width="1.5" PointX="29.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.LIvaComp" Width="1.5" PointX="23.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.LOpxRubro" Width="1.5" PointX="29.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.LPrecios" Width="1.5" PointX="6.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.LRemitosEmitidosDetalle" Width="1.5" PointX="25.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.LVentasPorProductodsadsdassd" Width="1.5" PointX="31.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.MonedasconSaldoAcumulado" Width="1.5" PointX="31.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.monedaxEmpresa" Width="1.5" PointX="31.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.PuntodeVentaporEmpresa" Width="1.5" PointX="31.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.RemitosEmitidosCab" Width="1.5" PointX="31.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.stocks" Width="1.5" PointX="31.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.UbicacionporDepositoEmpresa" Width="1.5" PointX="8.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VArtVen" Width="1.5" PointX="10.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VCliente2" Width="1.5" PointX="33.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VCobranza2" Width="1.5" PointX="33.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VCobranzas" Width="1.5" PointX="33.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VivaVen" Width="1.5" PointX="33.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VivaVendd" Width="1.5" PointX="33.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VivaVenpp" Width="1.5" PointX="0.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VRemDet" Width="1.5" PointX="15.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VRemitos" Width="1.5" PointX="27.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VSaldoCli" Width="1.5" PointX="35.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VStock" Width="1.5" PointX="35.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VStockC" Width="1.5" PointX="35.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.VStockItems" Width="1.5" PointX="35.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gestionModel.vVendedores" Width="1.5" PointX="12.75" PointY="35.75" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_provee_condpago" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_provee_cuentas" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_departamentos_provincias" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_localidades_departamentos" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_provee_iva" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_provee_localidades" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_provee_monedas" />
+        <AssociationConnector ManuallyRouted="false" Association="gestionModel.FK_provee_transpo" />
+        <EntityTypeShape EntityType="gestionModel.passwd" Width="1.5" PointX="36.375" PointY="13.75" />
+        <EntityTypeShape EntityType="gestionModel.RWRefCliente" Width="1.5" PointX="36.375" PointY="18.75" />
+        <EntityTypeShape EntityType="gestionModel.VCobran" Width="1.5" PointX="36.375" PointY="22.75" />
+        <EntityTypeShape EntityType="gestionModel.vistacomprabantepresupuesto" Width="1.5" PointX="36.375" PointY="28.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

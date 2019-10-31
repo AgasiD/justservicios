@@ -28,11 +28,11 @@ namespace JustServicios
         }
         public DicRequestHTTP getMarcasAcot()
         {
-            return new ControladorDatos().getData("select codigo, descri from " + table);
+            return new ControladorDatos().getData("select codigo, descripcion descri from " + table);
         }
         public RequestHTTP getMarcaAcot(int id)
         {
-            return new ControladorDatos().getElement("select codigo, descri from " + table + " where codigo = " + id);
+            return new ControladorDatos().getElement("select codigo, descripcion descri from " + table + " where codigo = " + id);
         }
 
         public DicRequestHTTP getMarcas()

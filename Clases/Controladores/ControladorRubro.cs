@@ -14,7 +14,7 @@ namespace JustServicios
 {
     public class ControladorRubros
     {
-        private string table { get; } = "rubro";
+        private string table { get; } = "rubros";
         private static ControladorRubros instancia;
         private ControladorDatos cData { get; set; }
         private ControladorRubros()
