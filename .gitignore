@@ -7,13 +7,23 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 Web
+web
 Web.config
 *Web.config
 web
 web.config
 *web.config
-
-
+web.config/
+Web.config/
+*web.config*
+*Web.config*
+Web.config.txt
+.Web.config
+.web.config
+./web.config
+./Web.config
+/web.config
+/Web.config
 # Firebase cache
 .firebase/
 

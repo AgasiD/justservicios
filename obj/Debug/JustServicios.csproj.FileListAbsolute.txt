@@ -3,7 +3,6 @@ C:\inetpub\wwwroot\JustServicios\JustServicios\bin\SqlServerTypes\x64\msvcr120.d
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\SqlServerTypes\x86\msvcr120.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
-C:\inetpub\wwwroot\JustServicios\JustServicios\bin\JustServicios.dll.config
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\JustServicios.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\JustServicios.pdb
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\roslyn\csc.exe
@@ -718,3 +717,4 @@ C:\Users\User\Desktop\Justsolution\JustServicios\JustServicios\obj\Debug\JustSer
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\net-sdk.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\nunit.framework.dll
 C:\inetpub\wwwroot\JustServicios\JustServicios\bin\RestSharp.dll
+C:\inetpub\wwwroot\JustServicios\JustServicios\bin\JustServicios.dll.config

@@ -857,6 +857,13 @@
     <Content Include="JustsaDataSet.xsc">
       <DependentUpon>JustsaDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="JustsaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>JustsaDataSet.Designer.cs</LastGenOutput>
@@ -907,15 +914,6 @@
     </Content>
     <Content Include="Reportes\Reporte.aspx" />
     <Content Include="VistaComprobante.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
@@ -926,6 +924,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="configs\" />
     <Folder Include="images\" />
     <Folder Include="Models\" />
     <Folder Include="Views\usuarioSession\" />
