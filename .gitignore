@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 
+Web.config
+
 # Firebase cache
 .firebase/
 
@@ -45,7 +47,7 @@ build/Release
 
 # Dependency directories
 node_modules/
-Web
+
 
 # Optional npm cache directory
 .npm
