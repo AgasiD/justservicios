@@ -179,7 +179,7 @@ public class ControladorProducto
         {
             using (GestionEntities bd = new GestionEntities())
             {
-                if (bd.stocksF(empid).Where(a => a.codpro.Contains(value) || a.descri.Contains(value)).Count() <= 1)
+                if (bd.stocksF(empid).Where(a => a.codpro.Contains(value) || a.descri.Contains(value)).Count() == 1)
                     return true;
                 else
                     return false;
