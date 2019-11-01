@@ -9,16 +9,32 @@ using System.Web.Http.Results;
     }
     [Serializable]
 
-    public class MiPorcenVentas
+public class MiUtilidades
 {
-    public int nrocli { get; set; }
+    public Nullable<decimal> codMarca { get; set; }
+    public string codpro { get; set; }
+    public string descriMarca { get; set; }
+    public string descri { get; set; }
+    public Nullable<decimal> codSubrub { get; set; }
+    public string descriSubrub { get; set; }
+    public int? codRubro { get; set; }
+    public decimal? utilidad { get; set; }
+    public string descriRubro { get; set; }
+    public Nullable<decimal> cant { get; set; }
+    public Nullable<decimal> venta { get; set; }
+    public Nullable<decimal> costo { get; set; }
+    public Nullable<decimal> diferencia { get; set; }
+}
+public class MiPorcenVentas
+{
+    public decimal? nrocli { get; set; }
     public string razsoc { get; set; }
-    public decimal cant{ get; set; }
-    public decimal porcencant { get; set; }
-    public decimal cantenv { get; set; }
-    public decimal porcencantenv { get; set; }
-    public decimal neto { get; set; }
-    public decimal porcenneto { get; set; }
+    public decimal? cant{ get; set; }
+    public decimal? porcencant { get; set; }
+    public decimal? cantenv { get; set; }
+    public decimal? porcencantenv { get; set; }
+    public decimal? neto { get; set; }
+    public decimal? porcenneto { get; set; }
 }
 public class MiProvee: MiPorcenVentas
 {

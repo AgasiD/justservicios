@@ -72,7 +72,6 @@ namespace JustServicios.Clases.Controladores
                 connection.Open();
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                
                 while (dataReader.Read())
                 {
                     for (int i = 0; i < dataReader.FieldCount; i++)
@@ -83,7 +82,7 @@ namespace JustServicios.Clases.Controladores
                 dataReader.Close();
                 command.Dispose();
                 connection.Close();
-                req.objeto = diccionario;
+                req.objeto = diccionario.ToList();
                 return req;
             }
             catch (Exception e)

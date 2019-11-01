@@ -29,7 +29,10 @@ namespace JustServicios.Clases.Controladores
         {
             using(GestionEntities bd = new GestionEntities())
             {
-                return bd.Database.SqlQuery<ComprobanteAdeudado>("select fecha, tipodoc, letra, punto, numero,simdoc mon,importe1 importe, importe2 adeudado, vence, simbolo, cotizacion  from clictad where empresa = " + empresa + " and nrocli = " + nrocli).ToList();
+                return bd.Database.SqlQuery<ComprobanteAdeudado>(
+                    "select fecha, tipodoc, letra, punto, numero,simdoc mon,importe1 importe, importe2 adeudado, vence, simbolo, cotizacion " +
+                    " from clictad " +
+                    "where empresa = " + empresa + " and nrocli = " + nrocli).ToList();
             }
         }
         public RequestHTTP getComprobantesFacturados(string query, int offset, int codven, bool veTodos)
@@ -40,9 +43,18 @@ namespace JustServicios.Clases.Controladores
                 using (GestionEntities bd = new GestionEntities())
                 {
                     if (veTodos) 
-                        res.objeto = bd.Database.SqlQuery<ivavenComprobante>("select fecha, tipodoc, letra, punto, numero,hasta, nrocli, razsoc, total, cae, vencecae, numerofe,idpetic,ctacon,ctaconex,empresaid, id, provin, remito from ivaven where " + query + " order by id desc  offset " + offset + " rows fetch next 20 row only").ToList();
+                        res.objeto = bd.Database.SqlQuery<ivavenComprobante>(
+                            "select fecha, tipodoc, letra, punto, numero,hasta, nrocli, razsoc, total, cae, vencecae, numerofe," +
+                            "idpetic,ctacon,ctaconex,empresaid, id, provin, remito " +
+                            "from ivaven " +
+                            "where " + query + " order by id desc  offset " + offset + " rows fetch next 20 row only").ToList();
                     else
-                        res.objeto = bd.Database.SqlQuery<ivavenComprobante>("select fecha, tipodoc, letra, punto, numero,hasta ,nrocli, razsoc, total, cae, vencecae, numerofe,idpetic,ctacon,ctaconex,empresaid, id, provin, remito from ivaven where " + query + " and codven = " + codven + " order by id desc  offset " + offset + " rows fetch next 20 row only").ToList();
+                        res.objeto = bd.Database.SqlQuery<ivavenComprobante>(
+                            "select fecha, tipodoc, letra, punto, numero,hasta ,nrocli, razsoc, total, cae, vencecae, numerofe,idpetic,ctacon,ctaconex,empresaid, id, provin, " +
+                            "remito " +
+                            "from ivaven " +
+                            "where " + query + " and codven = " + codven + " order by id desc  offset " + offset + " rows fetch next 20 row only"
+                            ).ToList();
                 }
             }catch(Exception ex)
             {
