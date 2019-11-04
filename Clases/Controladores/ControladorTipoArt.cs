@@ -44,5 +44,10 @@ namespace JustServicios
         {
             return new ControladorDatos().getElement("select * from " + table + " where codigo = " + id);
         }
+        public DicRequestHTTP getSomeAcot(string param)
+        {
+            return new ControladorDatos().getData("select * from " + table + " where codigo like '%" + param + "%' or descri like '%" + param + "%'");
+        }
+        
     }
 }

@@ -82,7 +82,7 @@ namespace JustServicios.Clases.Controladores
                 dataReader.Close();
                 command.Dispose();
                 connection.Close();
-                req.objeto = diccionario.ToList();
+                req.objeto = diccionario;
                 return req;
             }
             catch (Exception e)

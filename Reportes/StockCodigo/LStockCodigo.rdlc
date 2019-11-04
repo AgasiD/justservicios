@@ -224,6 +224,7 @@
                                   <Value>=Fields!fechveri.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>d</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

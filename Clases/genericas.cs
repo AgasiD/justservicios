@@ -25,6 +25,16 @@ public class MiUtilidades
     public Nullable<decimal> costo { get; set; }
     public Nullable<decimal> diferencia { get; set; }
 }
+
+class MiLStockCodigo
+{
+    public string codpro { get; set; }
+    public string descri { get; set; }
+    public string color { get; set; }
+    public DateTime fechveri { get; set; }
+    public decimal? saldo { get; set; }
+
+}
 public class MiPorcenVentas
 {
     public decimal? nrocli { get; set; }

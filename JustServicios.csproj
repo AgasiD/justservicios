@@ -332,7 +332,7 @@
     <Compile Include="Clases\Controladores\ControladorVende.cs" />
     <Compile Include="Clases\Controladores\ControladorTipoArt.cs" />
     <Compile Include="Clases\Controladores\ControladorZona.cs" />
-    <Compile Include="Clases\Controladores\Controlador.cs" />
+    <Compile Include="Clases\Controladores\ControladorColor.cs" />
     <Compile Include="Clases\Controladores\ControladorGrupo.cs" />
     <Compile Include="Clases\Controladores\ControladorConcepto.cs" />
     <Compile Include="Clases\Controladores\ControladorCliente.cs" />
@@ -395,6 +395,7 @@
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\ActividadController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\ColorController.cs" />
     <Compile Include="Controllers\ZonaController.cs" />
     <Compile Include="Controllers\VendeController.cs" />
     <Compile Include="Controllers\TipoArtController.cs" />

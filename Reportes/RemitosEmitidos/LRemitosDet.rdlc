@@ -230,6 +230,7 @@
                                   <Style>
                                     <FontFamily />
                                     <FontSize>8pt</FontSize>
+                                    <Format>d</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

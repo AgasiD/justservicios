@@ -157,11 +157,39 @@ public partial class Reporte : System.Web.UI.Page
                 case 42:
                     LPorcenCliFactu();
                     break;
-                case 43: LUtilidades();
+                case 43:
+                    LUtilidades();
                     break;
-
+                case 44:
+                    LStockCodigo();
+                    break;
             }
         }
+    }
+    public void LStockCodigo()
+    {
+        string orden = Request.QueryString["orden"].ToString();
+        string codigo = Request.QueryString["codigo"].ToString();
+        string ordenado = "";
+        if (orden == "1")
+        {
+            ordenado = " codpro";
+        }
+        else
+        {
+            ordenado = " descri";
+        }
+        List<MiLStockCodigo> lista;
+        using(GestionEntities bd = new GestionEntities()){
+            lista = bd.Database.SqlQuery<MiLStockCodigo>(
+                "select stock.codpro, descri, fechveri, saldo, color "                        +
+                "from stock "                                                                 +
+                "left join SaldoSTKAll(" + empresa + ") as stk on stk.codpro = stock.codpro " +
+                "where stock.codpro like '%" + codigo + "%' "                                 +
+                "order by " + ordenado).ToList();
+        }
+        string ruta = "reportes/StockCodigo/LStockCodigo.rdlc";
+        generarReporte(ruta, new Dictionary<string, string>(), new ReportDataSource("LStockCodigo", lista), dsd, hst);
     }
 
     
@@ -510,13 +538,7 @@ public void LPorcenCliFactu()
                 tasaIVA = bd.configen.Single(e => e.empresa == empresa).ivatasagral;
             foreach (var item in lista)
             {
-                switch (precio)
-                {
-                    case 1:
-                        item.precio = item.precio + (item.precio * tasaIVA / 100);
-                        break;
-
-                }
+                item.precio = item.precio + (item.precio * tasaIVA / 100);
             }
         }
         switch (orden)
@@ -1276,21 +1298,43 @@ public void LPorcenCliFactu()
     {
         string rutaReporte, query = Request.QueryString["query"].ToString();
         bool detalle = Convert.ToBoolean(Request.QueryString["detalle"].ToString());
-        List<VRemitos> lista;
+        List<VRemitos> listac;
+        List<VRemDet> listad;
 
-        using (GestionEntities bd = new GestionEntities())
-        {
-            lista = bd.VRemitos.Where(query).ToList();
-        }
         if (detalle)
         {
+            using (GestionEntities bd = new GestionEntities())
+            {
+                listad = bd.Database.SqlQuery<VRemDet>(
+                    "SELECT CONVERT(date, dbo.RemitoCab.fecha) AS fecha, dbo.RemitoCab.letra, dbo.RemitoCab.empresaid, dbo.RemitoDet.cabeceraid, dbo.RemitoCab.numero," +
+                    " dbo.RemitoDet.cant, dbo.RemitoDet.precio, dbo.RemitoDet.codpro, dbo.RemitoDet.descri, dbo.RemitoDet.prexcant, dbo.cliente.razsoc, " +
+                    "dbo.RemitoCab.facturado "                              +
+                    "from RemitoDet "                                       +
+                    "left join "                                            +
+                    "RemitoCab ON RemitoDet.cabeceraid = dbo.RemitoCab.id " +
+                    "left join "                                            +
+                    "cliente ON cliente.nrocli = RemitoCab.nrocli "         +
+                    "where " + query
+                    ).ToList();
+            }
             rutaReporte = "ReporteS/RemitosEmitidos/LRemitosDet.rdlc";
+            generarReporte(rutaReporte, parametros, new ReportDataSource("LRemitosDet", listad), Request.QueryString["dsd"].ToString(), Request.QueryString["hst"].ToString());
         }
         else
         {
+            using (GestionEntities bd = new GestionEntities())
+            {
+                listac = bd.Database.SqlQuery<VRemitos>("" +
+                    "SELECT cliente.razsoc, RemitoCab.subtot, RemitoCab.bonitot, RemitoCab.bonifto, RemitoCab.neto, CONVERT(date, dbo.RemitoCab.fecha) AS fecha," +
+                    "RemitoCab.letra, RemitoCab.empresaid, RemitoCab.numero, RemitoCab.facturado " +
+                    "FROM  RemitoCab " +
+                    "left Join cliente ON cliente.nrocli = RemitoCab.nrocli " +
+                    "where "+ query
+                    ).ToList();
+            }
             rutaReporte = "ReporteS/RemitosEmitidos/LRemitos.rdlc";
+            generarReporte(rutaReporte, parametros, new ReportDataSource("LRemitos", listac), Request.QueryString["dsd"].ToString(), Request.QueryString["hst"].ToString());
         }
-        generarReporte(rutaReporte, parametros, new ReportDataSource("LRemitos", lista), Request.QueryString["dsd"].ToString(), Request.QueryString["hst"].ToString());
     }
     private void LSaldoProveedores()
     {
@@ -1681,13 +1725,13 @@ public void LPorcenCliFactu()
         {
             if (usuario) {
                 using (GestionEntities bd = new GestionEntities())
-                    lista = bd.LInforme().ToList();
+                    lista = bd.LInforme().Where(op => op.fecha >= ddsd && op.fecha <= dhst).ToList();
             }
             else
             {
                 int idUsuario = Convert.ToInt32(Request.QueryString["idUsuario"].ToString());
                 using (GestionEntities bd = new GestionEntities())
-                    lista = bd.LInforme().Where(a => a.idusuario == idUsuario).ToList();
+                    lista = bd.LInforme().Where(a => a.idusuario == idUsuario && a.fecha >= ddsd && a.fecha <= dhst).ToList();
             }
         }
         else
@@ -1696,13 +1740,13 @@ public void LPorcenCliFactu()
             if (usuario)
             {
                 using (GestionEntities bd = new GestionEntities())
-                    lista = bd.LInforme().Where(a => a.detalle.Contains(contenido)).ToList();
+                    lista = bd.LInforme().Where(a => a.detalle.Contains(contenido) && a.fecha >= ddsd && a.fecha <= dhst).ToList();
             }
             else
             {
                 int idUsuario = Convert.ToInt32(Request.QueryString["idUsuario"].ToString());
                 using (GestionEntities bd = new GestionEntities())
-                    lista = bd.LInforme().Where(a => a.idusuario == idUsuario && a.detalle.Contains(contenido)).ToList();
+                    lista = bd.LInforme().Where(a => a.idusuario == idUsuario && a.detalle.Contains(contenido) && a.fecha >= ddsd && a.fecha <= dhst).ToList();
             }
         }
         txt.Text = lista.Count.ToString();
@@ -1889,21 +1933,34 @@ public void LPorcenCliFactu()
         List<FComisiones_Result> lista;
         string querycodven = "";
         string liquidada = "";
+        string where = "";
         if (!liquidadas)
         {
-            liquidada = " liquidada <> 1 ";
+            if (where != "")
+                where += " and ";
+            where += " liquidada = 0 ";
         }
         if (codven > 0)
         {
-            querycodven = "and codven = " + codven;
+            if (where != "")
+                where += " and ";
+            where += " codven = " + codven;
         }
-        if (!cotizaciones)
+        if (cotizaciones)
         {
-            queryCotis = " and tipodoc <> 'CT' and tipodoc <> 'AJD' and  tipodoc <> 'AJC' ";
+            if (where != "")
+                where += " and ";
+            where += " tipodoc not in('CT','AJD','AJC') ";
+        }
+        if(where != "")
+        {
+            where = "where " + where;
         }
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<FComisiones_Result>("select  * from FComisiones(" + empresa + ",'" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "' , "+tipocomis +") where " + liquidada + queryCotis +" " + querycodven).ToList();
+            lista = bd.Database.SqlQuery<FComisiones_Result>(
+                "select  * from FComisiones(" + empresa + ",'" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "' , "+tipocomis +")" + where
+                ).ToList();
         }
 
         switch (tipocomis)
@@ -1945,22 +2002,34 @@ public void LPorcenCliFactu()
         List<FCobranzas_Result> lista;
         string querycodven = "";
         string liquidada = "";
+        string where = "";
         if (!liquidadas)
         {
-            liquidada = " liquidada <> 1 ";
+            if (where != "")
+                where += " and ";
+            where += " liquidada = 0 ";
         }
         if (codven > 0)
         {
-            querycodven = "and codven = " + codven;
+            if (where != "")
+                where += " and ";
+            where += " codven = " + codven;
         }
-
-        if (!cotizaciones)
+        if (cotizaciones)
         {
-            queryCotis = " and tipdoco <> 'CT' and tipdoco <> 'AJD' and  tipdoco <> 'AJC'";
+            if (where != "")
+                where += " and ";
+            where += " tipodoc not in('CT','AJD','AJC') ";
+        }
+        if (where != "")
+        {
+            where = "where " + where;
         }
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<FCobranzas_Result>("select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ", " + tipocomis + " ) where " + liquidada + " " + queryCotis + " " + querycodven).ToList();
+            lista = bd.Database.SqlQuery<FCobranzas_Result>(
+                "select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ", " + tipocomis + " )" 
+                + where).ToList();
         }
         switch (tipocomis)
         {
@@ -1983,17 +2052,29 @@ public void LPorcenCliFactu()
         List<LClientes_Result> lista;
         string sdsd = Request.QueryString["dsd"].ToString(),
             shst = Request.QueryString["hst"].ToString();
-        DateTime dsd = Convert.ToDateTime(sdsd), hst = Convert.ToDateTime(shst);
+        DateTime dsd = Convert.ToDateTime(sdsd),
+                 hst = Convert.ToDateTime(shst);
         bool resumido = Convert.ToBoolean(Request.QueryString["resumido"].ToString());
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.LClientes(dsd, hst).Where(query).ToList();
+            if (query != "")
+                lista = bd.LClientes(dsd, hst).Where(query).ToList();
+            else
+            {
+                dsd = Convert.ToDateTime("1900-01-01");
+                hst = DateTime.Today;
+                lista = bd.LClientes(dsd, hst).ToList();
+            }
         }
         string orden = Request.QueryString["orden"].ToString();
         txt.Text = lista.Count.ToString();
         if (orden == "1")
         {
             lista = lista.OrderBy(a => a.razsoc).ToList();
+        }
+        if (orden != "1")
+        {
+            lista = lista.OrderBy(a => a.nrocli).ToList();
         }
         if (resumido)
         {

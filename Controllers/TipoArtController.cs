@@ -30,5 +30,11 @@ namespace JustServicios.Controllers
         {
             return Json(cControlador.getTipoArtsAcot());
         }
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getSomeAcot")]
+        public JsonResult<DicRequestHTTP> getSomeAcot(string param)
+        {
+            return Json(cControlador.getSomeAcot(param));
+        }
     }
 }

@@ -131,9 +131,26 @@ public class ControladorProducto
             {
                 bd.Database.CommandTimeout = 30;
                 if (value == "0")
-                     lista = bd.Database.SqlQuery<Producto>("select pathfoto, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase, envases.codigo AS codEnvase,envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo FROM stock LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo LEFT OUTER JOIN envases ON envases.id = stock.envase LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro").ToList();
+                     lista = bd.Database.SqlQuery<Producto>(
+                         "select pathfoto, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase,"             +
+                         " envases.codigo AS codEnvase, envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo "                                           +
+                         "FROM stock "                                                                                                                          +
+                         "LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo "                                                                            +
+                         "LEFT OUTER JOIN envases ON envases.id = stock.envase "                                                                                +
+                         "LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro"
+                         ).ToList();
                 else
-                    lista = bd.Database.SqlQuery<Producto>("select pathfoto, stock.id, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase, envases.codigo AS codEnvase,envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo FROM stock LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo LEFT OUTER JOIN envases ON envases.id = stock.envase LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro where stock.codpro like '%" + value + "%' or stock.descri like '%" + value + "%' order by descri offset " + offset + " rows fetch next 20 row only").ToList();
+                    lista = bd.Database.SqlQuery<Producto>(
+                        "select pathfoto, stock.id, stock.codpro, stock.descri, oferta, boniprod, incluido, ivaart.porcen1, envases.descri AS descriEnvase,"    +
+                        " envases.codigo AS codEnvase, envases.simbolo AS simboloEnvase, isnull(stk.saldo,0) saldo "                                            +
+                        "FROM stock "                                                                                                                           +
+                        "LEFT OUTER JOIN ivaart ON ivaart.codigo = stock.ivagrupo "                                                                             +
+                        "LEFT OUTER JOIN envases ON envases.id = stock.envase "                                                                                 +
+                        "LEFT OUTER JOIN SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = stock.codpro "                                                       +
+                        "where stock.codpro like '%" + value + "%' or stock.descri like '%" + value + "%' "                                                     +
+                        "order by descri " +
+                        "offset " + offset + " rows fetch next 20 row only"
+                        ).ToList();
             }
             foreach (var prod in lista)
             {
@@ -188,7 +205,6 @@ public class ControladorProducto
         {
             return false;
         }
-
     }
 
     public string cambiarCodigo(JObject codigos)
@@ -233,22 +249,22 @@ public class ControladorProducto
     {
         if (productos == null)
         {
-            productos = new ControladorDatos().getData(" SELECT dbo.stock.id, dbo.stock.codpro, dbo.stock.cbarras, dbo.stock.dun14, dbo.stock.codorigi, " +
-                "dbo.stock.coriginal, dbo.stock.codncm, dbo.stock.descri, dbo.stock.despacho, dbo.stock.verifico, dbo.stock.color, dbo.stock.pathfoto," +
-                " dbo.stock.pathetiq, dbo.stock.usuestr, dbo.stock.descrilar, dbo.stock.usoart, dbo.stock.observa, dbo.stock.rubro, dbo.stock.subrub," +
-                " dbo.stock.marca, dbo.stock.unimed, dbo.stock.proveed, dbo.stock.moneda, dbo.stock.envase, dbo.stock.ivagrupo, dbo.stock.ctacon, " +
-                "dbo.stock.fecha, dbo.stock.fecmodcos, dbo.stock.alta, dbo.stock.fechaact, dbo.stock.fechveri, dbo.stock.fecprom, dbo.stock.fechestr," +
-                " dbo.stock.fechpped, dbo.stock.cosfverif, dbo.stock.incluido, dbo.stock.artret, dbo.stock.oferta, dbo.stock.descomp, dbo.stock.vtaxbul, " +
-                "dbo.stock.discont, dbo.stock.noborrarelart, dbo.stock.msgstkptoped, dbo.stock.costo, dbo.stock.precio1, dbo.stock.precio2, dbo.stock.precio3," +
-                " dbo.stock.precio4, dbo.stock.precio5, dbo.stock.precio6, dbo.stock.stomin, dbo.stock.ppedido, dbo.stock.boniprod, dbo.stock.comiprod, " +
-                "dbo.stock.comipcob, dbo.stock.cantenv, dbo.stock.peso, dbo.stock.promedio, dbo.stock.meses, dbo.stock.canths, dbo.stock.uxbulto, " +
-                "dbo.stock.prelis, dbo.stock.tipoart, dbo.stock.impint, dbo.stock.impasoc, dbo.stock.presug, dbo.stock.cantmin, dbo.stock.porceasoc, " +
-                "dbo.stock.internos, dbo.stock.modifdescr, dbo.stock.coddisp, dbo.stock.codsku, dbo.stock.uxdisp, dbo.stock.exigelote, dbo.stock.codcot," +
-                " dbo.ivaart.porcen1, dbo.envases.descri AS descriEnvase, dbo.envases.codigo AS codEnvase, dbo.envases.simbolo AS simboloEnvase," +
-                " isnull(stk.saldo, 0) saldo" +
-                " FROM            dbo.stock" +
-                " LEFT OUTER JOIN dbo.ivaart ON dbo.ivaart.codigo = dbo.stock.ivagrupo" +
-                " LEFT OUTER JOIN dbo.envases ON dbo.envases.id = dbo.stock.envase" +
+            productos = new ControladorDatos().getData(" SELECT dbo.stock.id, dbo.stock.codpro, dbo.stock.cbarras, dbo.stock.dun14, dbo.stock.codorigi, "          +
+                "dbo.stock.coriginal, dbo.stock.codncm, dbo.stock.descri, dbo.stock.despacho, dbo.stock.verifico, dbo.stock.color, dbo.stock.pathfoto,"            +
+                " dbo.stock.pathetiq, dbo.stock.usuestr, dbo.stock.descrilar, dbo.stock.usoart, dbo.stock.observa, dbo.stock.rubro, dbo.stock.subrub,"             +
+                " dbo.stock.marca, dbo.stock.unimed, dbo.stock.proveed, dbo.stock.moneda, dbo.stock.envase, dbo.stock.ivagrupo, dbo.stock.ctacon, "                +
+                "dbo.stock.fecha, dbo.stock.fecmodcos, dbo.stock.alta, dbo.stock.fechaact, dbo.stock.fechveri, dbo.stock.fecprom, dbo.stock.fechestr,"             +
+                " dbo.stock.fechpped, dbo.stock.cosfverif, dbo.stock.incluido, dbo.stock.artret, dbo.stock.oferta, dbo.stock.descomp, dbo.stock.vtaxbul, "         +
+                "dbo.stock.discont, dbo.stock.noborrarelart, dbo.stock.msgstkptoped, dbo.stock.costo, dbo.stock.precio1, dbo.stock.precio2, dbo.stock.precio3,"    +
+                " dbo.stock.precio4, dbo.stock.precio5, dbo.stock.precio6, dbo.stock.stomin, dbo.stock.ppedido, dbo.stock.boniprod, dbo.stock.comiprod, "          +
+                "dbo.stock.comipcob, dbo.stock.cantenv, dbo.stock.peso, dbo.stock.promedio, dbo.stock.meses, dbo.stock.canths, dbo.stock.uxbulto, "                +
+                "dbo.stock.prelis, dbo.stock.tipoart, dbo.stock.impint, dbo.stock.impasoc, dbo.stock.presug, dbo.stock.cantmin, dbo.stock.porceasoc, "             +
+                "dbo.stock.internos, dbo.stock.modifdescr, dbo.stock.coddisp, dbo.stock.codsku, dbo.stock.uxdisp, dbo.stock.exigelote, dbo.stock.codcot,"          +
+                " dbo.ivaart.porcen1, dbo.envases.descri AS descriEnvase, dbo.envases.codigo AS codEnvase, dbo.envases.simbolo AS simboloEnvase,"                  +
+                " isnull(stk.saldo, 0) saldo"                                                                                                                      +
+                " FROM            dbo.stock"                                                                                                                       +
+                " LEFT OUTER JOIN dbo.ivaart ON dbo.ivaart.codigo = dbo.stock.ivagrupo"                                                                            +
+                " LEFT OUTER JOIN dbo.envases ON dbo.envases.id = dbo.stock.envase"                                                                                +
                 " LEFT OUTER JOIN dbo.SaldoSTKALL(" + empid + ") AS stk ON stk.codpro = dbo.stock.codpro").objeto;
             return productos;
         }
@@ -256,6 +272,5 @@ public class ControladorProducto
         {
             return productos;
         }
-    }
-                 
-    }
+    }            
+}
