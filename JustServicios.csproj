@@ -323,6 +323,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\comprobante.cs" />
+    <Compile Include="Clases\Controladores\ControladorConfigen.cs" />
     <Compile Include="Clases\Controladores\ControladorRubro.cs" />
     <Compile Include="Clases\Controladores\ControladorSubRubro.cs" />
     <Compile Include="Clases\Controladores\ControladorMarca.cs" />
@@ -353,7 +354,6 @@
     <Compile Include="Clases\PedidoDet.cs" />
     <Compile Include="Clases\presupc.cs" />
     <Compile Include="Clases\presupd.cs" />
-    <Compile Include="Clases\prueba.cs" />
     <Compile Include="Clases\stocks.cs" />
     <Compile Include="Clases\StockView.cs" />
     <Compile Include="clicta.cs">

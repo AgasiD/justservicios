@@ -293,6 +293,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -779,7 +780,6 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -788,9 +788,6 @@
                     </TablixMember>
                     <TablixMember>
                       <Group Name="Detalles" />
-                      <Visibility>
-                        <ToggleItem>razsoc</ToggleItem>
-                      </Visibility>
                     </TablixMember>
                     <TablixMember>
                       <KeepWithGroup>Before</KeepWithGroup>

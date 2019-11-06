@@ -23,9 +23,9 @@ namespace JustServicios
         public decimal cantmin { get; set; }
         public decimal consProm { get; set; }
         public bool discont { get; set; }
-        public int marcaCod { get; set; }
+        public decimal marcaCod { get; set; }
         public string marcaDescr { get; set; }
-        public int proveedCod { get; set; }
+        public decimal proveedCod { get; set; }
         public string proveeRazs { get; set; }
         public int codRub { get; set; }
         public string rubroDescri { get; set; }

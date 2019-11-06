@@ -35,6 +35,44 @@ namespace JustServicios.Controllers
             return cProducto.existeProducto(codpro);
         }
 
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getAll")]
+        public JsonResult<DicRequestHTTP> getAll( )
+        {
+            return Json(cProducto.getAll());
+        }
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getOne")]
+        public JsonResult<RequestHTTP> getOne(string codpro)
+        {
+            return Json(cProducto.getOne(codpro));
+        }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getSome")]
+        public JsonResult<DicRequestHTTP> getSome(string param)
+        {
+            return Json(cProducto.getSome(param));
+        }
+        
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getAllAcot")]
+        public JsonResult<DicRequestHTTP> getAllAcot()
+        {
+            return Json(cProducto.getAllAcot());
+        }
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getOneAcot")]
+        public JsonResult<RequestHTTP> getOneAcot(string codpro)
+        {
+            return Json(cProducto.getOneAcot(codpro));
+        }
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getSomeAcot")]
+        public JsonResult<DicRequestHTTP> getSomeAcot(string param)
+        {
+            return Json(cProducto.getSomeAcot(param));
+        }
 
 
     }

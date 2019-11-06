@@ -706,7 +706,7 @@
                   </TablixColumns>
                   <TablixRows>
                     <TablixRow>
-                      <Height>0.6cm</Height>
+                      <Height>0.59027cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
@@ -791,7 +791,7 @@
                       </TablixCells>
                     </TablixRow>
                     <TablixRow>
-                      <Height>0.6cm</Height>
+                      <Height>0.59027cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
@@ -865,7 +865,7 @@
                       </TablixCells>
                     </TablixRow>
                     <TablixRow>
-                      <Height>0.6cm</Height>
+                      <Height>0.59027cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
@@ -933,7 +933,7 @@
                       </TablixCells>
                     </TablixRow>
                     <TablixRow>
-                      <Height>0.6cm</Height>
+                      <Height>0.59027cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
@@ -1001,7 +1001,7 @@
                       </TablixCells>
                     </TablixRow>
                     <TablixRow>
-                      <Height>0.6cm</Height>
+                      <Height>0.59027cm</Height>
                       <TablixCells>
                         <TablixCell>
                           <CellContents>
@@ -1095,9 +1095,9 @@
                   </TablixMembers>
                 </TablixRowHierarchy>
                 <DataSetName>cabecera</DataSetName>
-                <Top>1.37611cm</Top>
+                <Top>1.69361cm</Top>
                 <Left>8.79709cm</Left>
-                <Height>3cm</Height>
+                <Height>2.95134cm</Height>
                 <Width>6.99113cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
@@ -1110,13 +1110,13 @@
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>5.10645cm</Width>
+                      <Width>5.29166cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>4.43146cm</Width>
+                      <Width>4.00861cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.99187cm</Width>
+                      <Width>1.50803cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -1135,7 +1135,7 @@
                                       <Value>Apellido y nombre/ Razón Social</Value>
                                       <Style>
                                         <FontFamily>tahoma</FontFamily>
-                                        <FontSize>9pt</FontSize>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1251,7 +1251,15 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>Domicilio:</Value>
+                                      <Value>Domicilio</Value>
+                                      <Style>
+                                        <FontFamily>tahoma</FontFamily>
+                                        <FontSize>8pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>:</Value>
                                       <Style>
                                         <FontFamily>tahoma</FontFamily>
                                         <FontSize>9pt</FontSize>
@@ -1463,7 +1471,7 @@
                                       <Value>Condición de venta:</Value>
                                       <Style>
                                         <FontFamily>tahoma</FontFamily>
-                                        <FontSize>9pt</FontSize>
+                                        <FontSize>8pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1572,7 +1580,7 @@
                 <DataSetName>cabecera</DataSetName>
                 <Top>4.66936cm</Top>
                 <Height>2.4cm</Height>
-                <Width>10.52978cm</Width>
+                <Width>10.8083cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -1825,7 +1833,7 @@
                 <Top>6.50464cm</Top>
                 <Left>11.05958cm</Left>
                 <Height>0.6cm</Height>
-                <Width>4.77754cm</Width>
+                <Width>4.77753cm</Width>
                 <ZIndex>8</ZIndex>
                 <Style>
                   <Border>
@@ -1833,6 +1841,41 @@
                   </Border>
                 </Style>
               </Tablix>
+              <Textbox Name="Textbox3">
+                <CanGrow>true</CanGrow>
+                <KeepTogether>true</KeepTogether>
+                <Paragraphs>
+                  <Paragraph>
+                    <TextRuns>
+                      <TextRun>
+                        <Value>FACTURA</Value>
+                        <Style>
+                          <FontSize>20pt</FontSize>
+                          <FontWeight>Bold</FontWeight>
+                        </Style>
+                      </TextRun>
+                    </TextRuns>
+                    <Style>
+                      <TextAlign>Center</TextAlign>
+                    </Style>
+                  </Paragraph>
+                </Paragraphs>
+                <rd:DefaultName>Textbox2</rd:DefaultName>
+                <Top>0.74704cm</Top>
+                <Left>8.79709cm</Left>
+                <Height>0.87602cm</Height>
+                <Width>4.85479cm</Width>
+                <ZIndex>9</ZIndex>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <PaddingLeft>2pt</PaddingLeft>
+                  <PaddingRight>2pt</PaddingRight>
+                  <PaddingTop>2pt</PaddingTop>
+                  <PaddingBottom>2pt</PaddingBottom>
+                </Style>
+              </Textbox>
             </ReportItems>
             <KeepTogether>true</KeepTogether>
             <Top>0.635cm</Top>
@@ -2407,7 +2450,7 @@
             <Top>8.02125cm</Top>
             <Left>0.45976cm</Left>
             <Height>1.2cm</Height>
-            <Width>15.8088cm</Width>
+            <Width>15.80882cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -3155,7 +3198,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=IIf(Fields!discrimina.Value = true, Fields!cabSubt.Value, "")</Value>
+                                      <Value>=IIf(Fields!discrimina.Value = true, Fields!cabNeto.Value + Fields!cabExento.Value, "")</Value>
                                       <Style>
                                         <Format>#,0.00;-#,0.00;''</Format>
                                       </Style>

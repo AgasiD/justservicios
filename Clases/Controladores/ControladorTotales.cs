@@ -38,7 +38,7 @@ namespace JustServicios
                 cuit = lista["cuit"].ToString(), codpro,
                 monfac = lista["monfac"].ToString();
 
-            prueba p = new prueba();
+            prueba2 p = new prueba2();
             var lis = lista["lista"].ToArray();
             List<stocks> listaItems;
             stocks item, aux;

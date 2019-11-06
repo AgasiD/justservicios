@@ -6432,15 +6432,15 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Name="descri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="stomin" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="ppedido" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="fechaact" Type="DateTime" Nullable="false" />
+          <Property Name="fechaact" Type="DateTime" Nullable="false" Precision="23" />
           <Property Name="saldoActual" Type="Decimal" Precision="38" Scale="4" Nullable="false" />
-          <Property Name="diferencia" Type="Decimal" Precision="38" Scale="4" />
+          <Property Name="diferencia" Type="Decimal" Precision="38" Scale="4" Nullable="true" />
           <Property Name="cantmin" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="consProm" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="discont" Type="Boolean" Nullable="false" />
-          <Property Name="marcaCod" Type="Int32" Nullable="false" />
+          <Property Name="marcaCod" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <Property Name="marcaDescr" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="proveedCod" Type="Int32" Nullable="false" />
+          <Property Name="proveedCod" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
           <Property Name="proveeRazs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="codRub" Type="Int32" Nullable="false" />
           <Property Name="rubroDescri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -6448,15 +6448,15 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Name="SubRuDescri" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="tipoart" Type="Int32" Nullable="false" />
           <Property Name="cantenv" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="precio1" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="precio2" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="precio3" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="precio4" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="precio5" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="precio6" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="costo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="precio1" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="precio2" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="precio3" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="precio4" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="precio5" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="precio6" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="costo" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="incluido" Type="Boolean" Nullable="false" />
-          <Property Name="pedido" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="pedido" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
         </ComplexType>
         <ComplexType Name="FWmasDatos_Result">
           <Property Name="nrocli" Type="Int32" Nullable="false" />

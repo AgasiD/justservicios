@@ -15,8 +15,9 @@ using JustServicios.Clases.Controladores;
 
 public class ControladorProducto
     {
-        private static ControladorProducto instancia;
-        private List<Dictionary<string,object>> productos;
+    private static ControladorProducto instancia;
+    private List<Dictionary<string,object>> productos;
+    private ControladorDatos cDatos = new ControladorDatos();
         private ControladorProducto()
         {
             
@@ -46,6 +47,16 @@ public class ControladorProducto
         }
     }
 
+    internal DicRequestHTTP getAll()
+    {
+        return cDatos.getData("select * from stock");
+    }
+
+    internal RequestHTTP getOne(string codpro)
+    {
+        return cDatos.getElement("select * from stock where codpro like '" + codpro + "'");
+    }
+
     public static ControladorProducto getCProducto()
         {
             if (instancia == null)
@@ -53,12 +64,34 @@ public class ControladorProducto
             return instancia;
         }
 
+    internal DicRequestHTTP getSome(string param)
+    {
+        return cDatos.getData("select * from stock where codpro like '%" + param + "%' or descri like '%" + param + "%'" );
+    }
+
+    internal DicRequestHTTP getAllAcot()
+    {
+        return cDatos.getData("select codpro, descri from stock");
+    }
+
+    internal RequestHTTP getOneAcot(string codpro)
+    {
+        return cDatos.getElement("select codpro, descri from stock where codpro like '"+codpro+"'");
+    }
 
 
-        //Pedidos
+    internal DicRequestHTTP getSomeAcot(string param)
+    {
+        return cDatos.getData("select codpro, descri from stock where codpro like '%" + param + "%' or descri like '%" + param + "%'");
+    }
 
-        //usado en modal Pedidos
-        public DicRequestHTTP getProductos(int empid)
+
+
+
+    //Pedidos
+
+    //usado en modal Pedidos
+    public DicRequestHTTP getProductos(int empid)
         { 
             inicializarProductos(empid);
             JsonResult p = new JsonResult();
@@ -68,8 +101,9 @@ public class ControladorProducto
             req.objeto = productos;
             return req;
         }
-        //usado en items pedidos
-        public itemProducto getProducto(int idprod, int lista, int empid)
+
+    //usado en items pedidos
+    public itemProducto getProducto(int idprod, int lista, int empid)
         {
         // try
         // {

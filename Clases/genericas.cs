@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JustServicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,39 @@ using System.Web.Http.Results;
     }
     [Serializable]
 
+
+
+public partial class FlistPuntoPedido { 
+    public string codpro { get; set; }
+    public string descri { get; set; }
+    public decimal stomin { get; set; }
+    public decimal ppedido { get; set; }
+    public System.DateTime fechaact { get; set; }
+    public decimal saldoActual { get; set; }
+    public Nullable<decimal> diferencia { get; set; }
+    public decimal cantmin { get; set; }
+    public decimal consProm { get; set; }
+    public bool discont { get; set; }
+    public decimal marcaCod { get; set; }
+    public string marcaDescr { get; set; }
+    public int proveedCod { get; set; }
+    public string proveeRazs { get; set; }
+    public int codRub { get; set; }
+    public string rubroDescri { get; set; }
+    public decimal codSubRub { get; set; }
+    public string SubRuDescri { get; set; }
+    public int tipoart { get; set; }
+    public decimal cantenv { get; set; }
+    public decimal precio1 { get; set; }
+    public decimal precio2 { get; set; }
+    public decimal precio3 { get; set; }
+    public decimal precio4 { get; set; }
+    public decimal precio5 { get; set; }
+    public decimal precio6 { get; set; }
+    public decimal costo { get; set; }
+    public bool incluido { get; set; }
+    public decimal pedido { get; set; }
+}
 public class MiUtilidades
 {
     public Nullable<decimal> codMarca { get; set; }
@@ -34,6 +68,31 @@ class MiLStockCodigo
     public DateTime fechveri { get; set; }
     public decimal? saldo { get; set; }
 
+}
+
+
+public class prueba2
+{
+    public List<stocks> lista { get; set; }
+    public decimal bonifcli { get; set; }
+
+    public prueba2()
+    {
+        lista = new List<stocks>();
+    }
+}
+public class prueba
+{
+    public string codpro { get; set; }
+    public string descri { get; set; }
+    public decimal cant { get; set; }
+    public decimal cantenv { get; set; }
+    public decimal total { get; set; }
+    public decimal bonif { get; set; }
+    public decimal bonif1 { get; set; }
+    public decimal bonito { get; set; }
+    public int cantVentas { get; set; }
+    public decimal precioPromedio { get; set; }
 }
 public class MiPorcenVentas
 {
@@ -706,6 +765,11 @@ public class comprasProveedores
 
     public class DetalleFactura
     {
+        public decimal ivartinoi { get; set; }
+        public decimal ivartins { get; set; }
+        public decimal bonif1 { get; set; }
+        public decimal bonif { get; set; }
+        public decimal bonifTotalArt { get; set; }
         public string codpro { get; set; }
         public string descri { get; set; }
         public decimal cant { get; set; }

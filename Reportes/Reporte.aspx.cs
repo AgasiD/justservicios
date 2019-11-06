@@ -18,12 +18,14 @@ public partial class Reporte : System.Web.UI.Page
         List<vistaComprobantePresupuesto> detalle;
         List<empresa> empresa;
     */
+    RequestHTTP oConfigen;
     protected void Page_Load(object sender, EventArgs e)
     {
 
         txt.Visible = false;
         report = Convert.ToInt32(Request.QueryString["nReporte"]);
         empresa = Convert.ToInt32(Request.QueryString["empresa"]);
+        oConfigen = ControladorConfigen.getInstancia().getConfigen(empresa);
         dsd = Request.QueryString["dsd"].ToString();
         hst = Request.QueryString["hst"].ToString();
         reporte.KeepSessionAlive = false;
@@ -185,7 +187,7 @@ public partial class Reporte : System.Web.UI.Page
                 "select stock.codpro, descri, fechveri, saldo, color "                        +
                 "from stock "                                                                 +
                 "left join SaldoSTKAll(" + empresa + ") as stk on stk.codpro = stock.codpro " +
-                "where stock.codpro like '%" + codigo + "%' "                                 +
+                "where stock.codpro like '" + codigo + "%' "                                 +
                 "order by " + ordenado).ToList();
         }
         string ruta = "reportes/StockCodigo/LStockCodigo.rdlc";
@@ -228,7 +230,7 @@ public partial class Reporte : System.Web.UI.Page
             " left join activida on activida.codigo = cliente.activi"                +
             " left join vende on vende.codven = cliente.codven"                      +
             " left join zonas on cliente.zona = zonas.codigo "                       +
-                where                                                                +           
+              where                                                                  +           
             " group by det.codpro";
 
         using (GestionEntities bd = new GestionEntities())
@@ -271,7 +273,13 @@ public void LPorcenCliFactu()
             string coti = "";
             if (!cotizacion)
                 coti = " and ivaven.tipodoc not in ('CT', 'AJD', 'AJC') ";
-            query = " select convert(numeric(5,0),max(ivaven.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant, (sum(cant) / (select sum(cant) from detmovim)) *100 porcencant, (sum(cantenv) / (select sum(cantenv) from detmovim) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto, (sum(neto) / (select sum(neto) from ivaven)) *100 porcenneto from ivaven left join detmovim det on det.ivavenid = ivaven.id where " + where + coti + " group by ivaven.nrocli ";
+            query = " select convert(numeric(5,0),max(ivaven.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant, (sum(cant) / (select sum(cant) from detmovim)) *100 porcencant," +
+                " (sum(cantenv) / (select sum(cantenv) from detmovim) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto, " +
+                "(sum(neto) / (select sum(neto) from ivaven)) *100 porcenneto" +
+                " from ivaven " +
+                "left join detmovim det on det.ivavenid = ivaven.id" +
+                " where " + where + coti + " " +
+                "group by ivaven.nrocli ";
         }
         if (pedidos)
         {
@@ -279,14 +287,25 @@ public void LPorcenCliFactu()
             where = where.Replace("fecha", "fechaing");
             if (query != "")
                 query += " union ";
-            query += " select convert(numeric(5,0),max(PedidoCab.nrocli)) nrocli, max(razsoc) razsoc, sum(cantidad) cant,  (sum(cantidad) / (select sum(cantidad) from pedidodet)) *100 porcencant, (sum(cantidad) / (select sum(1) from pedidodet) ) *100 porcencantenv, sum(cantidad * 1) cantenv, sum(pedidocab.total) neto, (sum(pedidocab.total) / (select sum(total) from PedidoCab)) *100 porcenneto from PedidoCab left join PedidoDet det on det.cabeceraid = PedidoCab.id where pedidocab.listo = 0 and " + where + " group by PedidoCab.nrocli ";
+            query += " select convert(numeric(5,0),max(PedidoCab.nrocli)) nrocli, max(razsoc) razsoc, sum(cantidad) cant, " +
+                " (sum(cantidad) / (select sum(cantidad) from pedidodet)) *100 porcencant, (sum(cantidad) / (select sum(1) from pedidodet) ) *100 porcencantenv," +
+                " sum(cantidad * 1) cantenv, sum(pedidocab.total) neto, (sum(pedidocab.total) / (select sum(total) from PedidoCab)) *100 porcenneto " +
+                " from PedidoCab " +
+                " left join PedidoDet det on det.cabeceraid = PedidoCab.id" +
+                " where pedidocab.listo = 0 and " + where + " group by PedidoCab.nrocli ";
         }
         if (remito)
         {
             where = getWhere("remitocab.", ddsd, dhst);
             if (query != "")
                 query += " union ";
-            query += "select convert(numeric(5,0),max(RemitoCab.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant,  (sum(cant) / (select sum(cant) from remitodet)) *100 porcencant, (sum(cantenv) / (select sum(cantenv) from remitodet) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto, (sum(neto) / (select sum(neto) from Remitocab)) *100 porcenneto from RemitoCab left join remitodet det on det.cabeceraid = RemitoCab.id where facturado not like 'S' and " + where + " group by RemitoCab.nrocli";
+            query += "select convert(numeric(5,0),max(RemitoCab.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant,  (sum(cant) / (select sum(cant) from remitodet)) *100 porcencant," +
+                " (sum(cantenv) / (select sum(cantenv) from remitodet) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto," +
+                " (sum(neto) / (select sum(neto) from Remitocab)) *100 porcenneto" +
+                " from RemitoCab " +
+                " left join remitodet det on det.cabeceraid = RemitoCab.id " +
+                " where facturado not like 'S' and " + where + "" +
+                " group by RemitoCab.nrocli";
         }
         List<MiPorcenVentas> lista;
         using (GestionEntities bd = new GestionEntities())
@@ -316,18 +335,14 @@ public void LPorcenCliFactu()
         List<ArtVendidos> lista;
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<ArtVendidos>("SELECT ivaven.tipodoc,  ivaven.letra,  detmovim.empresa,  ivaven.numero,  detmovim.codpro, " +
-                 "detmovim.descri, detmovim.cant, detmovim.precio, detmovim.prexcant, ivaven.bonitot, vende.nombre, vende.codven, ivaven.nrocli, " +
-                 "ivaven.razsoc, ivaven.fecha FROM detmovim " +
-                 "left JOIN ivaven ON  ivaven.id = detmovim.ivavenid left JOIN vende ON  ivaven.codven = vende.codven " +
-                 "left JOIN stock ON  stock.codpro = detmovim.codpro " +
-                 " where ivaven.empresaid = " + empresa + " and "
-                /*"SELECT ivaven.tipodoc,  ivaven.letra,  detmovim.empresa,  ivaven.numero,  detmovim.codpro, " +
-                " detmovim.descri,  detmovim.cant,  detmovim.precio, detmovim.prexcant, ivaven.bonitot, vende.nombre, vende.codven, ivaven.nrocli," +
-                "ivaven.razsoc, ivaven.fecha FROM   " +
-                " detmovim left JOIN ivaven ON  ivaven.id = detmovim.ivavenid left JOIN vende ON  ivaven.codven = vende.codven" +
-                " left JOIN stock ON  stock.codpro = detmovim.codpro where detmovim.empresa = " + empresa + " and " + query + "and ivaven.fecha >='"+ Request.QueryString["dsd"].ToString() + "' and ivaven.fecha <= '"+ Request.QueryString["hst"].ToString() + "'"
-                */
+            lista = bd.Database.SqlQuery<ArtVendidos>(
+                 "SELECT ivaven.tipodoc,  ivaven.letra,  detmovim.empresa,  ivaven.numero,  detmovim.codpro, detmovim.descri, "                     +
+                 "detmovim.cant, detmovim.precio, detmovim.prexcant, ivaven.bonitot, vende.nombre, vende.codven, ivaven.nrocli, "                   +
+                 "ivaven.razsoc, ivaven.fecha "                                                                                                     +
+                 "FROM detmovim "                                                                                                                   +
+                 "left JOIN ivaven ON  ivaven.id = detmovim.ivavenid left JOIN vende ON  ivaven.codven = vende.codven "                             +
+                 "left JOIN stock ON  stock.codpro = detmovim.codpro "                                                                              +
+                 "where ivaven.empresaid = " + empresa + " and " + query
                 ).ToList();
         }
 
@@ -348,8 +363,13 @@ public void LPorcenCliFactu()
         List<VtaxArtImporte> lista;
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<VtaxArtImporte>("select cab.tipodoc, cab.letra, cab.punto, cab.numero, cab.fecha, det.codpro, det.cant, det.precio, det.prexcant, det.bonito," +
-                " cliente.razsoc, stock.descri, cab.nrocli from detmovim det left join ivaven cab on cab.id = det.ivavenid left join stock on det.codpro = stock.codpro left join cliente on cliente.nrocli = cab.nrocli where empresa = " + empresa + " and " + query).ToList();
+            lista = bd.Database.SqlQuery<VtaxArtImporte>(
+                "select cab.tipodoc, cab.letra, cab.punto, cab.numero, cab.fecha, det.codpro, det.cant, det.precio, det.prexcant, det.bonito, cliente.razsoc, stock.descri, cab.nrocli " +
+                "from detmovim det "                                +
+                "left join ivaven cab on cab.id = det.ivavenid "    +
+                "left join stock on det.codpro = stock.codpro "     +
+                "left join cliente on cliente.nrocli = cab.nrocli " +
+                "where empresa = " + empresa + " and " + query).ToList();
         }
 
         ruta = "Reportes/VtaArtImportes/VtaArtXImportes.rdlc";
@@ -369,10 +389,10 @@ public void LPorcenCliFactu()
         List<RankingCompra> lista;
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<RankingCompra>("select cab.tipodoc, cab.letra, cab.punto, cab.numero, cab.fecha, det.codpro, det.cant, det.precio, det.prexcant, det.bonito," +
-                " provee.razsoc, stock.descri, cab.nropro " +
-                "from detcompr det " +
-                "left join ivacom cab on cab.id = det.ivacomid " +
+            lista = bd.Database.SqlQuery<RankingCompra>(
+                "select cab.tipodoc, cab.letra, cab.punto, cab.numero, cab.fecha, det.codpro, det.cant, det.precio, det.prexcant, det.bonito, provee.razsoc, stock.descri, cab.nropro " +
+                "from detcompr det "                                                                 +
+                "left join ivacom cab on cab.id = det.ivacomid "                                     +
                 "join stock on det.codpro = stock.codpro join provee on provee.nropro = cab.nropro " +
                 "where empresa = " + empresa + " and " + query).ToList();
         }
@@ -438,37 +458,68 @@ public void LPorcenCliFactu()
 
     private void viewComprobanteFactura()
     {
+        var config = (Dictionary<string, object>)oConfigen.objeto;
         int numero = Convert.ToInt32(Request.QueryString["numero"].ToString()),
             punto = Convert.ToInt32(Request.QueryString["punto"].ToString());
         string tipodoc = Request.QueryString["tipodoc"].ToString(),
                 letra = Request.QueryString["letra"].ToString();
-        
+
         if (tipodoc.Contains("FC") || tipodoc.Contains("NC") || tipodoc.Contains("CT"))
         {
             List<CabeceraFactura> cab;
             List<DetalleFactura> detalle;
             using (GestionEntities bd = new GestionEntities())
             {
-                cab = bd.Database.SqlQuery<CabeceraFactura>("select ivaven.codven, cliente.telef1, cotizacion, numerofe, ivaven.tipodocid, ivaven.subtot cabSubt, " +
+                cab = bd.Database.SqlQuery<CabeceraFactura>(
+                    " select ivaven.codven, cliente.telef1, cotizacion, numerofe, ivaven.tipodocid, ivaven.subtot cabSubt, " +
                     " ivaven.bonifto cabBonifto, ivaven.bonitot cabBonitot, ivaven.neto cabNeto, ivaven.exento cabExento ,ivaven.ivai cabIvai, ivaven.ivanoi cabIvanoi," +
                     " ivaven.ivaidif cabIvaidif, ivaven.ivanoidif cabIvanoidif, ivaven.porcenib cabPorcenib, ivaven.retinb cabRetinIB, ivaven.simbolo cabSimbolo, ivaven.total cabTotal," +
                     " ivaven.cae, ivaven.vencecae, tipocomprobante.discrimina, ivaven.observa cabObserva,  ivaven.id, ivaven.tipodoc, ivaven.letra, punto, numero, emp.id, ivaven.porins," +
                     " ivaven.porinsdif, ivaven.pornoi, ivaven.pornoidif, emp.direccion empDireccion, locali.nombre localiEmp, emp.telefono empTelefono, emp.email empEmail," +
                     " iva.descripcion empIva, ivaven.fecha facFecha, emp.cuit empCuit, emp.finiact empInicio, ivaven.razsoc, ivaven.direcc cliDirecc, ivaven.locali cliLocali," +
                     " ivaven.cuit cliCuit, ivaven.remito cliRemito, ivaven.condicion cliCondic, ivaven.nrocli, vende.nombre" +
-                    " from ivaven"                                                                                           +
-                    " left join empresa emp on ivaven.empresaid = emp.id"                                                    +
-                    " left join localidades locali on locali.id = emp.localidad"                                             +
-                    " left join iva on iva.id = emp.condfiva"                                                                +
-                    " left join tipocomprobante on tipodocid = tipocomprobante.codigo"                                       +
-                    " left join cliente on cliente.nrocli  = ivaven.nrocli"                                                  +
-                    " left join vende on vende.codven = ivaven.codven"                                                       +
+                    " from ivaven" +
+                    " left join empresa emp on ivaven.empresaid = emp.id" +
+                    " left join localidades locali on locali.id = emp.localidad" +
+                    " left join iva on iva.id = emp.condfiva" +
+                    " left join tipocomprobante on tipodocid = tipocomprobante.codigo" +
+                    " left join cliente on cliente.nrocli  = ivaven.nrocli" +
+                    " left join vende on vende.codven = ivaven.codven" +
                     " where ivaven.tipodoc = '" + tipodoc + "' and ivaven.letra = '" + letra + "' and punto = " + punto + " and numero = " + numero + " and emp.id = " + empresa)
                     .ToList();
                 detalle = bd.Database.SqlQuery<DetalleFactura>(
-                    "select codpro, descri, cant, unimed, precio * cant + ivartins + ivartinoi + impint precio, ((bonif/100 +1) * (bonif1/100 + 1))-1 bonito, pins pivai, " +
-                    "pnoi pivanoi, prexcant + ivartinoi + ivartins importe  from detmovim where ivavenid = " + cab.First().id)
+                    "select codpro, descri, cant, unimed, precio, bonif1, bonif, ((bonif/100 +1) * (bonif1/100 + 1))-1 bonifTotalArt,bonito, pins pivai, " +
+                    "pnoi pivanoi, prexcant + ivartinoi + ivartins importe, ivartinoi, ivartins  from detmovim where ivavenid = " + cab.First().id)
                     .ToList();
+            }
+
+            bool incluyeIvaEnCotizaciones = (bool)config["presinclu"];
+            if (!cab.First().discrimina || (tipodoc.Contains("CT") && incluyeIvaEnCotizaciones))
+            {
+                if (!tipodoc.Contains("CT") || tipodoc.Contains("CT") && incluyeIvaEnCotizaciones)
+                {
+                    decimal porcenBonif = (100 - cab.First().cabBonitot) / 100;
+                    var iva = (decimal)config["ivatasagral"] / 100;
+                    foreach (var det in detalle)
+                    {
+                        decimal ivaNuevo = ((det.ivartins + det.ivartinoi) / det.cant);
+                        if ((det.bonif1 < 100 && det.bonif1 != 0) || (det.bonif < 100 && det.bonif != 0))
+                        {
+                            ivaNuevo = ivaNuevo / ((100 - det.bonif) / 100); //bonificacion  del art
+                            ivaNuevo = ivaNuevo / ((100 - det.bonif1) / 100); //bonificacion 1 del art
+                            ivaNuevo = Math.Round(ivaNuevo / porcenBonif, 4);  //bonificacion total de factura
+                            det.precio += det.precio * iva;
+                        }
+                        else
+                        {
+                            ivaNuevo = 0;
+                        }
+                        det.precio += ivaNuevo;
+                    }
+                    cab.First().cabNeto += cab.First().cabIvai + cab.First().cabIvanoi + cab.First().cabIvaidif + cab.First().cabIvanoidif;
+                    // calcula el nuevo neto con iva incluido
+                    cab.First().cabBonifto = (cab.First().cabNeto * cab.First().cabBonitot) / 100;
+                }
             }
             List<ReportDataSource> cuerpo = new List<ReportDataSource>();
             cuerpo.Add(new ReportDataSource("cabecera", cab));
@@ -783,7 +834,7 @@ public void LPorcenCliFactu()
 
         }
         using (GestionEntities bd = new GestionEntities())
-            lista = bd.Database.SqlQuery<Cotimesxmes>("exec sp_cotimesamesmodificado " + mes + "," + empresa + ", '" + pdsd.ToString("dd/MM/yyyy") + "', '" + phst.ToString("dd/MM/yyyy") + "'," + query).ToList();
+            lista = bd.Database.SqlQuery<Cotimesxmes>("exec sp_cotimesamesmodificado " + mes + "," + empresa + ", '" + pdsd.ToString("dd/MM/yyyy") + "', '" + phst.ToString("dd/MM/yyyy") + "','" + query + "'").ToList();
         if (agrupar == "1")
         {
             rutaReporte = "Reportes/CotizacionesMesAMes/LCotizacionesMesAMesArticulos.rdlc";
@@ -1038,18 +1089,13 @@ public void LPorcenCliFactu()
             incluir = 1;
         List<FlistPuntoPedido_Result> lista;
         using (GestionEntities bd = new GestionEntities())
-        {
             lista = bd.Database.SqlQuery<FlistPuntoPedido_Result>("exec sp_PuntoPedido " + incluir + ", " + empresa + ", '" + dsd.ToString("dd/MM/yyyy") + "', '" + hst.ToString("dd/MM/yyyy") + "'").ToList();
-        }
         lista = lista.Where(query).ToList();
         if (orden == "1")
-        {
             lista = lista.OrderBy(a => a.codpro).ToList();
-        }
         else
-        {
             lista = lista.OrderBy(a => a.descri).ToList();
-        }
+        
         generarReporte("Reportes/PuntosDePedido/LPuntoPedido.rdlc", parametros, new ReportDataSource("PuntosPedido", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
     }
 
@@ -1404,10 +1450,13 @@ public void LPorcenCliFactu()
             hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
         int agrupar = Convert.ToInt32(Request.QueryString["agrupar"].ToString());
         List<LArtVendxVende_Result> lista;
+        string consulta = "select * from LArtVendxVende('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ")" +
+                "where " + query;
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<LArtVendxVende_Result>("select * from LArtVendxVende('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ")" +
-                "where " + query).ToList();
+            lista = bd.Database.SqlQuery<LArtVendxVende_Result>(
+                consulta
+               ).ToList();
         }
 
         switch (agrupar)
@@ -1456,7 +1505,9 @@ public void LPorcenCliFactu()
                 ", sum(precio * cantidad * cotizacion) precio" +
                 ", sum(costo * cantidad * cotizacion) costo" +
                 ", case when Sum(costo) = 0 then 0 else (sum(precio) / sum(costo) * 100)-100 end as margen from LFOpxRubro('" + dsd + "','" + hst + "'," + empresa + ")" +
-                "  and " + query + " group by " + agrupar + " " + "having sum(precio) > 0 and sum(cantidad) > 0";
+                "  where 1 = 1 and " + query + "" +
+                "  group by " + agrupar + 
+                "  having sum(precio) > 0 and sum(cantidad) > 0";
             using (GestionEntities bd = new GestionEntities())
                 lista = bd.Database.SqlQuery<OperacionxRubro>(selectCompleto).ToList();
         }
@@ -2093,27 +2144,16 @@ public void LPorcenCliFactu()
         List<prueba> lista;
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<prueba>("select max(codpro) as codpro, max(descri) as descri, sum(cant) as cant, max(cantenv) as cantenv, sum(prexcant) as total, sum(bonif) as bonif, sum(bonif1) as bonif1, count(cant) cantVentas, sum(bonito) as bonito,  sum(precio - (precio*bonif/100)-(precio*bonif1/100))/count(cant) precioPromedio from LVentasPorProducto(" + empresa + ") where " + query + "  group by codpro").ToList();
+            lista = bd.Database.SqlQuery<prueba>(
+                "select max(codpro) as codpro, max(descri) as descri, sum(cant) as cant, max(cantenv) as cantenv, sum(prexcant) as total, sum(bonif) as bonif, " +
+                "sum(bonif1) as bonif1, count(cant) cantVentas, sum(bonito) as bonito,  sum(precio - (precio*bonif/100)-(precio*bonif1/100))/count(cant) precioPromedio" +
+                " from LVentasPorProducto(" + empresa + ")" +
+                " where " + query + " " +
+                "group by codpro").ToList();
         }
         generarReporte("Reportes/ArtVendCantPorArt/LArtVendCantPorArt.rdlc", parametros, new ReportDataSource("LArtVendCantPorArt", lista), dsd, hst);
 
     }
-
-    public class prueba
-    {
-        public string codpro { get; set; }
-        public string descri { get; set; }
-        public decimal cant { get; set; }
-        public decimal cantenv { get; set; }
-        public decimal total { get; set; }
-        public decimal bonif { get; set; }
-        public decimal bonif1 { get; set; }
-        public decimal bonito { get; set; }
-        public int cantVentas { get; set; }
-        public decimal precioPromedio { get; set; }
-    }
-
-
 
     private void LArtVendAgrupando()
     {
@@ -2143,56 +2183,37 @@ public void LPorcenCliFactu()
 
     private void lArtPorProveedor()
     {
-        int idRubro = Convert.ToInt32(Request.QueryString["rubro"]),
-            idSubRubro = Convert.ToInt32(Request.QueryString["subrub"]),
-            idMarca = Convert.ToInt32(Request.QueryString["marca"]),
-            idProvee = Convert.ToInt32(Request.QueryString["provee"]);
         bool orden = Convert.ToBoolean(Request.QueryString["orden"]),
             desc = Convert.ToBoolean(Request.QueryString["desc"]);
         List<lArtxProveedor_Result> lista;
-        using (GestionEntities bd = new GestionEntities())
-            lista = bd.Database.SqlQuery<lArtxProveedor_Result>("select * from lArtxProveedor(" + empresa + ")").ToList();
-        if (idMarca != 0)
-        {
-            lista = lista.Where(a => a.marca == idMarca).ToList();
-        }
-
-        if (idRubro != 0)
-        {
-            lista = lista.Where(a => a.rubro == idRubro).ToList();
-        }
-
-        if (idSubRubro != 0)
-        {
-            lista = lista.Where(a => a.subrub == idSubRubro).ToList();
-        }
-
-        if (idProvee != 0)
-        {
-            lista = lista.Where(a => a.nropro == idProvee).ToList();
-        }
+        string where = Request.QueryString["where"].ToString();
+        string order;
+        
         if (!desc)
         {
             if (orden)
             {
-                lista = lista.OrderBy(a => a.codpro).ToList();
+                order = " codpro ";
             }
             else
             {
-                lista = lista.OrderBy(a => a.descri).ToList();
+                order = " descri ";
             }
         }
         else
         {
             if (orden)
             {
-                lista = lista.OrderByDescending(a => a.codpro).ToList();
+                order = " codpro desc ";
             }
             else
             {
-                lista = lista.OrderByDescending(a => a.descri).ToList();
+                order = " descri desc ";
             }
         }
+        using (GestionEntities bd = new GestionEntities())
+            lista = bd.Database.SqlQuery<lArtxProveedor_Result>("select * from lArtxProveedor(" + empresa + ") where 1 = 1 " + where + " order by " + order).ToList();
+
 
         generarReporte("Reportes/ArtPorProveedor/LArtPorPreveedor.rdlc", parametros, new ReportDataSource("LArtPorPreveedor", lista), dsd, hst);
     }

@@ -212,6 +212,10 @@
           <DataField>codven</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="nombre">
+          <DataField>nombre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>JustsaDataSet</rd:DataSetName>
@@ -934,14 +938,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="cliCondic">
+                        <Textbox Name="nombre">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!nombre.Value</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -953,7 +957,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>cliCondic</rd:DefaultName>
+                          <rd:DefaultName>nombre</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -965,6 +969,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

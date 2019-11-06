@@ -721,6 +721,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -964,7 +965,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1169,12 +1169,23 @@
                       <GroupExpression>=Fields!codpro.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!cant.Value</Value>
+                      <Direction>Descending</Direction>
+                    </SortExpression>
+                  </SortExpressions>
                   <TablixMembers>
                     <TablixMember>
                       <KeepWithGroup>After</KeepWithGroup>
                     </TablixMember>
                     <TablixMember>
                       <Group Name="Detalles" />
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Sum(Fields!cant.Value)</Value>
+                        </SortExpression>
+                      </SortExpressions>
                       <TablixMembers>
                         <TablixMember />
                       </TablixMembers>
@@ -1194,6 +1205,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>RankingComprasArt</DataSetName>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!cant.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Top>0.04037cm</Top>
             <Height>2.36854cm</Height>
             <Width>16.50875cm</Width>
@@ -1221,7 +1237,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Listado de Punto de Pedido</Value>
+                      <Value>Ranking de compras por artículos</Value>
                       <Style>
                         <FontSize>16pt</FontSize>
                       </Style>
@@ -1231,9 +1247,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox11</rd:DefaultName>
-              <Left>2.28014cm</Left>
+              <Left>0.3175cm</Left>
               <Height>0.74111cm</Height>
-              <Width>7.38628cm</Width>
+              <Width>9.34892cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1459,7 +1475,7 @@
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.67116cm</Top>
               <Left>7.03518cm</Left>
-              <Height>0.43406cm</Height>
+              <Height>0.55217cm</Height>
               <Width>1.28943cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
