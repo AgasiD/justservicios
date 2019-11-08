@@ -990,6 +990,7 @@
     <EmbeddedResource Include="Reportes\Deudores\lDeudores.rdlc" />
     <EmbeddedResource Include="Reportes\Deudores\lDeudoresResum.rdlc" />
     <EmbeddedResource Include="Reportes\Deudores\lDeudoresSinDet.rdlc" />
+    <EmbeddedResource Include="Reportes\RankingComprasProvee\LComprasProvee.rdlc" />
     <EmbeddedResource Include="Reportes\NoVendidos\LArtNoVendidos.rdlc" />
     <EmbeddedResource Include="Reportes\OperacionesXRubro\LOperacionesPorRubroArt.rdlc" />
     <EmbeddedResource Include="Reportes\OperacionesXRubro\LOperacionesPorRubroRub.rdlc" />

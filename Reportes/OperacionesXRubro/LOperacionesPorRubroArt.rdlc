@@ -394,7 +394,7 @@
                                   <Value>=Fields!cantidad.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0</Format>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -459,7 +459,7 @@
                                   <Style>
                                     <FontFamily />
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0</Format>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -629,10 +629,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!unidades.Value)</Value>
+                                  <Value>=Sum(Fields!cantidad.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0</Format>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -698,11 +698,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!cantidad.Value)</Value>
+                                  <Value>=Sum(Fields!unidades.Value)</Value>
                                   <Style>
                                     <FontFamily />
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0</Format>
+                                    <Format>#,0.00;-#,0.00;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

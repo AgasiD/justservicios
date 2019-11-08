@@ -817,7 +817,17 @@ public class Generico
         public string nombreProvin { get; set; }
         public string ivaDescri { get; set; }
         public string cliDirecc{ get; set; }
-    }
+    public string nombre{ get; set; }
+}
+public class RankCompra
+{
+    public decimal total {get;set; }
+    public decimal neto { get; set; }
+    public decimal exento { get; set; }
+    public decimal nropro { get; set; }
+    public string razsoc { get; set; }
+}
+
 
     public class DetalleRecibo
     {

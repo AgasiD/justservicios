@@ -240,6 +240,18 @@
           <DataField>precio</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="bonif1">
+          <DataField>bonif1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="bonif">
+          <DataField>bonif</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="bonifTotalArt">
+          <DataField>bonifTotalArt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
         <Field Name="bonito">
           <DataField>bonito</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -256,14 +268,26 @@
           <DataField>importe</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="ivartinoi">
+          <DataField>ivartinoi</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ivartins">
+          <DataField>ivartins</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="id">
+          <DataField>id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>JustsaDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\inetpub\wwwroot\JustServicios\JustServicios\JustsaDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>DetalleFactura</rd:TableName>
+        <rd:TableName>DetalleFacturad</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>DetalleFacturaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>DetalleFacturadTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1097,7 +1121,7 @@
                 <DataSetName>cabecera</DataSetName>
                 <Top>1.69361cm</Top>
                 <Left>8.79709cm</Left>
-                <Height>2.95134cm</Height>
+                <Height>2.95135cm</Height>
                 <Width>6.99113cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
@@ -2353,18 +2377,18 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="bonito">
+                        <Textbox Name="bonifTotalArt">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!bonito.Value</Value>
+                                  <Value>=Fields!bonifTotalArt.Value</Value>
                                   <Style>
                                     <FontFamily>tahoma</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <Format>0.00;-0.00;'-'</Format>
+                                    <Format>0.00%;-0.00%;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2373,7 +2397,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>bonito</rd:DefaultName>
+                          <rd:DefaultName>bonifTotalArt</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

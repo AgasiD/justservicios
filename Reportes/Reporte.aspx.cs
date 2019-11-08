@@ -165,8 +165,33 @@ public partial class Reporte : System.Web.UI.Page
                 case 44:
                     LStockCodigo();
                     break;
+                case 45:
+                    LRankingComp();
+                    break;
             }
         }
+    }
+
+    public void LRankingComp()
+    {
+        DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString())
+               , hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
+        List<RankCompra> lista; 
+        string rutaReporte, consulta =
+            "select nropro, max(razsoc) razsoc, sum(neto + neto1) neto , sum(exento) exento, sum(total) total from ivacom " +
+            "where fecha >= '" + dsd.ToString("dd/MM/yyyy") + "' and fecha <= '" + hst.ToString("dd/MM/yyyy") + "' and nropro > 0 and empresaid = " + empresa +
+            "group by nropro " +
+            "order by total desc";
+        using (var bd = new GestionEntities())
+            lista = bd.Database.SqlQuery<RankCompra>(consulta).ToList();
+        decimal totalTotal = 0;
+        foreach(var det in lista ){
+            totalTotal += det.total;
+        }
+
+        parametros.Add("TotalTotal", totalTotal.ToString());
+        rutaReporte = "Reportes/RankingComprasProvee/LComprasProvee.rdlc";
+        generarReporte(rutaReporte, parametros, new ReportDataSource("lista", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
     }
     public void LStockCodigo()
     {
@@ -460,7 +485,10 @@ public void LPorcenCliFactu()
     {
         var config = (Dictionary<string, object>)oConfigen.objeto;
         int numero = Convert.ToInt32(Request.QueryString["numero"].ToString()),
-            punto = Convert.ToInt32(Request.QueryString["punto"].ToString());
+            punto = Convert.ToInt32(Request.QueryString["punto"].ToString()),
+            candec = Convert.ToInt32(config["candec"].ToString()),
+            impdec = Convert.ToInt32(config["impdec"].ToString());
+
         string tipodoc = Request.QueryString["tipodoc"].ToString(),
                 letra = Request.QueryString["letra"].ToString();
 
@@ -488,11 +516,11 @@ public void LPorcenCliFactu()
                     " where ivaven.tipodoc = '" + tipodoc + "' and ivaven.letra = '" + letra + "' and punto = " + punto + " and numero = " + numero + " and emp.id = " + empresa)
                     .ToList();
                 detalle = bd.Database.SqlQuery<DetalleFactura>(
-                    "select codpro, descri, cant, unimed, precio, bonif1, bonif, ((bonif/100 +1) * (bonif1/100 + 1))-1 bonifTotalArt,bonito, pins pivai, " +
+                    "select codpro, descri, cant, unimed, precio, bonif1, bonif, ((bonif/100 +1) * (bonif1/100 + 1))-1 bonifTotalArt, bonito, pins pivai, " +
                     "pnoi pivanoi, prexcant + ivartinoi + ivartins importe, ivartinoi, ivartins  from detmovim where ivavenid = " + cab.First().id)
                     .ToList();
             }
-
+            //Si incluye iva en precios
             bool incluyeIvaEnCotizaciones = (bool)config["presinclu"];
             if (!cab.First().discrimina || (tipodoc.Contains("CT") && incluyeIvaEnCotizaciones))
             {
@@ -500,25 +528,37 @@ public void LPorcenCliFactu()
                 {
                     decimal porcenBonif = (100 - cab.First().cabBonitot) / 100;
                     var iva = (decimal)config["ivatasagral"] / 100;
+                    cab.First().cabNeto = 0;
                     foreach (var det in detalle)
                     {
                         decimal ivaNuevo = ((det.ivartins + det.ivartinoi) / det.cant);
-                        if ((det.bonif1 < 100 && det.bonif1 != 0) || (det.bonif < 100 && det.bonif != 0))
+                        if ((det.bonif1 < 100 && ivaNuevo != 0) || (det.bonif < 100 && ivaNuevo != 0))
                         {
                             ivaNuevo = ivaNuevo / ((100 - det.bonif) / 100); //bonificacion  del art
                             ivaNuevo = ivaNuevo / ((100 - det.bonif1) / 100); //bonificacion 1 del art
                             ivaNuevo = Math.Round(ivaNuevo / porcenBonif, 4);  //bonificacion total de factura
-                            det.precio += det.precio * iva;
                         }
                         else
                         {
                             ivaNuevo = 0;
                         }
-                        det.precio += ivaNuevo;
+                      
+                        det.precio += ivaNuevo; //precio con iva y sin bonificacion
+                        det.importe = det.precio * det.cant - (det.precio * det.cant * det.bonifTotalArt) ;
+                        det.cant = Math.Round(det.cant, impdec);
+                        det.importe = Math.Round(det.importe, impdec);
+                        det.precio = Math.Round(det.precio, impdec);
+                        cab.First().cabNeto += det.importe;
                     }
-                    cab.First().cabNeto += cab.First().cabIvai + cab.First().cabIvanoi + cab.First().cabIvaidif + cab.First().cabIvanoidif;
-                    // calcula el nuevo neto con iva incluido
+                    
+                    cab.First().cabSubt = cab.First().cabNeto + cab.First().cabExento;
                     cab.First().cabBonifto = (cab.First().cabNeto * cab.First().cabBonitot) / 100;
+                    cab.First().cabTotal = cab.First().cabSubt + cab.First().cabIvanoi + cab.First().cabIvaidif + cab.First().cabIvanoidif - cab.First().cabBonifto;
+                    cab.First().cabSubt = Math.Round(cab.First().cabSubt, impdec);
+                    cab.First().cabTotal = Math.Round(cab.First().cabTotal, impdec);
+                   
+
+                    // calcula el nuevo neto con iva incluido
                 }
             }
             List<ReportDataSource> cuerpo = new List<ReportDataSource>();
@@ -1482,39 +1522,100 @@ public void LPorcenCliFactu()
     }
     private void LOperacionesPorRubro()
     {
-        bool esVenta = Convert.ToBoolean(Request.QueryString["esVenta"]),
+        bool Eventas = Convert.ToBoolean(Request.QueryString["ventas"]),
+            Epedidos = Convert.ToBoolean(Request.QueryString["pedidos"]),
+            Eremitos = Convert.ToBoolean(Request.QueryString["remitos"]),
+            Ecotizaciones = Convert.ToBoolean(Request.QueryString["cotizaciones"]),
+            esVenta = Convert.ToBoolean(Request.QueryString["esVenta"]),
             subDetalle = Convert.ToBoolean(Request.QueryString["subDetalle"]);
         string agrupar = Request.QueryString["agrupar"],
+            from = "",
             selectCompleto, rutaReporte;
         query = Request.QueryString["query"];
+
+        string sinCotizaciones = "";
+        if(!Ecotizaciones)
+            sinCotizaciones = " and i.tipodoc not in ('CT', 'AJC', 'AJD') ";
+        string ventas =
+            " SELECT stock.codpro, stock.descri,  x.cant unidades, 0 AS porsunid,  x.cant * stock.cantenv cantidad," +
+            " 0 AS porscant, x.prexcant * (100-x.bonito)/100 * x.cotizacion precio, x.costo * x.cant * i.cotizacion costo, - 2 AS nrofac, - 1 AS pendientes, x.fecha AS fecha, " +
+            "stock.rubro codRub, r.descri descriRub, stock.subrub codSubRub, s.descri descriSubRu, stock.tipoart codTipoArt, t.descri descriTipoArt, stock.proveed," +
+            " i.codven, x.nrocli, x.tipodoc AS tipodoc, x.empresa, x.cotizacion " +
+            " FROM detmovim x  " +
+            " LEFT JOIN stock ON x.codpro = stock.codpro " +
+            " LEFT JOIN ivaven i ON i.id = x.ivavenid " +
+            " LEFT JOIN rubros r ON r.codigo = stock.rubro " +
+            " LEFT JOIN subrub s ON s.codigo = stock.subrub " +
+            " LEFT JOIN tipoart t ON t .codigo = stock.tipoart " +
+            " where(x.fecha >= '" + dsd + "' and x.fecha <= '" + hst + "') and i.empresaid = " + empresa + sinCotizaciones + "  and stock.codpro is not NULL";
+        string pedido = 
+            "SELECT stock.codpro, stock.descri, x.cant AS unidades, 0 AS porsunid, x.cant * stock.cantenv AS cantidad, 0 AS porscant," +
+            " x.prexcant * (100-y.bonitot) / 100 * x.cotizacion precio, x.costo, x.nrofac, - 1 AS pendientes, y.fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codSubRub," +
+            " s.descri descriSubRu, stock.tipoart codTipoArt, t .descri descriTipoArt, stock.proveed, y.codven, y.nrocli, 'RTO' AS tipodoc, y.empresaid empresa, 1 cotizacion " +
+            " FROM remitodet x "                                +
+            " LEFT JOIN stock ON x.codpro = stock.codpro "      +
+            " LEFT JOIN remitocab y ON y.id = x.cabeceraid "    +
+            " LEFT JOIN rubros r ON r.codigo = stock.rubro "    +
+            " LEFT JOIN subrub s ON s.codigo = stock.subrub "   +
+            " LEFT JOIN tipoart t ON t .codigo = stock.tipoart" +
+            " where(y.fecha >='" + dsd + "' and y.fecha <= '" + hst + "') and y.empresaid = " + empresa + " and stock.codpro is not NULL and y.facturado = 'N'";
+        string remitos =
+            "SELECT stock.codpro, stock.descri, x.cantidadAS unidades, 0 AS porsunid,  x.cantidad * stock.cantenv AS cantidad, 0 AS porscant," +
+            " (x.precio* x.cant )*(100-x.precio*bonif)/100*(100-x.precio*bonif1)/100*(100-x.precio*y.bonifto)/100 precio, x.costo, - 1 AS nrofac, pendientes AS pendientes," +
+            " y.[fechaing] AS fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codSubRub, s.descri descriSubRu, stock.tipoart codTipoArt, t .descri descriTipoArt," +
+            " stock.proveed, y.codven,  y.nrocli, 'PE' AS tipodoc, y.empresaid empresa, mon.ncotiza cotizacion " +
+            " FROM PedidoDet x " +
+            " LEFT JOIN stock  ON x.articulo = stock.codpro " +
+            " LEFT JOIN Pedidocab y ON y.id = x.cabeceraid " +
+            " LEFT JOIN rubros r ON r.codigo = stock.rubro " +
+            " LEFT JOIN subrub s ON s.codigo = stock.subrub " +
+            " LEFT JOIN monedas mon on x.moneda = mon.codigo " +
+            " LEFT JOIN tipoart t ON t .codigo = stock.tipoart" +
+            " where(fecha >= '" + dsd + "' and fecha <='" + hst + "') and y.empresaid =  " + empresa + " and stock.codpro is not NULL and pendientes > 0";
+
+        if (Eventas)
+            from += ventas;
+        if (Epedidos)
+        {
+            if (Eventas)
+                from += " UNION ";
+            from += pedido;
+        }
+        if (Eremitos)
+        {
+            if (Eventas || Epedidos)
+                from += " UNION ";
+            from += remitos;
+        }
 
         List<OperacionxRubro> lista;
 
         if (esVenta) {
 
-            selectCompleto = "select max(codrub) codRub" +
-                ", max(descriRub) descriRub" +
-                ", max(codSubRub) codSubRub" +
-                ", max(descriSubRu) descriSubRu" +
-                ", max(codTipoArt) codTipoArt" +
-                ", max(descriTipoArt) descriTipoArt" +
-                ", max(codpro) codpro" +
-                ", max(descri) descri" +
-                ", sum(unidades) unidades" +
-                ", sum(cantidad) cantidad" +
-                ", sum(precio * cantidad * cotizacion) precio" +
-                ", sum(costo * cantidad * cotizacion) costo" +
-                ", case when Sum(costo) = 0 then 0 else (sum(precio) / sum(costo) * 100)-100 end as margen from LFOpxRubro('" + dsd + "','" + hst + "'," + empresa + ")" +
-                "  where 1 = 1 and " + query + "" +
-                "  group by " + agrupar + 
-                "  having sum(precio) > 0 and sum(cantidad) > 0";
+            selectCompleto = "select" +
+                "  max(codrub) codRub"                          +
+                ", max(descriRub) descriRub"                    +
+                ", max(codSubRub) codSubRub"                    +
+                ", max(descriSubRu) descriSubRu"                +
+                ", max(codTipoArt) codTipoArt"                  +
+                ", max(descriTipoArt) descriTipoArt"            +
+                ", max(codpro) codpro"                          + 
+                ", max(descri) descri"                          +
+                ", sum(unidades) unidades"                      +
+                ", sum(cantidad) cantidad"                      +
+                ", sum(precio) precio"                          +
+                ", sum(costo) costo"                            +
+                ", case when Sum(costo) = 0 then 0 else (sum(precio) / sum(costo) * 100) end as margen" +
+                "  from (" + from + ") as loperaciones" + 
+                "  where 1 = 1 " + query + "" +
+                "  group by " + agrupar ;
             using (GestionEntities bd = new GestionEntities())
                 lista = bd.Database.SqlQuery<OperacionxRubro>(selectCompleto).ToList();
         }
         else
         {
 
-            selectCompleto = selectCompleto = "select max(codrub) codRub" +
+            selectCompleto = "select max(codrub) codRub" +
                 ", max(descriRub) descriRub " +
                 ", max(codSubRub) codSubRub " +
                 ", max(descriSubRu) descriSubRu " +
@@ -1524,18 +1625,16 @@ public void LPorcenCliFactu()
                 ", max(descri) descri " +
                 ", sum(unidades) unidades " +
                 ", sum(cantidad) cantidad " +
-                ", sum(precio * cantidad * cotizacion) precio " +
-                ", sum(costo * cantidad * cotizacion) costo " +
+                ", sum(precio) precio " +
+                ", sum(costo) costo " +
                 ", case when Sum(costo) = 0 then 0 " +
                 " else (sum(precio) / sum(costo) * 100 - 100) end as margen " +
                 " from LFOpxRubroCompra('" + dsd + "','" + hst + "'," + empresa + ") " +
                 " where " + query +
-                " group by " + agrupar + " " +
-                " having sum(precio) > 0 and sum(cantidad) > 0 ";
+                " group by " + agrupar + " ";
             using (GestionEntities bd = new GestionEntities())
                 lista = bd.Database.SqlQuery<OperacionxRubro>(selectCompleto).ToList();
         }
-
         switch (agrupar)
         {
             case "codRub":
@@ -2449,7 +2548,7 @@ public void LPorcenCliFactu()
             reporte.LocalReport.SetParameters(paramsReporte);
             if (report == 1 || report == 3 || report == 5 || report == 6 || report == 8 || report == 9 ||
                 report == 10 || report == 13 || report == 14 || report == 15 || report == 16 || report == 17
-                || report == 32 || report == 33 || report == 37 || report == 38 || report == 39 || report == 40)
+                || report == 32 || report == 33 || report == 37 || report == 38 || report == 39 || report == 40 || report == 45)
                 reporte.LocalReport.SetParameters(fechas);
             reporte.LocalReport.DataSources.Add(dataSource);
             reporte.LocalReport.Refresh();
@@ -2532,8 +2631,8 @@ public class OperacionxRubro
     public string descriTipoArt { get; set; }
     public string codpro { get; set; }
     public string descri { get; set; }
-    public int unidades { get; set; }
-    public int cantidad { get; set; }
+    public decimal unidades { get; set; }
+    public decimal cantidad { get; set; }
     public decimal precio { get; set; }
     public decimal costo { get; set; }
     public decimal margen { get; set; }
