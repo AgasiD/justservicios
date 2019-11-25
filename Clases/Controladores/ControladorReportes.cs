@@ -36,9 +36,19 @@ namespace JustServicios
                 {
 
                     if (veTodos)
-                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>("select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2,  codven from cliente order by nrocli offset " + offset + " rows fetch next 20 row only").ToList();
+                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>(
+                            "select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2,  codven " +
+                            "from cliente " +
+                            "order by nrocli " +
+                            "offset " + offset + " " +
+                            "rows fetch next 20 row only").ToList();
                     else
-                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>("select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2, codven from cliente where codven = " + codven + "  order by nrocli   offset " + offset + " rows fetch next 20 row only").ToList();
+                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>(
+                            "select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2, codven " +
+                            "from cliente " +
+                            "where codven = " + codven + "  " +
+                            "order by nrocli   " +
+                            "offset " + offset + " rows fetch next 20 row only").ToList();
                 }
 
                 return req;
@@ -58,9 +68,21 @@ namespace JustServicios
                 using (GestionEntities bd = new GestionEntities())
                 {
                     if (veTodos)
-                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>("select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2, codven from cliente where " + query + " order by nrocli  offset " + offset + " rows fetch next 20 row only").ToList();
+                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>(
+                            "select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2, codven " +
+                            "from cliente " +
+                            "where " + query + " " +
+                            "order by nrocli  " +
+                            "offset " + offset + " " +
+                            "rows fetch next 20 " +
+                            "row only").ToList();
                     else
-                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>("select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2, codven from cliente where " + query + " and codven = " + codven + "  order by nrocli offset " + offset + " rows fetch next 20 row only").ToList();
+                        req.objeto = bd.Database.SqlQuery<ClienteBuscador>(
+                            "select nrocli, razsoc, cuit, fantasia, direcc, telef1, telef2, codven " +
+                            "from cliente " +
+                            "where " + query + " and codven = " + codven + "  " +
+                            "order by nrocli " +
+                            "offset " + offset + " rows fetch next 20 row only").ToList();
                     return req;
                     
                 }
@@ -69,16 +91,6 @@ namespace JustServicios
                 return req.falla(e);
             }
         }
-
-        internal int cantClientes(int nrocli)
-        {
-
-            using (GestionEntities bd = new GestionEntities())
-            {
-                return bd.cliente.Where(a => a.nrocli == nrocli).Count();
-            }
-        }
-
         public RequestHTTP getCliente(int paran)
         {
             cliente cli;
@@ -97,11 +109,23 @@ namespace JustServicios
                     req.objeto = cli;
                     return req;
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return req.falla(e);
             }
         }
+
+        internal int cantClientes(int nrocli)
+        {
+
+            using (GestionEntities bd = new GestionEntities())
+            {
+                return bd.cliente.Where(a => a.nrocli == nrocli).Count();
+            }
+        }
+
+
 
         //----------------------------------------------------------VENDEDORES
 
@@ -591,21 +615,45 @@ namespace JustServicios
                     {
                         case 1: //agrupado por dia
                             if (!cotizaciones)
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("select sum(total) total, convert(char(10),fecha,103) label, max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and ivaven.tipodoc <> 'CT' group by fecha order by fecha").ToList();
+                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("" +
+                                    "select sum(total) total, convert(char(10),fecha,103) label, max(vende.nombre) nombre, max(vende.codven) codven " +
+                                    " from ivaven " +
+                                    "left join cliente on cliente.nrocli = ivaven.nrocli" +
+                                    " left join vende on vende.codven = cliente.codven " +
+                                    "where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and ivaven.tipodoc <> 'CT' group by fecha order by fecha").ToList();
                             else
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("select sum(total) total, convert(char(10),fecha,103) label, max(vende.nombre) nombre, max(vende.codven) codven   from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " group by fecha order by fecha").ToList();
+                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("" +
+                                    "select sum(total) total, convert(char(10),fecha,103) label, max(vende.nombre) nombre, max(vende.codven) codven   from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " group by fecha order by fecha").ToList();
                             break;
                         case 2: //agrupado por semana
                             if (!cotizaciones)
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(total) total,  convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and ivaven.tipodoc <> 'CT' group by DATEPART(wk, fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), DATEPART(wk, fecha) ").ToList();
+                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("" +
+                                    " select sum(total) total,  convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and ivaven.tipodoc <> 'CT' group by DATEPART(wk, fecha), year(fecha)  having sum(total)<> 0 order by  year(fecha), DATEPART(wk, fecha) ").ToList();
                             else
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(total) total, convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven+ " group by DATEPART(wk, fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), DATEPART(wk, fecha) ").ToList();
+                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" " +
+                                    "select sum(total) total, convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven+ " group by DATEPART(wk, fecha), year(fecha)  having sum(netocobtotal 0 order by  year(fecha), DATEPART(wk, fecha) ").ToList();
                             break;
                         case 3: //agrupado x mes
                             if (!cotizaciones)
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(total) total, convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label,max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa+" and fecha >= '"+desde+"' and fecha <= '"+hasta+"' and vende.codven = "+codven+ " and ivaven.tipodoc <> 'CT' group by    month(fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), month(fecha) ").ToList();
+                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("" +
+                                    " select sum(total) total, convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label,max(vende.nombre) nombre," +
+                                    " max(vende.codven) codven " +
+                                    " from ivaven " +
+                                    "left join cliente on cliente.nrocli = ivaven.nrocli " +
+                                    "left join vende on vende.codven = cliente.codven " +
+                                    "where empresaid = " + empresa+" and fecha >= '"+desde+"' and fecha <= '"+hasta+"' and vende.codven = "+codven+ " and ivaven.tipodoc <> 'CT'" +
+                                    " group by month(fecha), year(fecha) " +
+                                    "having sum(total)<> 0 order by  year(fecha), month(fecha) ").ToList();
                             else
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("select sum(total) total, convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from ivaven left join cliente on cliente.nrocli = ivaven.nrocli left join vende on vende.codven = cliente.codven where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " group by  month(fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), month(fecha) ").ToList();
+                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(
+                                    "select sum(total) total, convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label, max(vende.nombre) nombre, " +
+                                    "max(vende.codven) codven" +
+                                    "  from ivaven" +
+                                    " left join cliente on cliente.nrocli = ivaven.nrocli" +
+                                    " left join vende on vende.codven = cliente.codven" +
+                                    " where empresaid = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + "" +
+                                    " group by  month(fecha), year(fecha)  " +
+                                    "having sum(total)<> 0 order by  year(fecha), month(fecha) ").ToList();
                             break;
 
                     }
@@ -621,35 +669,48 @@ namespace JustServicios
         internal RequestHTTP getCobranzasPorVendedor(int empresa, int codven, bool cotizaciones, string desde, string hasta, int group)
         {
             var req = new RequestHTTP();
+            string qCotizaciones = "";
+            string labelNombre = "";
+            string groupb = "";
+            string order = "";
             try
             {
-                using (GestionEntities bd = new GestionEntities())
+                if (cotizaciones)
+                    qCotizaciones = " and clicta.tipdoco <> 'CT'";
+
+                string consulta = "select sum(netocob) total, "+ labelNombre +", max(vende.codven) codven " +
+                                  "from clicta " +
+                                  "left join cliente on cliente.nrocli = clicta.nrocli " +
+                                  "left join vende on vende.codven = cliente.codven " +
+                                  "where empresa = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and clicta.tipodoc = 'RC' and anulado = 0 " +
+                                  "and vende.codven = " + codven + qCotizaciones + 
+                                  "group by " + groupb +
+                                  "having sum(netocob) <> 0 " +
+                                  "order by " + order;
+                switch (group)
                 {
 
-                    switch (group)
-                    {
-                        case 1: //agrupado por dia
-                            if (!cotizaciones)
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("select sum(netocob) total, convert(char(10),fecha,103) label, max(vende.nombre) nombre, max(vende.codven) codven from clicta left join cliente on cliente.nrocli = clicta.nrocli left join vende on vende.codven = cliente.codven where empresa = " + empresa+" and fecha >= '"+desde+"' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and clicta.tipdoco <> 'CT' group by fecha having sum(netocob)<> 0 order by fecha ").ToList();
-                            else
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(netocob) total, convert(char(10),fecha,103) label, max(vende.nombre) nombre, max(vende.codven) codven  from clicta left join cliente on cliente.nrocli = clicta.nrocli left join vende on vende.codven = cliente.codven where empresa = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " group by fecha having sum(netocob)<> 0").ToList();
 
-                            break;
-                        case 2: //agrupado por semana
-                            if (!cotizaciones)
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(netocob) total,  convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from clicta left join cliente on cliente.nrocli = clicta.nrocli left join vende on vende.codven = cliente.codven where empresa = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and clicta.tipdoco <> 'CT' group by DATEPART(wk, fecha), year(fecha) having sum(netocob)<> 0 order by  year(fecha), DATEPART(wk, fecha) ").ToList();
-                            else
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(netocob) total, convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from clicta left join cliente on cliente.nrocli = clicta.nrocli left join vende on vende.codven = cliente.codven where empresa = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " group by DATEPART(wk, fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), DATEPART(wk, fecha) ").ToList();
-                            break;
-                        case 3: //agrupado x mes
-                            if (!cotizaciones)
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>(" select sum(netocob) total, convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label,max(vende.nombre) nombre, max(vende.codven) codven  from clicta left join cliente on cliente.nrocli = clicta.nrocli left join vende on vende.codven = cliente.codven where empresa = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " and clicta.tipdoco <> 'CT' group by month(fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), month(fecha) ").ToList();
-                            else 
-                                req.objeto = bd.Database.SqlQuery<ventasVendedor>("select sum(netocob) total, convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label, max(vende.nombre) nombre, max(vende.codven) codven  from clicta left join cliente on cliente.nrocli = clicta.nrocli left join vende on vende.codven = cliente.codven where empresa = " + empresa + " and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and vende.codven = " + codven + " group by  month(fecha), year(fecha)  having sum(netocob)<> 0 order by  year(fecha), month(fecha)").ToList();
-                            break;
-
-                    }
+                    case 1: //agrupado por dia
+                        labelNombre = "convert(char(10),fecha,103) label, max(vende.nombre) nombre";
+                        groupb = " fecha ";
+                        order = " fecha ";
+                        break;
+                    case 2: //agrupado por semana
+                        labelNombre = "convert(varchar,DATEPART(wk, fecha))+'/'+convert(varchar,year(fecha)) label, max(vende.nombre) nombre";
+                        groupb = " DATEPART(wk, fecha), year(fecha) ";
+                        order = " year(fecha), DATEPART(wk, fecha) ";
+                        break;
+                    case 3: //agrupado x mes
+                        labelNombre = " convert(varchar,month(fecha))+'/'+ convert(varchar,year(fecha)) label, max(vende.nombre) nombre ";
+                        groupb = " month(fecha), year(fecha) ";
+                        order = " year(fecha), month(fecha) ";
+                        break;
                 }
+
+                using (GestionEntities bd = new GestionEntities())                    
+                    req.objeto = bd.Database.SqlQuery<ventasVendedor>(consulta).ToList();
+                
                 return req;
             }
             catch (Exception e)
@@ -660,13 +721,19 @@ namespace JustServicios
 
 
         internal RequestHTTP getCobranzasVendedores(int empresa, string desde, string hasta)
-        {
+        {// obtiene cobranzas de todos los vendedores entre fechas
             var req = new RequestHTTP();
             try
             {
                 using (GestionEntities bd = new GestionEntities())
                 {
-                    req.objeto = bd.Database.SqlQuery<ventasVendedores>("select isnull(max(clicta.codven),0) codven, isnull(max(vende.nombre),'') nombre,  sum(haber-debe) total from clicta left join vende on clicta.codven = vende.codven where empresa = " + empresa + " and tipodoc = 'RC' and fecha >= '" + desde + "' and fecha <= '" + hasta + "'  and anulado = 0 group by clicta.codven order by total desc").ToList();
+                    req.objeto = bd.Database.SqlQuery<ventasVendedores>(
+                        " select isnull(max(clicta.codven),0) codven, isnull(max(vende.nombre),'') nombre,  sum(haber-debe) total " +
+                        " from clicta " +
+                        " left join vende on clicta.codven = vende.codven" +
+                        " where empresa = " + empresa + " and clicta.tipodoc = 'RC' and fecha >= '" + desde + "' and fecha <= '" + hasta + "' and anulado = 0" +
+                        " group by clicta.codven " +
+                        " order by total desc").ToList();
                 }
                 return req;
             }
@@ -687,7 +754,12 @@ namespace JustServicios
                     if (!cotizacion)
                         ccCotiza = "";
 
-                    req.objeto = bd.Database.SqlQuery<comprasProveedores>("select max(nropro) nropro, max(razsoc) razsoc, sum(neto + neto1 + exento) total from ivacom where fecha >= '" + desde + "' and fecha <= '" + hasta + "' and concepto = " + concepto + " " + ccCotiza + " group by nropro order by total desc").ToList();
+                    req.objeto = bd.Database.SqlQuery<comprasProveedores>(
+                        "select max(nropro) nropro, max(razsoc) razsoc, sum(neto + neto1 + exento) total " +
+                        "from ivacom " +
+                        "where fecha >= '" + desde + "' and fecha <= '" + hasta + "' and concepto = " + concepto + " " + ccCotiza + " " +
+                        "group by nropro " +
+                        "order by total desc").ToList();
                 }
                 return req;
             }catch(Exception e)

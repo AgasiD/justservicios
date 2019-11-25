@@ -30,6 +30,28 @@ namespace JustServicios.Clases.Controladores
             return instancia;
         }
 
+
+        public RequestHTTP insert(string comando)
+        {
+            var req = new RequestHTTP();
+            try
+            {
+                connection = new SqlConnection(connetionString);
+
+                using (command = new SqlCommand(comando, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+                req.objeto = true;
+                return req;
+            }
+            catch(Exception e)
+            {
+                return req.falla(e);
+            }
+        }
+
+
         public  DicRequestHTTP getData(string query)
         {
             var listDiccionario = new List<Dictionary<string, object>>();

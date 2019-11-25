@@ -128,7 +128,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -180,7 +179,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Listado de Conceptos</Value>
+                      <Value>Listado de Conceptos de caja</Value>
                       <Style>
                         <FontSize>16pt</FontSize>
                       </Style>
@@ -190,9 +189,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox11</rd:DefaultName>
-              <Left>3.09213cm</Left>
               <Height>0.81167cm</Height>
-              <Width>5.72792cm</Width>
+              <Width>8.82005cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>

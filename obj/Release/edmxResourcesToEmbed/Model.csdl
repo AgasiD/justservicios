@@ -4663,17 +4663,17 @@
       <Parameter Name="Empresa" Mode="In" Type="Decimal" />
       <Parameter Name="precio" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="FCobranzas" IsComposable="true" ReturnType="Collection(gestionModel.FCobranzas_Result)">
-      <Parameter Name="dsd" Mode="In" Type="DateTime" />
-      <Parameter Name="hst" Mode="In" Type="DateTime" />
-      <Parameter Name="empresa" Mode="In" Type="Int32" />
-      <Parameter Name="comi" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="FComisiones" IsComposable="true" ReturnType="Collection(gestionModel.FComisiones_Result)">
       <Parameter Name="empresa" Mode="In" Type="Int32" />
       <Parameter Name="dsd" Mode="In" Type="String" />
       <Parameter Name="hst" Mode="In" Type="String" />
       <Parameter Name="comis" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FCobranzas" IsComposable="true" ReturnType="Collection(gestionModel.FCobranzas_Result1)">
+      <Parameter Name="dsd" Mode="In" Type="DateTime" />
+      <Parameter Name="hst" Mode="In" Type="DateTime" />
+      <Parameter Name="empresa" Mode="In" Type="Int32" />
+      <Parameter Name="comi" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ArmaMenuWeb_Result">
@@ -4954,6 +4954,7 @@
     <Property Type="Decimal" Name="punto" Nullable="false" Precision="5" Scale="0" />
     <Property Type="Decimal" Name="puntoo" Nullable="false" Precision="5" Scale="0" />
     <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id" Nullable="false" />
   </ComplexType>
   <ComplexType Name="FComisiones_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -5058,5 +5059,28 @@
     <Property Type="Decimal" Name="netofac" Nullable="true" Precision="19" Scale="2" />
     <Property Type="Decimal" Name="zona" Nullable="true" Precision="5" Scale="0" />
     <Property Type="Decimal" Name="acobrar" Nullable="true" Precision="5" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="FCobranzas_Result1">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="razsoc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="tipodoc" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="letra" Nullable="false" MaxLength="1" />
+    <Property Type="Decimal" Name="numero" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Int32" Name="empresa" Nullable="false" />
+    <Property Type="Decimal" Name="comiprod" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="comicob" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="comicocl" Nullable="false" Precision="5" Scale="2" />
+    <Property Type="Decimal" Name="acobrar" Nullable="true" Precision="28" Scale="8" />
+    <Property Type="Boolean" Name="liquidada" Nullable="false" />
+    <Property Type="String" Name="letrao" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="tipdoco" Nullable="false" MaxLength="3" />
+    <Property Type="Int32" Name="empresao" Nullable="false" />
+    <Property Type="Decimal" Name="numeroo" Nullable="false" Precision="8" Scale="0" />
+    <Property Type="Decimal" Name="codven" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="netocob" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="punto" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="Decimal" Name="puntoo" Nullable="false" Precision="5" Scale="0" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

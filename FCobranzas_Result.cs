@@ -33,5 +33,6 @@ namespace JustServicios
         public decimal punto { get; set; }
         public decimal puntoo { get; set; }
         public string nombre { get; set; }
+        public int id { get; set; }
     }
 }

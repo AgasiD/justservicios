@@ -26,7 +26,7 @@ public partial class Reporte : System.Web.UI.Page
         report = Convert.ToInt32(Request.QueryString["nReporte"]);
         empresa = Convert.ToInt32(Request.QueryString["empresa"]);
         oConfigen = ControladorConfigen.getInstancia().getConfigen(empresa);
-        dsd = Request.QueryString["dsd"].ToString();
+            dsd = Request.QueryString["dsd"].ToString();
         hst = Request.QueryString["hst"].ToString();
         reporte.KeepSessionAlive = false;
         reporte.AsyncRendering = false;
@@ -168,10 +168,111 @@ public partial class Reporte : System.Web.UI.Page
                 case 45:
                     LRankingComp();
                     break;
+                case 46:
+                    LDeudaProvee();
+                    break;
             }
         }
     }
 
+    /*
+    public void LconceptosCaja()
+    {
+        List<concepto> lista;
+        using (var bd = new GestionEntities())
+            bd.Database.SqlQuery<concepto>("select codigo, descri from concepto").ToList();
+        string rutaReporte = "Reportes/ConceptosCaja/lconcepto.rdlc";
+        generarReporte(rutaReporte, parametros, new ReportDataSource("lista", lista), dsd, hst);
+        
+        
+
+    }
+    */
+
+
+    public void LDeudaProvee()
+    {
+        List<DeudaProvee> lista;
+        int nropro = Convert.ToInt32(Request.QueryString["nropro"].ToString()),
+            concepto = Convert.ToInt32(Request.QueryString["concepto"].ToString()),
+            ordenId = Convert.ToInt32(Request.QueryString["orden"].ToString());
+        bool anotacion = Convert.ToBoolean(Request.QueryString["anotacion"].ToString()),
+            suspendida = Convert.ToBoolean(Request.QueryString["suspendida"].ToString()),
+            saldo = Convert.ToBoolean(Request.QueryString["saldo"].ToString()),
+            resumido = Convert.ToBoolean(Request.QueryString["resumido"].ToString());
+
+        DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
+                 hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
+
+        int comp = Convert.ToInt32(Request.QueryString["comp"].ToString());
+        string  orden = " order by ",
+                tipoDoc = " and ";
+
+        string where = "";
+        if (saldo)
+            where += " and sal.importe > 0 ";
+        if (!suspendida)
+            where += " and p.incobrable = 0";
+        if (nropro > 0)
+            where += " and p.nropro = " + nropro;
+        if (concepto > 0)
+            where += " and p.concepto = " + concepto;
+        switch(comp) // tipos de comprobantes
+        {
+            case 1:
+                tipoDoc = "";
+                break;
+            case 2:
+                tipoDoc = " and pd.tipodoc in ('FC', 'TK', 'LE', 'CT')";
+                break;
+            case 3:
+                tipoDoc = " and  pd.tipodoc in ('NC')";
+                break;
+            case 4:
+                tipoDoc = "  and pd.tipodoc in ('ND')";
+                break;
+            default:
+                tipoDoc = "";
+                break;
+        }
+        switch (ordenId) //ordena los datos
+        {
+            case 1:
+                orden += " p.nropro, pd.vence";
+                break;
+            case 2:
+                orden += " p.razsoc, pd.vence ";
+                break;
+            case 3:
+                orden += " pd.vence, p.nropro";
+                break;
+            case 4:
+                orden += " pd.vence, p.nropro "; //no es este orden, falta campo "vencedias" 
+                break;
+            default:
+                orden = "";
+                break;
+        }
+        where += " and pd.empresaid = " + empresa + " and pd.vence >= '" + dsd.ToString("dd/MM/yyyy") + "' and pd.vence <= '" + hst.ToString("dd/MM/yyyy") + "' " + tipoDoc;
+        string query =
+            "select p.nropro, p.razsoc, pd.fecha, pd.tipodoc, pd.letra, pd.punto, pd.numero, pd.importe1 importeOriginal," +
+            " pd.importe2 importe2, sal.importe saldo, pd.vence, condpago.descripcion condicion " +
+            "from proctad pd " +
+            "left join provee p on pd.nropro = p.nropro " +
+            "left join SaldosProveedoresAll(" + empresa + ") sal on pd.tipodoc = sal.tipodoc and pd.letra = sal.letra and pd.punto = sal.punto and pd.numero = sal.numero "+
+            "left join condpago on condpago.codigo = p.condicion " +
+            "where 1 = 1  " + where + orden;
+        if (resumido)
+            rutaReporte = "Reportes/DeudaProveedores/ldeudapResum.rdlc";
+        else
+            rutaReporte = "Reportes/DeudaProveedores/ldeudap.rdlc";
+
+        using (var bd = new GestionEntities())
+            lista = bd.Database.SqlQuery<DeudaProvee>(query).ToList();
+
+        generarReporte(rutaReporte, parametros, new ReportDataSource("lista", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
+        
+    }
     public void LRankingComp()
     {
         DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString())
@@ -188,7 +289,6 @@ public partial class Reporte : System.Web.UI.Page
         foreach(var det in lista ){
             totalTotal += det.total;
         }
-
         parametros.Add("TotalTotal", totalTotal.ToString());
         rutaReporte = "Reportes/RankingComprasProvee/LComprasProvee.rdlc";
         generarReporte(rutaReporte, parametros, new ReportDataSource("lista", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
@@ -199,13 +299,10 @@ public partial class Reporte : System.Web.UI.Page
         string codigo = Request.QueryString["codigo"].ToString();
         string ordenado = "";
         if (orden == "1")
-        {
             ordenado = " codpro";
-        }
         else
-        {
             ordenado = " descri";
-        }
+        
         List<MiLStockCodigo> lista;
         using(GestionEntities bd = new GestionEntities()){
             lista = bd.Database.SqlQuery<MiLStockCodigo>(
@@ -288,60 +385,77 @@ public void LPorcenCliFactu()
           dhst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
         string query = "";
         string where = "";
-        if (codven > 0)
-            where += " and codven = " + codven;
-        if (nrocli > 0)
-            where += " and nrocli = " + nrocli;
+      
         if (venta)
         {
-            where = getWhere("ivaven.", ddsd, dhst);
+            where = getWhere("ivaven.", ddsd, dhst, nrocli, codven);
             string coti = "";
             if (!cotizacion)
                 coti = " and ivaven.tipodoc not in ('CT', 'AJD', 'AJC') ";
+            query = " select convert(numeric(5,0),max(ivaven.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant, (sum(cant) / (select sum(cant) from detmovim)) porcencant," +
+                " (sum(cantenv) / (select sum(cantenv) from detmovim) )  porcencantenv, sum(cant * cantenv) cantenv, sum(prexcant) neto, " +
+                "(sum(neto) / (select sum(neto) from ivaven)) porcenneto" +
+                " from ivaven " +
+                "left join detmovim det on det.ivavenid = ivaven.id" +
+                " where 1 = 1 " + where + coti + " " +
+                "group by ivaven.nrocli ";
+        }
+        if(cotizacion && !venta)
+        {
+             where = getWhere("ivaven.", ddsd, dhst, nrocli, codven);
+            string coti = "";
+                       coti = " and ivaven.tipodoc in ('CT', 'AJD', 'AJC') ";
             query = " select convert(numeric(5,0),max(ivaven.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant, (sum(cant) / (select sum(cant) from detmovim)) *100 porcencant," +
-                " (sum(cantenv) / (select sum(cantenv) from detmovim) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto, " +
+                " (sum(cantenv) / (select sum(cantenv) from detmovim) ) porcencantenv, sum(cant * cantenv) cantenv, sum(prexcant) neto, " +
                 "(sum(neto) / (select sum(neto) from ivaven)) *100 porcenneto" +
                 " from ivaven " +
                 "left join detmovim det on det.ivavenid = ivaven.id" +
-                " where " + where + coti + " " +
+                " where 1=1  " + where + coti + " " +
                 "group by ivaven.nrocli ";
         }
         if (pedidos)
         {
-            where = getWhere("pedidocab.", ddsd, dhst);
+            where = getWhere("pedidocab.", ddsd, dhst, nrocli, codven);
             where = where.Replace("fecha", "fechaing");
             if (query != "")
                 query += " union ";
             query += " select convert(numeric(5,0),max(PedidoCab.nrocli)) nrocli, max(razsoc) razsoc, sum(cantidad) cant, " +
                 " (sum(cantidad) / (select sum(cantidad) from pedidodet)) *100 porcencant, (sum(cantidad) / (select sum(1) from pedidodet) ) *100 porcencantenv," +
-                " sum(cantidad * 1) cantenv, sum(pedidocab.total) neto, (sum(pedidocab.total) / (select sum(total) from PedidoCab)) *100 porcenneto " +
+                " sum(cantidad * 1) cantenv, sum(cantidad * precio - (precio * cantidad * bonif/100) - (cantidad * precio - (precio * cantidad * bonif1/100))) neto, (sum(pedidocab.total) / (select sum(total) from PedidoCab)) *100 porcenneto " +
                 " from PedidoCab " +
                 " left join PedidoDet det on det.cabeceraid = PedidoCab.id" +
-                " where pedidocab.listo = 0 and " + where + " group by PedidoCab.nrocli ";
+                " where pedidocab.listo = 0 " + where + " group by PedidoCab.nrocli ";
         }
         if (remito)
         {
-            where = getWhere("remitocab.", ddsd, dhst);
+            where = getWhere("remitocab.", ddsd, dhst,nrocli,codven);
             if (query != "")
                 query += " union ";
             query += "select convert(numeric(5,0),max(RemitoCab.nrocli)) nrocli, max(razsoc) razsoc, sum(cant) cant,  (sum(cant) / (select sum(cant) from remitodet)) *100 porcencant," +
-                " (sum(cantenv) / (select sum(cantenv) from remitodet) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(neto) neto," +
+                " (sum(cantenv) / (select sum(cantenv) from remitodet) ) *100 porcencantenv, sum(cant * cantenv) cantenv, sum(prexcant) neto," +
                 " (sum(neto) / (select sum(neto) from Remitocab)) *100 porcenneto" +
                 " from RemitoCab " +
                 " left join remitodet det on det.cabeceraid = RemitoCab.id " +
-                " where facturado not like 'S' and " + where + "" +
+                " where facturado not like 'S' " + where + "" +
                 " group by RemitoCab.nrocli";
         }
         List<MiPorcenVentas> lista;
         using (GestionEntities bd = new GestionEntities())
             lista = bd.Database.SqlQuery<MiPorcenVentas>(query).ToList();
+        lista = lista.OrderByDescending(a => a.neto).ToList();
         string ruta = "Reportes/Proveedores/LPorcenVentas.rdlc";
         generarReporte(ruta, parametros, new ReportDataSource("PorcenVentas", lista), dsd, hst);
     }
 
-    private string getWhere(string table, DateTime ddsd, DateTime dhst)
+    private string getWhere(string table, DateTime ddsd, DateTime dhst, int nrocli, int codven)
     {
-        return table + "fecha >= '" + ddsd.ToString("dd/MM/yyyy") + "' and " + table + "fecha <= '" + dhst.ToString("dd/MM/yyyy") + "' ";
+        string query = " and " + table + "fecha >= '" + ddsd.ToString("dd/MM/yyyy") + "' and " + table + "fecha <= '" + dhst.ToString("dd/MM/yyyy") + "' ";
+        if (codven > 0)
+            query += " and " + table + "codven = " + codven;
+        if (nrocli > 0)
+            query += " and  " + table + "nrocli = " + nrocli;
+
+        return query;
     }
 
     public void LMovCaja()
@@ -553,7 +667,7 @@ public void LPorcenCliFactu()
                     
                     cab.First().cabSubt = cab.First().cabNeto + cab.First().cabExento;
                     cab.First().cabBonifto = (cab.First().cabNeto * cab.First().cabBonitot) / 100;
-                    cab.First().cabTotal = cab.First().cabSubt + cab.First().cabIvanoi + cab.First().cabIvaidif + cab.First().cabIvanoidif - cab.First().cabBonifto;
+                    cab.First().cabTotal = cab.First().cabSubt - cab.First().cabBonifto;
                     cab.First().cabSubt = Math.Round(cab.First().cabSubt, impdec);
                     cab.First().cabTotal = Math.Round(cab.First().cabTotal, impdec);
                    
@@ -898,7 +1012,7 @@ public void LPorcenCliFactu()
         parametros.Add("mesInicio", mes.ToString());
         generarReporte(rutaReporte, parametros, new ReportDataSource("lCotiMesxMes", lista), pdsd.ToString("dd/MM/yyyy"), phst.ToString("dd/MM/yyyy"));
     }
-    private void LVentasMesAMes()
+    private void LVentasMesAMes()//Ventas mes a mes en importes
     {
         string query = Request.QueryString["query"].ToString(),
             agrupar = Request.QueryString["agrupar"].ToString();
@@ -1485,16 +1599,88 @@ public void LPorcenCliFactu()
     }
     private void LArtVendidosPorVende()
     {
-        string query = Request.QueryString["query"].ToString(), rutaReporte;
         DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
             hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
         int agrupar = Convert.ToInt32(Request.QueryString["agrupar"].ToString());
-        List<LArtVendxVende_Result> lista;
-        string consulta = "select * from LArtVendxVende('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ")" +
-                "where " + query;
+        List<LArtVendxVende> lista;
+        bool cotizaciones = Convert.ToBoolean(Request.QueryString["cotizaciones"].ToString()),
+            ventas = Convert.ToBoolean(Request.QueryString["ventas"].ToString()),
+            remitos = Convert.ToBoolean(Request.QueryString["remitos"].ToString()),
+            pedidos = Convert.ToBoolean(Request.QueryString["pedidos"].ToString()); 
+
+        string query = Request.QueryString["query"].ToString(),
+            qRemitos, qVentas, qPedidos, rutaReporte;
+        string consulta = "";
+
+        qVentas = 
+            "SELECT stock.codpro, stock.descri, CONVERT(int, x.cant) AS unidades, CONVERT(int, x.cant * stock.cantenv) AS cantidad, x.prexcant*(100-x.bonito)/100 precio, " +
+            "stock.costo, convert(decimal,-2)  AS nrofac, convert(numeric,- 1) AS pendientes, x.fecha AS fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codsubrub, s.descri descriSubRu, i.codven," +
+            " x.nrocli, x.tipodoc AS tipodoc, x.cotizacion, ven.nombre nomvende, c.razsoc, x.prexcant, stock.marca, c.zona, stock.proveed " +
+            "FROM detmovim x " +
+            "LEFT JOIN  stock ON x.codpro = stock.codpro " +
+            "LEFT JOIN ivaven i ON i.id = x.ivavenid " +
+            "LEFT JOIN rubros r ON r.codigo = stock.rubro " +
+            "LEFT JOIN subrub s ON s.codigo = stock.subrub " +
+            "LEFT JOIN vende ven on i.codven = ven.codven " +
+            "LEFT JOIN stock p on p.codpro = x.codpro " +
+            "LEFT JOIN cliente c on c.nrocli = x.nrocli " +
+            "WHERE (x.fecha >= '" + dsd.ToString("dd/MM/yyyy") + "' and x.fecha <= '" + hst.ToString("dd/MM/yyyy") + "') and empresa = " + empresa + " and stock.codpro is not NULL";
+        if (!cotizaciones)
+            qVentas += " and x.tipodoc not in ('CT','AJD','AJC') ";
+
+        qRemitos =
+            "SELECT stock.codpro, stock.descri, CONVERT(int, x.cant) AS unidades, CONVERT(int, x.cant * stock.cantenv) AS cantidad,x.prexcant*(100-y.bonitot)/100 precio, stock.costo," +
+            " x.nrofac ,convert(numeric,- 1) pendientes, y.fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codsubrub, s.descri descriSubRu, y.codven, y.nrocli, 'RTO' AS tipodoc," +
+            "1 cotizacion, ven.nombre nomvende, c.razsoc, x.prexcant, stock.marca, c.zona, stock.proveed " +
+            "FROM remitodet x " +
+            "LEFT JOIN stock ON x.codpro = stock.codpro " +
+            "LEFT JOIN remitocab y ON y.id = x.cabeceraid " +
+            "LEFT JOIN rubros r ON r.codigo = stock.rubro " +
+            "LEFT JOIN subrub s ON s.codigo = stock.subrub " +
+            "LEFT JOIN vende ven on y.codven = ven.codven " +
+            "LEFT JOIN stock p on p.codpro = x.codpro " +
+            "LEFT JOIN cliente c on c.nrocli = y.nrocli " +
+            "WHERE (y.fecha >=  '" + dsd.ToString("dd/MM/yyyy") + "' and y.fecha <=  '" + hst.ToString("dd/MM/yyyy") + "') and empresaid = " + empresa + " and stock.codpro is not NULL and y.facturado = 'N'";
+
+        qPedidos =
+            "SELECT stock.codpro, stock.descri, CONVERT(int, x.cantidad) AS unidades, CONVERT(int, x.cantidad * stock.cantenv) AS cantidad, " +
+            "(x.precio*cantidad)*(100-x.precio*x.bonif)/100*(100-x.precio*x.bonif1)/100*(100-x.precio*y.bonifto)/100 precio, stock.costo, convert(decimal,-1) as nrofac, " +
+            "x.pendientes AS pendientes, y.[fechaing] AS fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codsubrub, s.descri descriSubRu, y.codven, " +
+            "y.nrocli, 'PE' AS tipodoc, mon.ncotiza cotizacion, ven.nombre nomvende, c.razsoc, x.precio* cantidad-bonitot prexcant, stock.marca, c.zona, stock.proveed " +
+            "FROM PedidoDet x " +
+            "LEFT JOIN stock ON x.articulo = stock.codpro " +
+            "LEFT JOIN Pedidocab y ON y.id = x.cabeceraid " +
+            "LEFT JOIN rubros r ON r.codigo = stock.rubro " +
+            "LEFT JOIN subrub s ON s.codigo = stock.subrub " +
+            "LEFT JOIN vende ven on y.codven = ven.codven " +
+            "LEFT JOIN monedas mon on x.moneda = mon.codigo " +
+            "LEFT JOIN stock p on p.codpro = x.articulo " +
+            "LEFT JOIN cliente c on c.nrocli = y.nrocli " +
+            "LEFT JOIN (select cabeceraid, sum(pendientes) pendientes from pedidodet group by cabeceraid) pend on y.id = pend.cabeceraid " +
+            "WHERE (y.fechaing >=  '" + dsd.ToString("dd/MM/yyyy") + "' and y.fechaing <=  '" + hst.ToString("dd/MM/yyyy") + "') and empresaid = " + empresa + "" +
+            " and stock.codpro is not NULL and pend.pendientes > 0";
+
+        if (ventas)
+            consulta += qVentas;
+
+        if (remitos) {
+            if (ventas)
+                consulta += " UNION ";
+            consulta += qRemitos;
+        }
+
+        if (pedidos)
+        {
+            if (remitos || ventas)
+                consulta += " UNION ";
+            consulta += qPedidos;
+        }
+
+        consulta = "select * from (" + consulta + " ) consulta where 1 = 1" + query;
+
         using (GestionEntities bd = new GestionEntities())
         {
-            lista = bd.Database.SqlQuery<LArtVendxVende_Result>(
+            lista = bd.Database.SqlQuery<LArtVendxVende>(
                 consulta
                ).ToList();
         }
@@ -1532,13 +1718,12 @@ public void LPorcenCliFactu()
             from = "",
             selectCompleto, rutaReporte;
         query = Request.QueryString["query"];
-
         string sinCotizaciones = "";
         if(!Ecotizaciones)
             sinCotizaciones = " and i.tipodoc not in ('CT', 'AJC', 'AJD') ";
         string ventas =
             " SELECT stock.codpro, stock.descri,  x.cant unidades, 0 AS porsunid,  x.cant * stock.cantenv cantidad," +
-            " 0 AS porscant, x.prexcant * (100-x.bonito)/100 * x.cotizacion precio, x.costo * x.cant * i.cotizacion costo, - 2 AS nrofac, - 1 AS pendientes, x.fecha AS fecha, " +
+            " 0 AS porscant, x.prexcant * (100-x.bonito)/100 * x.cotizacion precio, x.costo * x.cant * i.cotizacion costo, convert(numeric,- 1) AS nrofac, - 1 AS pendientes, x.fecha AS fecha, " +
             "stock.rubro codRub, r.descri descriRub, stock.subrub codSubRub, s.descri descriSubRu, stock.tipoart codTipoArt, t.descri descriTipoArt, stock.proveed," +
             " i.codven, x.nrocli, x.tipodoc AS tipodoc, x.empresa, x.cotizacion " +
             " FROM detmovim x  " +
@@ -1548,7 +1733,7 @@ public void LPorcenCliFactu()
             " LEFT JOIN subrub s ON s.codigo = stock.subrub " +
             " LEFT JOIN tipoart t ON t .codigo = stock.tipoart " +
             " where(x.fecha >= '" + dsd + "' and x.fecha <= '" + hst + "') and i.empresaid = " + empresa + sinCotizaciones + "  and stock.codpro is not NULL";
-        string pedido = 
+        string remitos = 
             "SELECT stock.codpro, stock.descri, x.cant AS unidades, 0 AS porsunid, x.cant * stock.cantenv AS cantidad, 0 AS porscant," +
             " x.prexcant * (100-y.bonitot) / 100 * x.cotizacion precio, x.costo, x.nrofac, - 1 AS pendientes, y.fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codSubRub," +
             " s.descri descriSubRu, stock.tipoart codTipoArt, t .descri descriTipoArt, stock.proveed, y.codven, y.nrocli, 'RTO' AS tipodoc, y.empresaid empresa, 1 cotizacion " +
@@ -1559,9 +1744,9 @@ public void LPorcenCliFactu()
             " LEFT JOIN subrub s ON s.codigo = stock.subrub "   +
             " LEFT JOIN tipoart t ON t .codigo = stock.tipoart" +
             " where(y.fecha >='" + dsd + "' and y.fecha <= '" + hst + "') and y.empresaid = " + empresa + " and stock.codpro is not NULL and y.facturado = 'N'";
-        string remitos =
+        string pedidos =
             "SELECT stock.codpro, stock.descri, x.cantidadAS unidades, 0 AS porsunid,  x.cantidad * stock.cantenv AS cantidad, 0 AS porscant," +
-            " (x.precio* x.cant )*(100-x.precio*bonif)/100*(100-x.precio*bonif1)/100*(100-x.precio*y.bonifto)/100 precio, x.costo, - 1 AS nrofac, pendientes AS pendientes," +
+            " (x.precio* x.cant )*(100-x.precio*bonif)/100*(100-x.precio*bonif1)/100*(100-x.precio*y.bonifto)/100 precio, x.costo, convert(numeric,- 1), pendientes AS pendientes," +
             " y.[fechaing] AS fecha, stock.rubro codRub, r.descri descriRub, stock.subrub codSubRub, s.descri descriSubRu, stock.tipoart codTipoArt, t .descri descriTipoArt," +
             " stock.proveed, y.codven,  y.nrocli, 'PE' AS tipodoc, y.empresaid empresa, mon.ncotiza cotizacion " +
             " FROM PedidoDet x " +
@@ -1571,7 +1756,8 @@ public void LPorcenCliFactu()
             " LEFT JOIN subrub s ON s.codigo = stock.subrub " +
             " LEFT JOIN monedas mon on x.moneda = mon.codigo " +
             " LEFT JOIN tipoart t ON t .codigo = stock.tipoart" +
-            " where(fecha >= '" + dsd + "' and fecha <='" + hst + "') and y.empresaid =  " + empresa + " and stock.codpro is not NULL and pendientes > 0";
+            " LEFT JOIN (select cabeceraid, sum(pendientes) pendientes from pedidodet group by cabeceraid ) pend on y.id = pend.cabeceraid " +
+            " where(fecha >= '" + dsd + "' and fecha <='" + hst + "') and y.empresaid =  " + empresa + " and stock.codpro is not NULL and pend.pendientes > 0";
 
         if (Eventas)
             from += ventas;
@@ -1579,7 +1765,7 @@ public void LPorcenCliFactu()
         {
             if (Eventas)
                 from += " UNION ";
-            from += pedido;
+            from += pedidos;
         }
         if (Eremitos)
         {
@@ -2001,30 +2187,21 @@ public void LPorcenCliFactu()
         bool desc = Convert.ToBoolean(Request.QueryString["desc"].ToString());
         DateTime dsd = Convert.ToDateTime(Request.QueryString["dsd"].ToString()),
             hst = Convert.ToDateTime(Request.QueryString["hst"].ToString());
-        List<conceptosincluidos> lista;
+        List<MiConcepto> lista;
         using (GestionEntities bd = new GestionEntities())
-        {
-            lista = bd.conceptosincluidos.ToList();
-        }
+            lista = bd.Database.SqlQuery<MiConcepto>("select codigo, descri from concepto").ToList();
         if (!desc) {
             if (orden == "1")
-            {
                 lista = lista.OrderBy(a => a.id).ToList();
-            } else if (orden == "2")
-            {
+             else if (orden == "2")
                 lista = lista.OrderBy(a => a.descri).ToList();
-            }
         }
         else
         {
             if (orden == "1")
-            {
                 lista = lista.OrderByDescending(a => a.id).ToList();
-            }
             else if (orden == "2")
-            {
                 lista = lista.OrderByDescending(a => a.descri).ToList();
-            }
         }
         generarReporte("Reportes/ConceptosCaja/lConceptos.rdlc", parametros, new ReportDataSource("LConceptos", lista), dsd.ToString("dd/MM/yyyy"), hst.ToString("dd/MM/yyyy"));
     }
@@ -2096,7 +2273,7 @@ public void LPorcenCliFactu()
                 where += " and ";
             where += " codven = " + codven;
         }
-        if (cotizaciones)
+        if (!cotizaciones)
         {
             if (where != "")
                 where += " and ";
@@ -2106,10 +2283,14 @@ public void LPorcenCliFactu()
         {
             where = "where " + where;
         }
+
+        string orderby = " order by fecha ";
         using (GestionEntities bd = new GestionEntities())
         {
             lista = bd.Database.SqlQuery<FComisiones_Result>(
-                "select  * from FComisiones(" + empresa + ",'" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "' , "+tipocomis +")" + where
+                "select  * from FComisiones(" + empresa + ",'" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "' , "+tipocomis +")" 
+                + where
+                + orderby
                 ).ToList();
         }
 
@@ -2165,21 +2346,24 @@ public void LPorcenCliFactu()
                 where += " and ";
             where += " codven = " + codven;
         }
-        if (cotizaciones)
+        if (!cotizaciones)
         {
             if (where != "")
                 where += " and ";
-            where += " tipodoc not in('CT','AJD','AJC') ";
+            where += " tipdoco not in('CT','AJD','AJC') ";
         }
         if (where != "")
         {
             where = "where " + where;
         }
+        string orderby = " order by fecha,id ";
+
         using (GestionEntities bd = new GestionEntities())
         {
             lista = bd.Database.SqlQuery<FCobranzas_Result>(
-                "select  * from FCobranzas('" + Request.QueryString["dsd"].ToString() + "', '" + Request.QueryString["hst"].ToString() + "'," + empresa + ", " + tipocomis + " )" 
-                + where).ToList();
+                "select  * from FCobranzas('" + ddsd.ToString("dd/MM/yyyy") + "', '" + hhst.ToString("dd/MM/yyyy") + "'," + empresa + ", " + tipocomis + " )" 
+                + where
+                + orderby).ToList();
         }
         switch (tipocomis)
         {
@@ -2448,7 +2632,7 @@ public void LPorcenCliFactu()
                 Response.ContentType =
                      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 Response.AddHeader("content-disposition", "attachment;filename=\"Precios" + DateTime.Now.Date.ToString("ddMMyyyy") + ".xlsx");
-                var workbook = excelControllers.getIntancia().ListadoPrecios(lista, 2);
+                var workbook = excelControllers.getIntancia().ListadoPrecios(lista, empresa);
                 //var worksheet = workbook.Worksheets.Add("Sheet 1");
                 using (var memoryStream = new MemoryStream())
                 {
@@ -2548,7 +2732,7 @@ public void LPorcenCliFactu()
             reporte.LocalReport.SetParameters(paramsReporte);
             if (report == 1 || report == 3 || report == 5 || report == 6 || report == 8 || report == 9 ||
                 report == 10 || report == 13 || report == 14 || report == 15 || report == 16 || report == 17
-                || report == 32 || report == 33 || report == 37 || report == 38 || report == 39 || report == 40 || report == 45)
+                || report == 32 || report == 33 || report == 37 || report == 38 || report == 39 || report == 40 || report == 45 || report == 46)
                 reporte.LocalReport.SetParameters(fechas);
             reporte.LocalReport.DataSources.Add(dataSource);
             reporte.LocalReport.Refresh();
@@ -2611,7 +2795,6 @@ public void LPorcenCliFactu()
                 using (GestionEntities bd = new GestionEntities())
                     valorMonedaFinal = bd.monedas.Single(a => a.codigo == item.moneda).ncotiza;
                 item.precio = item.precio * valorMonedaInicio / valorMonedaFinal;
-                  
             }
             return lista;
         }
@@ -2639,5 +2822,6 @@ public class OperacionxRubro
 
     
 }
+
 
 
