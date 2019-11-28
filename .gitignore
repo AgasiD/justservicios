@@ -1,12 +1,37 @@
 # Logs
 logs
+<<<<<<< HEAD
 Web
 *.log
+=======
+*.log
+*.config
+>>>>>>> bf8216bbb90ebd70f2fc42b6420744ce1dfead7b
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
+<<<<<<< HEAD
 *.config
+=======
+Web
+web
+Web.config
+*Web.config
+web.config
+*web.config
+web.config/
+Web.config/
+*web.config*
+*Web.config*
+Web.config.txt
+.Web.config
+.web.config
+./web.config
+./Web.config
+/web.config
+/Web.config
+>>>>>>> bf8216bbb90ebd70f2fc42b6420744ce1dfead7b
 # Firebase cache
 .firebase/
 
@@ -47,6 +72,10 @@ build/Release
 # Dependency directories
 node_modules/
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf8216bbb90ebd70f2fc42b6420744ce1dfead7b
 # Optional npm cache directory
 .npm
 
