@@ -74,5 +74,13 @@ namespace JustServicios.Controllers
         {
             return Json(CComprobante.getComprobantesFacturados(query, offset, codven, veTodos));
         }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("getItemsFactura")]
+        public JsonResult<DicRequestHTTP> getItemsFactura(string tipo, string letra, int punto, int numero, int empresa)
+        {
+            return Json(CComprobante.getItemsFactura(tipo, letra, punto, numero, empresa));
+        }
+
     }
 }

@@ -206,7 +206,7 @@
                                   <Value>=Fields!porcencant.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0.00;-#,0.00;'-'</Format>
+                                    <Format>0.00%</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -270,7 +270,7 @@
                                   <Value>=Fields!porcencantenv.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;-#,0.00;'-'</Format>
+                                    <Format>#,0.00%;-#,0.00%;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -334,7 +334,7 @@
                                   <Value>=Fields!porcenneto.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;-#,0.00;'-'</Format>
+                                    <Format>0.00%</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -548,7 +548,7 @@
                                   <Value>=Sum(Fields!porcencantenv.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;-#,0.00;'-'</Format>
+                                    <Format>#,0.00%;-#,0.00%;'-'</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -618,7 +618,7 @@
                                   <Value>=Sum(Fields!porcenneto.Value)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;-#,0.00;'-'</Format>
+                                    <Format>0.00%</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

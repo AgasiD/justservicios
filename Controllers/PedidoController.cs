@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,7 +17,6 @@ using JustServicios.Clases;
     [System.Web.Http.RoutePrefix("api/Pedido")]
 public class PedidoController : ApiController
 {
-    ControladorCliente ccliente = ControladorCliente.getCCliente();
     ControladorPedido cPedido = ControladorPedido.getCPedido();
     ControladorTotales cTotales = ControladorTotales.getCTotales();   
 

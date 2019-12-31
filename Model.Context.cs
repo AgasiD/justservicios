@@ -793,28 +793,6 @@ namespace JustServicios
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<LStockActua1_Result>("[GestionEntities].[LStockActua1](@Empresa, @precio)", empresaParameter, precioParameter);
         }
     
-        [DbFunction("GestionEntities", "FCobranzas")]
-        public virtual IQueryable<FCobranzas_Result> FCobranzas(Nullable<System.DateTime> dsd, Nullable<System.DateTime> hst, Nullable<int> empresa, Nullable<int> comi)
-        {
-            var dsdParameter = dsd.HasValue ?
-                new ObjectParameter("dsd", dsd) :
-                new ObjectParameter("dsd", typeof(System.DateTime));
-    
-            var hstParameter = hst.HasValue ?
-                new ObjectParameter("hst", hst) :
-                new ObjectParameter("hst", typeof(System.DateTime));
-    
-            var empresaParameter = empresa.HasValue ?
-                new ObjectParameter("empresa", empresa) :
-                new ObjectParameter("empresa", typeof(int));
-    
-            var comiParameter = comi.HasValue ?
-                new ObjectParameter("comi", comi) :
-                new ObjectParameter("comi", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FCobranzas_Result>("[GestionEntities].[FCobranzas](@dsd, @hst, @empresa, @comi)", dsdParameter, hstParameter, empresaParameter, comiParameter);
-        }
-    
         [DbFunction("GestionEntities", "FComisiones")]
         public virtual IQueryable<FComisiones_Result> FComisiones(Nullable<int> empresa, string dsd, string hst, Nullable<int> comis)
         {
@@ -835,6 +813,28 @@ namespace JustServicios
                 new ObjectParameter("comis", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FComisiones_Result>("[GestionEntities].[FComisiones](@empresa, @dsd, @hst, @comis)", empresaParameter, dsdParameter, hstParameter, comisParameter);
+        }
+    
+        [DbFunction("GestionEntities", "FCobranzas")]
+        public virtual IQueryable<FCobranzas_Result1> FCobranzas(Nullable<System.DateTime> dsd, Nullable<System.DateTime> hst, Nullable<int> empresa, Nullable<int> comi)
+        {
+            var dsdParameter = dsd.HasValue ?
+                new ObjectParameter("dsd", dsd) :
+                new ObjectParameter("dsd", typeof(System.DateTime));
+    
+            var hstParameter = hst.HasValue ?
+                new ObjectParameter("hst", hst) :
+                new ObjectParameter("hst", typeof(System.DateTime));
+    
+            var empresaParameter = empresa.HasValue ?
+                new ObjectParameter("empresa", empresa) :
+                new ObjectParameter("empresa", typeof(int));
+    
+            var comiParameter = comi.HasValue ?
+                new ObjectParameter("comi", comi) :
+                new ObjectParameter("comi", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FCobranzas_Result1>("[GestionEntities].[FCobranzas](@dsd, @hst, @empresa, @comi)", dsdParameter, hstParameter, empresaParameter, comiParameter);
         }
     }
 }

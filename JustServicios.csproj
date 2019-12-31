@@ -323,6 +323,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\comprobante.cs" />
+    <Compile Include="Clases\Controladores\ControladorRemito.cs" />
+    <Compile Include="Clases\Controladores\ControladorRemitoCab.cs" />
+    <Compile Include="Clases\Controladores\ControladorRemitoDet.cs" />
     <Compile Include="Clases\Controladores\ControladorConfigen.cs" />
     <Compile Include="Clases\Controladores\ControladorRubro.cs" />
     <Compile Include="Clases\Controladores\ControladorSubRubro.cs" />
@@ -350,6 +353,8 @@
     <Compile Include="Clases\FWmasDatos.cs" />
     <Compile Include="Clases\genericas.cs" />
     <Compile Include="Clases\itemProducto.cs" />
+    <Compile Include="Clases\RemitoDet.cs" />
+    <Compile Include="Clases\RemitoCab.cs" />
     <Compile Include="Clases\PedidoCab.cs" />
     <Compile Include="Clases\PedidoDet.cs" />
     <Compile Include="Clases\presupc.cs" />
@@ -390,6 +395,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ControladorConcepto - Copia.cs" />
+    <Compile Include="Controllers\RemitoController.cs" />
     <Compile Include="Controllers\RubrosController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
@@ -453,6 +459,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="FCobranzas_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FCobranzas_Result1.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="FComisiones_Result.cs">
@@ -873,7 +882,6 @@
     <Content Include="JustsaDataSet.xss">
       <DependentUpon>JustsaDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="Reportes\CotizacionesEmitidas\LCotizacionesCliente.rdlc" />
     <Content Include="Reportes\CotizacionesEmitidas\LCotizacionesCompleto.rdlc" />
     <Content Include="Reportes\CotizacionesEmitidas\LCotizacionesCondIVA.rdlc" />
     <Content Include="Reportes\CotizacionesEmitidas\LCotizacionesProv.rdlc" />
@@ -987,6 +995,11 @@
     <EmbeddedResource Include="Reportes\Comprobantes\Factura.rdlc" />
     <EmbeddedResource Include="Reportes\CotizacionesMesAMes\LCotizacionesMesAMesArticulos.rdlc" />
     <EmbeddedResource Include="Reportes\CotizacionesMesAMes\LCotizacionesMesAMesClientes.rdlc" />
+    <Content Include="Reportes\CotizacionesEmitidas\ggg.rdlc" />
+    <Content Include="Reportes\DeudaProveedores\ldeudapResum.rdlc" />
+    <Content Include="Reportes\DeudaProveedores\ldeudap.rdlc" />
+    <EmbeddedResource Include="Reportes\DeudaProveedores\lDeudoresResum.rdlc" />
+    <EmbeddedResource Include="Reportes\DeudaProveedores\lDeudoresSinDet.rdlc" />
     <EmbeddedResource Include="Reportes\Deudores\lDeudores.rdlc" />
     <EmbeddedResource Include="Reportes\Deudores\lDeudoresResum.rdlc" />
     <EmbeddedResource Include="Reportes\Deudores\lDeudoresSinDet.rdlc" />

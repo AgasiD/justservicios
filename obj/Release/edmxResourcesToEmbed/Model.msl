@@ -3645,32 +3645,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="FCobranzas" FunctionName="gestionModel.Store.FCobranzas">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="gestionModel.FCobranzas_Result">
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
-          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
-          <ScalarProperty Name="letra" ColumnName="letra" />
-          <ScalarProperty Name="numero" ColumnName="numero" />
-          <ScalarProperty Name="empresa" ColumnName="empresa" />
-          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
-          <ScalarProperty Name="comicob" ColumnName="comicob" />
-          <ScalarProperty Name="comicocl" ColumnName="comicocl" />
-          <ScalarProperty Name="acobrar" ColumnName="acobrar" />
-          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
-          <ScalarProperty Name="letrao" ColumnName="letrao" />
-          <ScalarProperty Name="tipdoco" ColumnName="tipdoco" />
-          <ScalarProperty Name="empresao" ColumnName="empresao" />
-          <ScalarProperty Name="numeroo" ColumnName="numeroo" />
-          <ScalarProperty Name="codven" ColumnName="codven" />
-          <ScalarProperty Name="netocob" ColumnName="netocob" />
-          <ScalarProperty Name="punto" ColumnName="punto" />
-          <ScalarProperty Name="puntoo" ColumnName="puntoo" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="FComisiones" FunctionName="gestionModel.Store.FComisiones">
       <ResultMapping>
         <ComplexTypeMapping TypeName="gestionModel.FComisiones_Result">
@@ -3776,6 +3750,33 @@
           <ScalarProperty Name="netofac" ColumnName="netofac" />
           <ScalarProperty Name="zona" ColumnName="zona" />
           <ScalarProperty Name="acobrar" ColumnName="acobrar" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FCobranzas" FunctionName="gestionModel.Store.FCobranzas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="gestionModel.FCobranzas_Result1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+          <ScalarProperty Name="letra" ColumnName="letra" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+          <ScalarProperty Name="comicob" ColumnName="comicob" />
+          <ScalarProperty Name="comicocl" ColumnName="comicocl" />
+          <ScalarProperty Name="acobrar" ColumnName="acobrar" />
+          <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+          <ScalarProperty Name="letrao" ColumnName="letrao" />
+          <ScalarProperty Name="tipdoco" ColumnName="tipdoco" />
+          <ScalarProperty Name="empresao" ColumnName="empresao" />
+          <ScalarProperty Name="numeroo" ColumnName="numeroo" />
+          <ScalarProperty Name="codven" ColumnName="codven" />
+          <ScalarProperty Name="netocob" ColumnName="netocob" />
+          <ScalarProperty Name="punto" ColumnName="punto" />
+          <ScalarProperty Name="puntoo" ColumnName="puntoo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

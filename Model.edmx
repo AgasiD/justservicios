@@ -3827,6 +3827,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <ReturnType>
             <CollectionType>
               <RowType>
+                <Property Name="id" Type="int" Nullable="false" />
                 <Property Name="fecha" Type="datetime" Nullable="false" />
                 <Property Name="razsoc" Type="char" MaxLength="50" />
                 <Property Name="tipodoc" Type="char" MaxLength="3" Nullable="false" />
@@ -4080,6 +4081,9 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
                 <Property Name="nomvende" Type="varchar" MaxLength="50" />
                 <Property Name="razsoc" Type="char" MaxLength="50" />
                 <Property Name="prexcant" Type="numeric" Precision="38" Scale="6" />
+                <Property Name="marca" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="zona" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="proveed" Type="numeric" Precision="5" Scale="0" />
               </RowType>
             </CollectionType>
           </ReturnType>
@@ -4097,7 +4101,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
                 <Property Name="fechaprom" Type="char" MaxLength="10" Nullable="false" />
                 <Property Name="nropro" Type="int" Nullable="false" />
                 <Property Name="razsoc" Type="varchar" MaxLength="50" Nullable="false" />
-                <Property Name="marca" Type="numeric" Precision="5" Scale="0" />
+                <Property Name="marca" Type="numeric" Precision="5" Scale="0" Nullable="false" />
                 <Property Name="descMarca" Type="char" MaxLength="30" Nullable="false" />
                 <Property Name="rubro" Type="int" Nullable="false" />
                 <Property Name="DesRubro" Type="varchar" MaxLength="50" Nullable="false" />
@@ -4571,7 +4575,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
                 <Property Name="razsocProvee" Type="varchar" MaxLength="50" />
                 <Property Name="tipodoc" Type="varchar" MaxLength="3" />
                 <Property Name="fecha" Type="datetime" />
-                <Property Name="codpro" Type="char" MaxLength="16" />
+                <Property Name="codpro" Type="char" MaxLength="16" Nullable="false" />
                 <Property Name="descri" Type="varchar" MaxLength="50" />
                 <Property Name="cant" Type="numeric" Precision="18" Scale="4" Nullable="false" />
                 <Property Name="cantenv" Type="numeric" Precision="18" Scale="2" Nullable="false" />
@@ -10834,17 +10838,17 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
             <End EntitySet="provee" Role="provee" />
           </AssociationSet>
           <FunctionImport Name="Cotimesxmes" IsComposable="true" ReturnType="Collection(gestionModel.Cotimesxmes_Result)">
-          <Parameter Name="desde" Mode="In" Type="DateTime" />
+            <Parameter Name="desde" Mode="In" Type="DateTime" />
             <Parameter Name="hasta" Mode="In" Type="DateTime" />
             <Parameter Name="Empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="CotimesxmesAgrupCliente" IsComposable="true" ReturnType="Collection(gestionModel.CotimesxmesAgrupCliente_Result)">
-          <Parameter Name="desde" Mode="In" Type="DateTime" />
+            <Parameter Name="desde" Mode="In" Type="DateTime" />
             <Parameter Name="hasta" Mode="In" Type="DateTime" />
             <Parameter Name="Empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="CotimesxmesAgrupProd" IsComposable="true" ReturnType="Collection(gestionModel.CotimesxmesAgrupProd_Result)">
-          <Parameter Name="desde" Mode="In" Type="DateTime" />
+            <Parameter Name="desde" Mode="In" Type="DateTime" />
             <Parameter Name="hasta" Mode="In" Type="DateTime" />
             <Parameter Name="Empresa" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -10855,12 +10859,12 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Parameter Name="nrocli" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LArtVendAgrupando" IsComposable="true" ReturnType="Collection(gestionModel.LArtVendAgrupando_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LArtVendxVende" IsComposable="true" ReturnType="Collection(gestionModel.LArtVendxVende_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -10869,22 +10873,22 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           </FunctionImport>
           <FunctionImport Name="lCliente" IsComposable="true" ReturnType="Collection(gestionModel.lCliente_Result)" />
           <FunctionImport Name="LClientes" IsComposable="true" ReturnType="Collection(gestionModel.LClientes_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="LFOpxRubro" IsComposable="true" ReturnType="Collection(gestionModel.LFOpxRubro_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LFOpxRubroCompra" IsComposable="true" ReturnType="Collection(gestionModel.LFOpxRubroCompra_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LInforme" IsComposable="true" ReturnType="Collection(gestionModel.LInforme_Result)" />
           <FunctionImport Name="LIvaVen" IsComposable="true" ReturnType="Collection(gestionModel.LIvaVen_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -10894,16 +10898,16 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <FunctionImport Name="lPais" IsComposable="true" ReturnType="Collection(gestionModel.lPais_Result)" />
           <FunctionImport Name="lProvee" IsComposable="true" ReturnType="Collection(gestionModel.lProvee_Result)" />
           <FunctionImport Name="LsaldoCli" IsComposable="true" ReturnType="Collection(gestionModel.LsaldoCli_Result)">
-          <Parameter Name="Empresa" Mode="In" Type="Int32" />
+            <Parameter Name="Empresa" Mode="In" Type="Int32" />
             <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="LsaldoDeudores" IsComposable="true" ReturnType="Collection(gestionModel.LsaldoDeudores_Result)">
-          <Parameter Name="Empresa" Mode="In" Type="Int32" />
+            <Parameter Name="Empresa" Mode="In" Type="Int32" />
             <Parameter Name="fechaAcre" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="LSaldoDeudores2" IsComposable="true" ReturnType="Collection(gestionModel.LSaldoDeudores2_Result)">
-          <Parameter Name="empresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="fechaAcre" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="lstock" IsComposable="true" ReturnType="Collection(gestionModel.lstock_Result)">
@@ -10918,18 +10922,18 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Parameter Name="Empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="LWPedPendientes" IsComposable="true" ReturnType="Collection(gestionModel.LWPedPendientes_Result)">
-          <Parameter Name="empresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="LWPresup" IsComposable="true" ReturnType="Collection(gestionModel.LWPresup_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="lZonas" IsComposable="true" ReturnType="Collection(gestionModel.lZonas_Result)" />
           <FunctionImport Name="NoVendidos" IsComposable="true" ReturnType="Collection(gestionModel.NoVendidos_Result)">
-          <Parameter Name="desde" Mode="In" Type="DateTime" />
+            <Parameter Name="desde" Mode="In" Type="DateTime" />
             <Parameter Name="hasta" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -10959,7 +10963,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Parameter Name="nrocli" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="WCliente" IsComposable="true" ReturnType="Collection(gestionModel.WCliente_Result)">
-          <Parameter Name="vende" Mode="In" Type="Int32" />
+            <Parameter Name="vende" Mode="In" Type="Int32" />
             <Parameter Name="dia" Mode="In" Type="String" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -10967,50 +10971,50 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Parameter Name="empresa" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ArmaMenuWeb" ReturnType="Collection(gestionModel.ArmaMenuWeb_Result)">
-          <Parameter Name="empresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="usuario" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ArmaPopupWeb" ReturnType="Collection(gestionModel.ArmaPopupWeb_Result)">
-          <Parameter Name="empresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="usuario" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="CambioCodStk">
-          <Parameter Name="lccodpro" Mode="In" Type="String" />
+            <Parameter Name="lccodpro" Mode="In" Type="String" />
             <Parameter Name="lcNuevoCodpro" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="liquidarIvaVen">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
             <Parameter Name="vendedor" Mode="In" Type="Decimal" />
             <Parameter Name="cotizaciones" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="SP_CotiMesAMes">
-          <Parameter Name="dsd" Mode="In" Type="Int32" />
+            <Parameter Name="dsd" Mode="In" Type="Int32" />
             <Parameter Name="Empresa" Mode="In" Type="String" />
             <Parameter Name="Desde" Mode="In" Type="DateTime" />
             <Parameter Name="Hasta" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="SP_CotiMesAMesModificado">
-          <Parameter Name="dsd" Mode="In" Type="Int32" />
+            <Parameter Name="dsd" Mode="In" Type="Int32" />
             <Parameter Name="Empresa" Mode="In" Type="String" />
             <Parameter Name="Desde" Mode="In" Type="DateTime" />
             <Parameter Name="Hasta" Mode="In" Type="DateTime" />
             <Parameter Name="query" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_NoVendidos" ReturnType="Collection(gestionModel.sp_NoVendidos_Result)">
-          <Parameter Name="desde" Mode="In" Type="DateTime" />
+            <Parameter Name="desde" Mode="In" Type="DateTime" />
             <Parameter Name="hasta" Mode="In" Type="DateTime" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="incluirCoti" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_PuntoPedido" ReturnType="Collection(gestionModel.sp_PuntoPedido_Result)">
-          <Parameter Name="incluye" Mode="In" Type="Int32" />
+            <Parameter Name="incluye" Mode="In" Type="Int32" />
             <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="dsd" Mode="In" Type="DateTime" />
             <Parameter Name="hst" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="SP_VentasMesAMes">
-          <Parameter Name="dsd" Mode="In" Type="Int32" />
+            <Parameter Name="dsd" Mode="In" Type="Int32" />
             <Parameter Name="Empresa" Mode="In" Type="String" />
             <Parameter Name="Desde" Mode="In" Type="DateTime" />
             <Parameter Name="Hasta" Mode="In" Type="DateTime" />
@@ -11024,20 +11028,20 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <EntitySet Name="VCobran" EntityType="gestionModel.VCobran" />
           <EntitySet Name="vistacomprabantepresupuesto" EntityType="gestionModel.vistacomprabantepresupuesto" />
           <FunctionImport Name="LStockActua1" IsComposable="true" ReturnType="Collection(gestionModel.LStockActua1_Result)">
-          <Parameter Name="Empresa" Mode="In" Type="Decimal" />
+            <Parameter Name="Empresa" Mode="In" Type="Decimal" />
             <Parameter Name="precio" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="FCobranzas" IsComposable="true" ReturnType="Collection(gestionModel.FCobranzas_Result)">
-          <Parameter Name="dsd" Mode="In" Type="DateTime" />
-            <Parameter Name="hst" Mode="In" Type="DateTime" />
-            <Parameter Name="empresa" Mode="In" Type="Int32" />
-            <Parameter Name="comi" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="FComisiones" IsComposable="true" ReturnType="Collection(gestionModel.FComisiones_Result)">
-          <Parameter Name="empresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="Int32" />
             <Parameter Name="dsd" Mode="In" Type="String" />
             <Parameter Name="hst" Mode="In" Type="String" />
             <Parameter Name="comis" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FCobranzas" IsComposable="true" ReturnType="Collection(gestionModel.FCobranzas_Result1)">
+            <Parameter Name="dsd" Mode="In" Type="DateTime" />
+            <Parameter Name="hst" Mode="In" Type="DateTime" />
+            <Parameter Name="empresa" Mode="In" Type="Int32" />
+            <Parameter Name="comi" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ArmaMenuWeb_Result">
@@ -11318,6 +11322,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Type="Decimal" Name="punto" Nullable="false" Precision="5" Scale="0" />
           <Property Type="Decimal" Name="puntoo" Nullable="false" Precision="5" Scale="0" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="id" Nullable="false" />
         </ComplexType>
         <ComplexType Name="FComisiones_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -11422,6 +11427,29 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Type="Decimal" Name="netofac" Nullable="true" Precision="19" Scale="2" />
           <Property Type="Decimal" Name="zona" Nullable="true" Precision="5" Scale="0" />
           <Property Type="Decimal" Name="acobrar" Nullable="true" Precision="5" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="FCobranzas_Result1">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="DateTime" Name="fecha" Nullable="false" Precision="23" />
+          <Property Type="String" Name="razsoc" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="tipodoc" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="letra" Nullable="false" MaxLength="1" />
+          <Property Type="Decimal" Name="numero" Nullable="false" Precision="8" Scale="0" />
+          <Property Type="Int32" Name="empresa" Nullable="false" />
+          <Property Type="Decimal" Name="comiprod" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="comicob" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="comicocl" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="acobrar" Nullable="true" Precision="28" Scale="8" />
+          <Property Type="Boolean" Name="liquidada" Nullable="false" />
+          <Property Type="String" Name="letrao" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="tipdoco" Nullable="false" MaxLength="3" />
+          <Property Type="Int32" Name="empresao" Nullable="false" />
+          <Property Type="Decimal" Name="numeroo" Nullable="false" Precision="8" Scale="0" />
+          <Property Type="Decimal" Name="codven" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="netocob" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="punto" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="puntoo" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -15073,32 +15101,6 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="FCobranzas" FunctionName="gestionModel.Store.FCobranzas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="gestionModel.FCobranzas_Result">
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="razsoc" ColumnName="razsoc" />
-                <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
-                <ScalarProperty Name="letra" ColumnName="letra" />
-                <ScalarProperty Name="numero" ColumnName="numero" />
-                <ScalarProperty Name="empresa" ColumnName="empresa" />
-                <ScalarProperty Name="comiprod" ColumnName="comiprod" />
-                <ScalarProperty Name="comicob" ColumnName="comicob" />
-                <ScalarProperty Name="comicocl" ColumnName="comicocl" />
-                <ScalarProperty Name="acobrar" ColumnName="acobrar" />
-                <ScalarProperty Name="liquidada" ColumnName="liquidada" />
-                <ScalarProperty Name="letrao" ColumnName="letrao" />
-                <ScalarProperty Name="tipdoco" ColumnName="tipdoco" />
-                <ScalarProperty Name="empresao" ColumnName="empresao" />
-                <ScalarProperty Name="numeroo" ColumnName="numeroo" />
-                <ScalarProperty Name="codven" ColumnName="codven" />
-                <ScalarProperty Name="netocob" ColumnName="netocob" />
-                <ScalarProperty Name="punto" ColumnName="punto" />
-                <ScalarProperty Name="puntoo" ColumnName="puntoo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="FComisiones" FunctionName="gestionModel.Store.FComisiones">
             <ResultMapping>
               <ComplexTypeMapping TypeName="gestionModel.FComisiones_Result">
@@ -15204,6 +15206,33 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
                 <ScalarProperty Name="netofac" ColumnName="netofac" />
                 <ScalarProperty Name="zona" ColumnName="zona" />
                 <ScalarProperty Name="acobrar" ColumnName="acobrar" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FCobranzas" FunctionName="gestionModel.Store.FCobranzas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gestionModel.FCobranzas_Result1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="razsoc" ColumnName="razsoc" />
+                <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
+                <ScalarProperty Name="letra" ColumnName="letra" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="empresa" ColumnName="empresa" />
+                <ScalarProperty Name="comiprod" ColumnName="comiprod" />
+                <ScalarProperty Name="comicob" ColumnName="comicob" />
+                <ScalarProperty Name="comicocl" ColumnName="comicocl" />
+                <ScalarProperty Name="acobrar" ColumnName="acobrar" />
+                <ScalarProperty Name="liquidada" ColumnName="liquidada" />
+                <ScalarProperty Name="letrao" ColumnName="letrao" />
+                <ScalarProperty Name="tipdoco" ColumnName="tipdoco" />
+                <ScalarProperty Name="empresao" ColumnName="empresao" />
+                <ScalarProperty Name="numeroo" ColumnName="numeroo" />
+                <ScalarProperty Name="codven" ColumnName="codven" />
+                <ScalarProperty Name="netocob" ColumnName="netocob" />
+                <ScalarProperty Name="punto" ColumnName="punto" />
+                <ScalarProperty Name="puntoo" ColumnName="puntoo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

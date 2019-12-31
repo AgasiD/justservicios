@@ -3821,6 +3821,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
     <ReturnType>
       <CollectionType>
         <RowType>
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="razsoc" Type="char" MaxLength="50" />
           <Property Name="tipodoc" Type="char" MaxLength="3" Nullable="false" />
@@ -4074,6 +4075,9 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Name="nomvende" Type="varchar" MaxLength="50" />
           <Property Name="razsoc" Type="char" MaxLength="50" />
           <Property Name="prexcant" Type="numeric" Precision="38" Scale="6" />
+          <Property Name="marca" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="zona" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="proveed" Type="numeric" Precision="5" Scale="0" />
         </RowType>
       </CollectionType>
     </ReturnType>
@@ -4091,7 +4095,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Name="fechaprom" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="nropro" Type="int" Nullable="false" />
           <Property Name="razsoc" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="marca" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="marca" Type="numeric" Precision="5" Scale="0" Nullable="false" />
           <Property Name="descMarca" Type="char" MaxLength="30" Nullable="false" />
           <Property Name="rubro" Type="int" Nullable="false" />
           <Property Name="DesRubro" Type="varchar" MaxLength="50" Nullable="false" />
@@ -4565,7 +4569,7 @@ advertencia 6002: La tabla o vista 'Gestion.dbo.vVendedores' no tiene definida n
           <Property Name="razsocProvee" Type="varchar" MaxLength="50" />
           <Property Name="tipodoc" Type="varchar" MaxLength="3" />
           <Property Name="fecha" Type="datetime" />
-          <Property Name="codpro" Type="char" MaxLength="16" />
+          <Property Name="codpro" Type="char" MaxLength="16" Nullable="false" />
           <Property Name="descri" Type="varchar" MaxLength="50" />
           <Property Name="cant" Type="numeric" Precision="18" Scale="4" Nullable="false" />
           <Property Name="cantenv" Type="numeric" Precision="18" Scale="2" Nullable="false" />

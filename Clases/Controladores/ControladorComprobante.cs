@@ -10,6 +10,8 @@ namespace JustServicios.Clases.Controladores
         private static ControladorComprobante instancia;
         private static ControladorPresupuesto cPresup = ControladorPresupuesto.getCPresupuesto();
         private static ControladorPedido cPedido = ControladorPedido.getCPedido();
+        private ControladorDatos cDatos = new ControladorDatos();
+
         private ControladorComprobante()
         {
         }
@@ -42,18 +44,14 @@ namespace JustServicios.Clases.Controladores
             {
                 using (GestionEntities bd = new GestionEntities())
                 {
-                    if (veTodos) 
-                        res.objeto = bd.Database.SqlQuery<ivavenComprobante>(
-                            "select fecha, tipodoc, letra, punto, numero,hasta, nrocli, razsoc, total, cae, vencecae, numerofe," +
-                            "idpetic,ctacon,ctaconex,empresaid, id, provin, remito " +
-                            "from ivaven " +
-                            "where " + query + " order by id desc  offset " + offset + " rows fetch next 20 row only").ToList();
-                    else
+                    string queryVende = " and codven = " + codven;
+                    if (veTodos)
+                        queryVende = "";
                         res.objeto = bd.Database.SqlQuery<ivavenComprobante>(
                             "select fecha, tipodoc, letra, punto, numero,hasta ,nrocli, razsoc, total, cae, vencecae, numerofe,idpetic,ctacon,ctaconex,empresaid, id, provin, " +
                             "remito " +
                             "from ivaven " +
-                            "where " + query + " and codven = " + codven + " order by id desc  offset " + offset + " rows fetch next 20 row only"
+                            "where 1=1  " + query + " " + queryVende + " order by id desc offset " + offset + " rows fetch next 20 row only"
                             ).ToList();
                 }
             }catch(Exception ex)
@@ -161,5 +159,10 @@ namespace JustServicios.Clases.Controladores
 
         }
 
+
+        public DicRequestHTTP getItemsFactura(string tipo, string letra, int punto, int numero, int empresa)
+        {
+            return cDatos.getData("SELECT * FROM detmovim WHERE empresa = " + empresa + " and tipodoc = '" + tipo + "' and letra = '" + letra + "' and punto = " + punto + " and numero = " + numero);
+        }
     }
 }

@@ -8,10 +8,27 @@ using System.Web.Http.Results;
     public class genericas
     {
     }
-    [Serializable]
+[Serializable]
 
 
 
+
+public class DeudaProvee
+{
+    public string razsoc { get; set; }
+    public DateTime fecha { get; set; }
+    public string tipodoc { get; set; }
+    public string letra { get; set; }
+    public string condicion { get; set; }
+    public decimal punto { get; set; }
+    public decimal numero { get; set; }
+    public decimal importe1 { get; set; }
+    public decimal importeOriginal { get; set; }
+    public DateTime vence { get; set; }
+    public decimal saldo { get; set; }
+    public decimal importe2 { get; set; }
+    public int nropro { get; set; }
+}
 public partial class FlistPuntoPedido { 
     public string codpro { get; set; }
     public string descri { get; set; }
@@ -828,8 +845,31 @@ public class RankCompra
     public string razsoc { get; set; }
 }
 
+public partial class LArtVendxVende
+{
+    public string codpro { get; set; }
+    public string descri { get; set; }
+    public Nullable<int> unidades { get; set; }
+    public Nullable<int> cantidad { get; set; }
+    public Nullable<decimal> precio { get; set; }
+    public Nullable<decimal> costo { get; set; }
+    public decimal nrofac { get; set; }
+    public decimal pendientes { get; set; }
+    public Nullable<System.DateTime> fecha { get; set; }
+    public Nullable<int> codRub { get; set; }
+    public string descriRub { get; set; }
+    public Nullable<decimal> codsubrub { get; set; }
+    public string descriSubRu { get; set; }
+    public Nullable<decimal> codven { get; set; }
+    public Nullable<decimal> nrocli { get; set; }
+    public string tipodoc { get; set; }
+    public Nullable<decimal> cotizacion { get; set; }
+    public string nomvende { get; set; }
+    public string razsoc { get; set; }
+    public Nullable<decimal> prexcant { get; set; }
+}
 
-    public class DetalleRecibo
+public class DetalleRecibo
     {
         public string tipodoc { get; set; }
         public string letra { get; set; }
